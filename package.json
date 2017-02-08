@@ -1,0 +1,14 @@
+{
+  "name": "academia-digital",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development && nodemon ./bin/www",
+    "grunt": "grunt",
+    "start": "node ./bin/www"
+  },
+  "author": "Stanley Sathler <stanleysathlerpinto@gmail.com>",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
