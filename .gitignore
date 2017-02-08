@@ -5,3 +5,6 @@ bower_components/
 # Cache files
 .tscache/
 .sass-cache/
+
+# TypeScript specific files
+.*.ts
