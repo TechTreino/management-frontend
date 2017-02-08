@@ -1,10 +1,11 @@
 # Dependencies
-node_modules/
-bower_components/
+**/node_modules/
+**/bower_components/
 
 # Cache files
-.tscache/
-.sass-cache/
+**/.tscache/
+**/.sass-cache/
 
 # TypeScript specific files
-.*.ts
+**/.baseDir.ts
+**/.baseDir.js
