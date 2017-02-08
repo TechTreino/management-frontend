@@ -6,6 +6,7 @@ import * as cookieParser from "cookie-parser";
 import * as express from "express";
 import * as logger from "morgan";
 import * as path from "path";
+import { IndexRoute } from "./routes/index";
 import errorHandler = require("errorhandler");
 import methodOverride = require("method-override");
 
@@ -91,5 +92,12 @@ export class Server
 	 * @class Server
 	 * @method api
 	 */
-	public routes(){}
+	public routes()
+	{
+		let router: express.Router = express.Router();
+
+		IndexRoute.create(router);
+
+		this.app.use(router);
+	}
 }

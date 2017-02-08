@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const express = require("express");
 const logger = require("morgan");
 const path = require("path");
+const index_1 = require("./routes/index");
 const errorHandler = require("errorhandler");
 const methodOverride = require("method-override");
 class Server {
@@ -33,6 +34,10 @@ class Server {
     }
     ;
     api() { }
-    routes() { }
+    routes() {
+        let router = express.Router();
+        index_1.IndexRoute.create(router);
+        this.app.use(router);
+    }
 }
 exports.Server = Server;
