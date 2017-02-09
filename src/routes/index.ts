@@ -45,8 +45,8 @@ export class IndexRoute extends BaseRoute {
 	 */
 	public index(req: Request, res: Response, next: NextFunction)
 	{
-		this.title = "Dashboard | Academia Digital";
-		let options: Object = {"message": "Bem-vindo à Academia Digital"};
+		this.title = "Dashboard";
+		let options: Object = {"message": "This message is coming from the server"};
 
 		this.render(req, res, "index", options);
 	}

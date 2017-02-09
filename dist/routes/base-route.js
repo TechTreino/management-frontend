@@ -1,7 +1,7 @@
 "use strict";
 class BaseRoute {
     constructor() {
-        this.title = "My Heroes";
+        this.title = "Default title";
         this.scripts = [];
     }
     addScript(src) {

@@ -11,8 +11,8 @@ class IndexRoute extends base_route_1.BaseRoute {
         super();
     }
     index(req, res, next) {
-        this.title = "Dashboard | Academia Digital";
-        let options = { "message": "Bem-vindo à Academia Digital" };
+        this.title = "Dashboard";
+        let options = { "message": "This message is coming from the server" };
         this.render(req, res, "index", options);
     }
 }

@@ -1,0 +1,11 @@
+.sidebar-menu {
+	background-color: blue;
+	position: absolute;
+	width: 230px;
+}
+
+.page-content {
+	background-color: #c3c3c3;
+	margin-left: 230px;
+	position: relative;
+}

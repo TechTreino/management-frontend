@@ -40,6 +40,8 @@ export class Server
 	 */
 	constructor()
 	{
+		console.log("Constructor being called...");
+
 		this.app = express();
 		this.config();
 		this.routes();
@@ -56,6 +58,7 @@ export class Server
 	{
 		// Public static files
 		this.app.use(express.static(path.join(__dirname, "public")));
+		this.app.use(express.static(path.join(__dirname, "public/css")));
 
 		// Configure the View Engine to Pug
 		this.app.set("views", path.join(__dirname, "views"));
@@ -95,9 +98,7 @@ export class Server
 	public routes()
 	{
 		let router: express.Router = express.Router();
-
 		IndexRoute.create(router);
-
 		this.app.use(router);
 	}
 }
