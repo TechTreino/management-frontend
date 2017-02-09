@@ -4,9 +4,10 @@ const cookieParser = require("cookie-parser");
 const express = require("express");
 const logger = require("morgan");
 const path = require("path");
-const index_1 = require("./routes/index");
 const errorHandler = require("errorhandler");
 const methodOverride = require("method-override");
+const index_1 = require("./routes/index");
+const dashboard_route_1 = require("./modules/dashboard/dashboard.route");
 class Server {
     static bootstrap() {
         return new Server();
@@ -36,6 +37,7 @@ class Server {
     routes() {
         let router = express.Router();
         index_1.IndexRoute.create(router);
+        dashboard_route_1.DashboardRoute.create(router);
         this.app.use(router);
     }
 }
