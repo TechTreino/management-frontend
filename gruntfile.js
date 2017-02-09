@@ -8,15 +8,9 @@ module.exports = function(grunt) {
 				files: [
 					{
 						expand: true,
-						cwd: "./public",
+						cwd: "./client",
 						src: ["**"],
-						dest: "./dist/public"
-					},
-					{
-						expand: true,
-						cwd: "./views",
-						src: ["**"],
-						dest: "./dist/views"
+						dest: "./dist/client"
 					}
 				]
 			}
@@ -24,8 +18,8 @@ module.exports = function(grunt) {
 		ts: {
 			app: {
 				files: [{
-					src: ["src/\*\*/\*.ts", "!src/.baseDir.ts"],
-					dest: "./dist"
+					src: ["server/\*\*/\*.ts", "!server/.baseDir.ts"],
+					dest: "./dist/server"
 				}],
 				options: {
 					module: "commonjs",
@@ -36,12 +30,8 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			ts: {
-				files: ["src/\*\*/\*.ts"],
+				files: ["server/\*\*/\*.ts"],
 				tasks: ["ts"]
-			},
-			views: {
-				files: ["views/**/*.pug"],
-				tasks: ["copy"]
 			}
 		}
 	});
