@@ -58,11 +58,12 @@ export class Server
 	{
 		// Public static files
 		this.app.use(express.static(path.join(__dirname, "public")));
-		this.app.use(express.static(path.join(__dirname, "public/css")));
 
 		// Configure the View Engine to Pug
+		/*
 		this.app.set("views", path.join(__dirname, "views"));
 		this.app.set("view engine", "pug");
+		*/
 
 		// Configure middlewares
 		this.app.use(logger("dev"));

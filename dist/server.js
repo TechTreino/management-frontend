@@ -12,6 +12,7 @@ class Server {
         return new Server();
     }
     constructor() {
+        console.log("Constructor being called...");
         this.app = express();
         this.config();
         this.routes();
@@ -19,8 +20,6 @@ class Server {
     }
     config() {
         this.app.use(express.static(path.join(__dirname, "public")));
-        this.app.set("views", path.join(__dirname, "views"));
-        this.app.set("view engine", "pug");
         this.app.use(logger("dev"));
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: true }));
