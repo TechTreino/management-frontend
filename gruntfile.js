@@ -39,14 +39,22 @@ module.exports = function(grunt) {
 				options: { style: "compressed", sourcemap: "none" },
 				files: { "./client/css/main.css": "./client/sass/app.sass" }
 			}
+		},
+		concat_css: {
+			options: {},
+			all: {
+				src: ["./client/css/reset.css"],
+				dest: "./dist/client/css/vendor.css"
+			}
 		}
 	});
 
 	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-watch");
+	grunt.loadNpmTasks("grunt-concat-css");
 	grunt.loadNpmTasks("grunt-ts");
 	grunt.loadNpmTasks("grunt-contrib-sass");
 
-	grunt.registerTask("default", ["sass", "copy", "ts"]);
+	grunt.registerTask("default", ["sass", "concat_css", "copy", "ts"]);
 	
 };

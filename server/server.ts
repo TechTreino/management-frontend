@@ -59,7 +59,7 @@ export class Server
 	public config()
 	{
 		// Public static files
-		this.app.use(express.static(path.join(__dirname, "public")));
+		this.app.use(express.static(path.join(__dirname, "/../client")));
 
 		// Configure middlewares
 		this.app.use(logger("dev"));
