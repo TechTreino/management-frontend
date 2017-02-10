@@ -1,11 +1,1 @@
-.sidebar-menu {
-	background-color: blue;
-	position: absolute;
-	width: 230px;
-}
-
-.page-content {
-	background-color: #c3c3c3;
-	margin-left: 230px;
-	position: relative;
-}
+nav.ad-sidebar-menu{position:absolute;width:230px;z-index:2001}nav.ad-sidebar-menu ul{background:#21394b;list-style-type:none}nav.ad-sidebar-menu li{background:#2f4050;line-height:44px}

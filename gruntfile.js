@@ -33,13 +33,20 @@ module.exports = function(grunt) {
 				files: ["server/\*\*/\*.ts"],
 				tasks: ["ts"]
 			}
+		},
+		sass: {
+			dist: {
+				options: { style: "compressed", sourcemap: "none" },
+				files: { "./client/css/main.css": "./client/sass/app.sass" }
+			}
 		}
 	});
 
 	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-ts");
+	grunt.loadNpmTasks("grunt-contrib-sass");
 
-	grunt.registerTask("default", ["copy", "ts"]);
+	grunt.registerTask("default", ["sass", "copy", "ts"]);
 	
 };
