@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AASA,mBAAmB,CAElB,QAAQ,CAAE,QAAQ,CAClB,KAAK,CAAE,KAAK,CACZ,OAAO,CAAE,IAAI,CAEb,sBAAE,CACD,UAAU,CAbe,OAAqB,CAc9C,eAAe,CAAE,IAAI,CAEtB,sBAAE,CACD,UAAU,CAhBiB,OAAsB,CAiBjD,WAAW,CAAE,IAAI",
-"sources": ["../sass/components/_sidebar-menu.sass"],
-"names": [],
-"file": "main.css"
-}
