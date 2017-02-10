@@ -11,6 +11,12 @@ module.exports = function(grunt) {
 						cwd: "./client",
 						src: ["**"],
 						dest: "./dist/client"
+					},
+					{
+						expand: true,
+						cwd: "./bower_components/components-font-awesome/fonts",
+						src: ["**"],
+						dest: "./dist/client/fonts"
 					}
 				]
 			}
@@ -32,6 +38,10 @@ module.exports = function(grunt) {
 			ts: {
 				files: ["server/\*\*/\*.ts"],
 				tasks: ["ts"]
+			},
+			others: {
+				files: ["client/**/*"],
+				tasks: ["sass", "concat_css", "copy"]
 			}
 		},
 		sass: {
@@ -43,7 +53,7 @@ module.exports = function(grunt) {
 		concat_css: {
 			options: {},
 			all: {
-				src: ["./client/css/reset.css"],
+				src: ["./client/css/reset.css", "./bower_components/components-font-awesome/css/font-awesome.min.css"],
 				dest: "./dist/client/css/vendor.css"
 			}
 		}
@@ -55,6 +65,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-ts");
 	grunt.loadNpmTasks("grunt-contrib-sass");
 
-	grunt.registerTask("default", ["sass", "concat_css", "copy", "ts"]);
-	
+	grunt.registerTask("default", ["sass", "concat_css", "copy"]);
+	grunt.registerTask("complete", ["sass", "concat_css", "copy", "ts"]);
 };

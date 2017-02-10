@@ -6,18 +6,42 @@
 	<title>Academia Digital | Sua academia em suas mãos</title>
 	<link rel="stylesheet" href="css/main.css"/>
 	<link rel="stylesheet" href="css/vendor.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 </head>
 <body>
 
 	<!-- This part of the file will be moved to a template after using Angular 2 -->
-	<nav class="ad-sidebar-menu">
-		<ul>
-			<li>Dashboard</li>
-			<li>Alunos</li>
-		</ul>
-	</nav>
+	<div class="ad-panel-wrapper">
+		<nav class="ad-sidebar-menu">
+			<div>
+				<img src="http://webapplayers.com/inspinia_admin-v2.7/img/profile_small.jpg"><!-- Picture --></img>
+				<span class="name">Stanley Sathler</span>
+				<span class="position">Web Developer <i class="arrow"></i></span>
+			</div>
+			<ul>
+				<li class="active">Dashboard</li>
+				<li>Alunos</li>
+				<li>Exercícios</li>
+			</ul>
+		</nav>
 
-	<div class="page-content"></div>
+		<div class="ad-page-content">
+			<div class="ad-header-bar">
+				<div class="menu"><i class="fa fa-bars"></i></div>
+				<div class="icons"></div>
+			</div>
+
+			<div class="content">
+				<div class="ad-card">
+					<div class="title">
+						<span class="text">Alunos cadastrados</span>
+						<span class="badge">Último mês</span>
+					</div>
+					<p>86</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

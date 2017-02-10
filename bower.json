@@ -1,0 +1,21 @@
+{
+  "name": "academia-digital",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Stanley Sathler <stanleysathlerpinto@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/StanleySathler/academia-digital",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "components-font-awesome": "^4.7.0"
+  }
+}
