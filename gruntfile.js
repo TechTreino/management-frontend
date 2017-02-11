@@ -2,21 +2,29 @@
 
 module.exports = function(grunt) {
 
+	var bowerComponentsPath = "./bower_components";
+	var sourcePath = "./src";
+	var sourceClientPath = (sourcePath) + "/client";
+	var sourceServerPath = (sourcePath) + "/server";
+	var distPath = "./dist";
+	var distClientPath = (distPath) + "/client";
+	var distServerPath = (distPath) + "/server";
+
 	grunt.initConfig({
 		copy: {
 			build: {
 				files: [
 					{
 						expand: true,
-						cwd: "./client",
+						cwd: sourceClientPath,
 						src: ["**"],
-						dest: "./dist/client"
+						dest: distClientPath
 					},
 					{
 						expand: true,
-						cwd: "./bower_components/components-font-awesome/fonts",
+						cwd: (bowerComponentsPath) + "/components-font-awesome/fonts",
 						src: ["**"],
-						dest: "./dist/client/fonts"
+						dest: (distClientPath) + "/fonts"
 					}
 				]
 			}
@@ -25,7 +33,7 @@ module.exports = function(grunt) {
 			app: {
 				files: [{
 					src: ["server/\*\*/\*.ts", "!server/.baseDir.ts"],
-					dest: "./dist/server"
+					dest: distServerPath
 				}],
 				options: {
 					module: "commonjs",
@@ -35,19 +43,19 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			ts: {
-				files: ["server/\*\*/\*.ts"],
+			ts_server: {
+				files: [(sourceServerPath) + "/**/*.ts"],
 				tasks: ["ts"]
 			},
 			others: {
-				files: ["client/**/*"],
+				files: [(sourceClientPath) + "/**/*"],
 				tasks: ["sass", "concat_css", "copy"]
 			}
 		},
 		sass: {
 			dist: {
 				options: { style: "compressed", sourcemap: "none" },
-				files: { "./client/css/main.css": "./client/sass/app.sass" }
+				files: { "./src/client/css/main.css": "./src/client/sass/app.sass" }
 			}
 		},
 		concat_css: {
@@ -66,5 +74,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-sass");
 
 	grunt.registerTask("default", ["sass", "concat_css", "copy"]);
-	grunt.registerTask("complete", ["sass", "concat_css", "copy", "ts"]);
+	grunt.registerTask("production", ["sass", "concat_css", "copy", "ts"]);
 };
