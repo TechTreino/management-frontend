@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 		ts: {
 			app: {
 				files: [{
-					src: ["server/\*\*/\*.ts", "!server/.baseDir.ts"],
+					src: ["server/\*\*/\*.ts", "!src/server/.baseDir.ts"],
 					dest: distServerPath
 				}],
 				options: {
@@ -61,8 +61,11 @@ module.exports = function(grunt) {
 		concat_css: {
 			options: {},
 			all: {
-				src: ["./client/css/reset.css", "./bower_components/components-font-awesome/css/font-awesome.min.css"],
-				dest: "./dist/client/css/vendor.css"
+				src: [
+					(sourceClientPath) + "/css/reset.css", 
+					(bowerComponentsPath) + "/components-font-awesome/css/font-awesome.min.css"
+				],
+				dest: (distClientPath) + "/css/vendor.css"
 			}
 		}
 	});
