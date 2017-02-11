@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 		ts: {
 			app: {
 				files: [{
-					src: ["server/\*\*/\*.ts", "!src/server/.baseDir.ts"],
+					src: [(sourceServerPath) + "/**/*.ts", "!" + (sourceServerPath) + "/.baseDir.ts"],
 					dest: distServerPath
 				}],
 				options: {
