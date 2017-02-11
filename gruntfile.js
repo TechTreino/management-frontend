@@ -12,21 +12,18 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		copy: {
-			build: {
-				files: [
-					{
-						expand: true,
-						cwd: sourceClientPath,
-						src: ["**"],
-						dest: distClientPath
-					},
-					{
-						expand: true,
-						cwd: (bowerComponentsPath) + "/components-font-awesome/fonts",
-						src: ["**"],
-						dest: (distClientPath) + "/fonts"
-					}
-				]
+			client: {
+				files: [{ 
+					expand: true,
+					cwd: sourceClientPath,
+					src: ["**/*.html"],
+					dest: distClientPath
+				}, {
+					expand: true,
+					cwd: (bowerComponentsPath) + "/components-font-awesome/fonts",
+					src: ["**"],
+					dest: (distClientPath) + "/assets/fonts"
+				}]
 			}
 		},
 		ts: {
@@ -39,6 +36,19 @@ module.exports = function(grunt) {
 					module: "commonjs",
 					target: "es6",
 					sourceMap: false
+				}
+			},
+
+			client: {
+				files: [{
+					src: [(sourceClientPath) + "/**/*.ts", "!" + (sourceServerPath) + "/.baseDir.ts"],
+					dest: distClientPath
+				}],
+				options: { 
+					module: "commonjs", 
+					target: "es6", 
+					sourceMap: false,
+					experimentalDecorators: true
 				}
 			}
 		},
@@ -53,20 +63,25 @@ module.exports = function(grunt) {
 			}
 		},
 		sass: {
-			dist: {
+			client: {
 				options: { style: "compressed", sourcemap: "none" },
 				files: { "./src/client/css/main.css": "./src/client/sass/app.sass" }
 			}
 		},
 		concat_css: {
 			options: {},
-			all: {
+			client_vendor: {
 				src: [
-					(sourceClientPath) + "/css/reset.css", 
+					(sourceClientPath) + "/css/reset.css",
 					(bowerComponentsPath) + "/components-font-awesome/css/font-awesome.min.css"
 				],
-				dest: (distClientPath) + "/css/vendor.css"
-			}
+				dest: (distClientPath) + "/assets/css/vendor.css"
+			},
+			client: {
+				src: [(sourceClientPath) + "/css/main.css"],
+				dest: (distClientPath) + "/assets/css/main.css"
+			},
+			all: {}
 		}
 	});
 
@@ -78,4 +93,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("default", ["sass", "concat_css", "copy"]);
 	grunt.registerTask("production", ["sass", "concat_css", "copy", "ts"]);
+	grunt.registerTask("client", "Tasks needed to prepare client-side files", ["sass:client", "ts:client", "copy:client", "concat_css:client_vendor", "concat_css:client"]);
+
 };
