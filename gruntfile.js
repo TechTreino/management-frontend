@@ -11,12 +11,16 @@ module.exports = function(grunt) {
 	var distServerPath = (distPath) + "/server";
 
 	grunt.initConfig({
+
+		/*
+		 * copy is used only by the client
+		 */
 		copy: {
 			client: {
 				files: [{ 
 					expand: true,
 					cwd: sourceClientPath,
-					src: ["**/*.html"],
+					src: ["**/*.html", "**/*.js"],
 					dest: distClientPath
 				}, {
 					expand: true,
@@ -26,8 +30,12 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+
+		/*
+		 * ts is used by both client and server
+		 */
 		ts: {
-			app: {
+			server: {
 				files: [{
 					src: [(sourceServerPath) + "/**/*.ts", "!" + (sourceServerPath) + "/.baseDir.ts"],
 					dest: distServerPath
@@ -52,6 +60,10 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
+		/*
+		 * watch is used by both client and server
+		 */
 		watch: {
 			ts_server: {
 				files: [(sourceServerPath) + "/**/*.ts"],
@@ -62,12 +74,20 @@ module.exports = function(grunt) {
 				tasks: ["sass", "concat_css", "copy"]
 			}
 		},
+
+		/*
+		 * sass is used only by the client
+		 */
 		sass: {
 			client: {
 				options: { style: "compressed", sourcemap: "none" },
 				files: { "./src/client/css/main.css": "./src/client/sass/app.sass" }
 			}
 		},
+
+		/*
+		 * concat_css is used only by the client
+		 */
 		concat_css: {
 			options: {},
 			client_vendor: {
@@ -80,8 +100,22 @@ module.exports = function(grunt) {
 			client: {
 				src: [(sourceClientPath) + "/css/main.css"],
 				dest: (distClientPath) + "/assets/css/main.css"
+			}
+		},
+
+		/*
+		 * concat is used only by the client
+		 */
+		concat: {
+			options: { separator: ";\n" },
+			client_vendor: {
+				src: [(sourceClientPath) + "/js/vendor/**/*.js"],
+				dest: (distClientPath) + "/assets/js/vendor.js"
 			},
-			all: {}
+			client: {
+				src: [(sourceClientPath) + "/js/*.js"],
+				dest: (distClientPath) + "/assets/js/main.js"
+			}
 		}
 	});
 
@@ -90,9 +124,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-concat-css");
 	grunt.loadNpmTasks("grunt-ts");
 	grunt.loadNpmTasks("grunt-contrib-sass");
+	grunt.loadNpmTasks("grunt-contrib-concat");
 
-	grunt.registerTask("default", ["sass", "concat_css", "copy"]);
-	grunt.registerTask("production", ["sass", "concat_css", "copy", "ts"]);
-	grunt.registerTask("client", "Tasks needed to prepare client-side files", ["sass:client", "ts:client", "copy:client", "concat_css:client_vendor", "concat_css:client"]);
+	grunt.registerTask("default", []);
+	grunt.registerTask("server", "Tasks needed to prepare server-side files", ["ts:server"]);
+	grunt.registerTask("client", "Tasks needed to prepare client-side files", ["sass:client", "ts:client", "copy:client", "concat_css:client_vendor", "concat_css:client", "concat:client_vendor", "concat:client"]);
 
 };
