@@ -17,8 +17,5 @@
   ],
   "dependencies": {
     "components-font-awesome": "^4.7.0"
-  },
-  "devDependencies": {
-    "bootstrap-sass": "^3.3.7"
   }
 }

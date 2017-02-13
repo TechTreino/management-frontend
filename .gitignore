@@ -1,14 +1,11 @@
-# Dependencies
+# Global Dependencies (server|client)
 **/node_modules/
 **/bower_components/
 
-# Cache files
+# Cache files (server|client)
 **/.tscache/
-**/.sass-cache/
+./client/**/.sass-cache/
 
 # TypeScript specific files
 **/.baseDir.ts
 **/.baseDir.js
-
-# Dist files
-./dist/
