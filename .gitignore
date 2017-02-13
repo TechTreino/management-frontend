@@ -9,3 +9,6 @@
 # TypeScript specific files
 **/.baseDir.ts
 **/.baseDir.js
+
+# Dist files
+./dist/
