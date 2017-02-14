@@ -15,19 +15,25 @@ var sourcePath = "./src";
 
 module.exports = {
 
-	// Entry files
+	/*
+	 * Entry files
+	 */
 	entry: {
 		polyfills: (sourcePath + "/polyfills.ts"),
 		main: (sourcePath + "/main.ts"),
 		vendor: (sourcePath) + "/vendor.ts"
 	},
 
-	// Resolve files
+	/*
+	 * Resolve files
+	 */
 	resolve: {
 		extensions: [".ts", ".js"]
 	},
 
-	// Loaders
+	/*
+	 * Loaders
+	 */
 	module: {
 		rules: [
 			{ 
@@ -44,28 +50,33 @@ module.exports = {
 		]
 	},
 
-	// Plugins
+	/*
+	 * Plugins
+	 */
 	plugins: [
+	
 		// Workaround for angular/angular#11580
 		new webpack.ContextReplacementPlugin(
 			// The (\\|\/) piece accounts for path separators in *nix and Windows
 			/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-			helpers.root('./src'), // location of your src
+			helpers.root(sourcePath),
 			{} // a map of your routes
 		),
 
 		new webpack.optimize.CommonsChunkPlugin({
-			name: ['app', 'vendor', 'polyfills']
+			name: ["main", "vendor", "polyfills"]
 		}),
 
 		new HtmlWebpackPlugin({
-			template: 'src/index.html'
+			template: (sourcePath + "/index.html")
 		})
 	],
 
 	// Output (dist) files
+	/*
 	output: {
 		filename: (distPath + "/[name].js")
 	},
+	*/
 
 };
