@@ -13,7 +13,7 @@ class IndexRoute extends base_route_1.BaseRoute {
     index(req, res, next) {
         this.title = "Dashboard";
         let options = { "message": "This message is coming from the server" };
-        this.render(req, res, "index", options);
+        res.jsonp(options);
     }
 }
 exports.IndexRoute = IndexRoute;

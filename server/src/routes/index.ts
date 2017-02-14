@@ -47,7 +47,7 @@ export class IndexRoute extends BaseRoute {
 	{
 		this.title = "Dashboard";
 		let options: Object = {"message": "This message is coming from the server"};
-
-		this.render(req, res, "index", options);
+		res.jsonp(options);
+		//this.render(req, res, "index", options);
 	}
 }

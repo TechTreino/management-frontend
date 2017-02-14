@@ -2,6 +2,9 @@
 **/node_modules/
 **/bower_components/
 
+# Compiled outputs
+**/dist/
+
 # Cache files (server|client)
 **/.tscache/
 ./client/**/.sass-cache/
@@ -9,3 +12,7 @@
 # TypeScript specific files
 **/.baseDir.ts
 **/.baseDir.js
+
+# OS Files
+**/.DS_Store
+**/Thumbs.db

@@ -27,7 +27,10 @@ module.exports = function(grunt) {
 		ts: {
 			client: {
 				files: [{
-					src: [(sourcePath) + "/**/*.ts", "!" + (sourcePath) + "/.baseDir.ts"],
+					src: [
+						((sourcePath) + "/**/*.ts"), 
+						("!" + (sourcePath) + "/.baseDir.ts")
+					],
 					dest: distPath
 				}],
 				options: { 
@@ -89,6 +92,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-concat");
 
 	grunt.registerTask("default", []);
-	grunt.registerTask("client", "Tasks needed to prepare client-side files", ["sass:client", "ts:client", "copy:client", "concat_css:client_vendor", "concat_css:client", "concat:client_vendor", "concat:client"]);
+	grunt.registerTask("client", "Tasks needed to prepare client-side files", ["ts:client", "copy:client", "concat_css:client_vendor", "concat_css:client", "concat:client_vendor", "concat:client"]);
 
 };
