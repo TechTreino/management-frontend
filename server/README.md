@@ -1,1 +1,0 @@
-# academia-digital
