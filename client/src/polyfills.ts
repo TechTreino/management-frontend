@@ -66,3 +66,10 @@ import 'zone.js/dist/zone';  // Included with Angular-CLI.
  * Needed for: All but Chrome, Firefox, Edge, IE11 and Safari 10
  */
 // import 'intl';  // Run `npm install --save intl`.
+
+
+if(process.env.ENV !== "production"){
+	// Development
+	Error["stackTraceLimit"] = Infinity;
+	require("zone.js/dist/long-stack-trace-zone");
+}
