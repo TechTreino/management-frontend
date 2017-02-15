@@ -16,3 +16,6 @@
 # OS Files
 **/.DS_Store
 **/Thumbs.db
+
+# Debug files
+**/npm-debug.log
