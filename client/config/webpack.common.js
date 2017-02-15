@@ -52,11 +52,14 @@ module.exports = {
 			// Images loader
 			{ test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'file-loader?name=assets/[name].[hash].[ext]' },
 			
-			// CSS loaders for application-wide styles
+			// CSS loader for application-wide styles
 			{ test: /\.css$/, exclude: helpers.root(sourcePath, "app"), loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' }) },
 			
-			// CSS loaders for specific components' styles
-			{ test: /\.css$/, include: helpers.root(sourcePath, "app"), loader: 'raw-loader' }
+			// CSS loader for specific components' styles
+			{ test: /\.css$/, include: helpers.root(sourcePath, "app"), loader: 'raw-loader' },
+
+			// Sass loader
+			{ test: /\.sass$/, include: helpers.root(sourcePath, "app"), loader: "raw-loader!sass-loader" }
 		]
 	},
 
@@ -81,12 +84,5 @@ module.exports = {
 			template: (sourcePath + "/index.html")
 		})
 	],
-
-	// Output (dist) files
-	/*
-	output: {
-		filename: (distPath + "/[name].js")
-	},
-	*/
 
 };

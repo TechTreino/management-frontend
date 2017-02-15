@@ -3,16 +3,31 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AppRoutingModule } from "./app-routing.module";
+
 import { AppComponent } from './app.component';
+
+import { DashboardComponent } from "./pages/dashboard/dashboard.component";
+import { CustomersComponent } from "./pages/customers/customers.component";
+import { TrainingsComponent } from "./pages/trainings/trainings.component";
+
+import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { TopbarComponent } from "./components/topbar/topbar.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    CustomersComponent,
+    TrainingsComponent,
+    SidebarComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
