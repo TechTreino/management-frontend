@@ -14,8 +14,8 @@
 **/.baseDir.js
 
 # OS Files
-**/.DS_Store
-**/Thumbs.db
+.DS_Store
+Thumbs.db
 
 # Debug files
 **/npm-debug.log

@@ -42,8 +42,6 @@ export class Server
 	 */
 	constructor()
 	{
-		console.log("Constructor being called...");
-
 		this.app = express();
 		this.config();
 		this.routes();
@@ -59,7 +57,7 @@ export class Server
 	public config()
 	{
 		// Public static files
-		this.app.use(express.static(path.join(__dirname, "/../client/dist")));
+		this.app.use(express.static(path.join(__dirname, "/../../client/dist")));
 
 		// Configure middlewares
 		this.app.use(logger("dev"));

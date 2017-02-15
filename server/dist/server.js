@@ -13,14 +13,13 @@ class Server {
         return new Server();
     }
     constructor() {
-        console.log("Constructor being called...");
         this.app = express();
         this.config();
         this.routes();
         this.api();
     }
     config() {
-        this.app.use(express.static(path.join(__dirname, "/../client/dist")));
+        this.app.use(express.static(path.join(__dirname, "/../../client/dist")));
         this.app.use(logger("dev"));
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: true }));
