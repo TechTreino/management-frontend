@@ -12,6 +12,14 @@ var helpers = require('./helpers');
 var distPath = "./dist";
 var sourcePath = "./src";
 
+/*
+ * Implementation of ExtractTextPlugin for create a 
+ * separate CSS file.
+ */
+const extractSass = new ExtractTextPlugin({
+	filename: "[name].[contenthash].css"
+});
+
 
 module.exports = {
 
@@ -59,7 +67,7 @@ module.exports = {
 			{ test: /\.css$/, include: helpers.root(sourcePath, "app"), loader: 'raw-loader' },
 
 			// Sass loader
-			{ test: /\.sass$/, include: helpers.root(sourcePath, "app"), loader: "raw-loader!sass-loader" }
+			{ test: /\.sass$/, use: [{ loader: "style-loader" }, { loader: "css-loader" }, { loader: "sass-loader" }] }
 		]
 	},
 
@@ -82,7 +90,9 @@ module.exports = {
 
 		new HtmlWebpackPlugin({
 			template: (sourcePath + "/index.html")
-		})
+		}),
+
+		extractSass
 	],
 
 };
