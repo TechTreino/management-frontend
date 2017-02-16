@@ -58,6 +58,9 @@ module.exports = {
 			// CSS loader for specific components' styles
 			//{ test: /\.css$/, include: helpers.root(sourcePath, "app"), loader: 'raw-loader' },
 
+			// CSS loader
+			{ test: /\.css$/, exclude: helpers.root(sourcePath, "app"), loader: ExtractTextPlugin.extract({ fallbackLoader: "style-loader", loader: "css-loader?sourceMap" }) },
+
 			// Sass loader
 			{ 
 				test: /\.sass$/, 

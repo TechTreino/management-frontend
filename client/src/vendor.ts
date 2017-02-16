@@ -12,6 +12,6 @@ import '@angular/router';
  * Others
  */
 import 'rxjs';
-
+import 'reset-css/reset.css'
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
