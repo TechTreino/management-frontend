@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
 	selector: "ad-sidebar",
-	templateUrl: "./sidebar.component.html",
-	styleUrls: ["./sidebar.component.sass"]
+	template: require("./sidebar.component.html"),
+	styles: [ require("./sidebar.component.sass").toString() ]
 })
 export class SidebarComponent {}

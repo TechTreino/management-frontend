@@ -12,14 +12,6 @@ var helpers = require('./helpers');
 var distPath = "./dist";
 var sourcePath = "./src";
 
-/*
- * Implementation of ExtractTextPlugin for create a 
- * separate CSS file.
- */
-const extractSass = new ExtractTextPlugin({
-	filename: "[name].[contenthash].css"
-});
-
 
 module.exports = {
 
@@ -49,8 +41,8 @@ module.exports = {
 			{ 
 				test: /\.ts$/, 
 				loaders: [
-					{ loader: 'awesome-typescript-loader', options: { configFileName: helpers.root(sourcePath, 'tsconfig.json') } }, 
-					'angular2-template-loader'
+					{ loader: "awesome-typescript-loader", options: { configFileName: helpers.root(sourcePath, "tsconfig.json") } }, 
+					"angular2-template-loader"
 				]
 			},
 
@@ -61,13 +53,19 @@ module.exports = {
 			{ test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'file-loader?name=assets/[name].[hash].[ext]' },
 			
 			// CSS loader for application-wide styles
-			{ test: /\.css$/, exclude: helpers.root(sourcePath, "app"), loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' }) },
+			//{ test: /\.css$/, exclude: helpers.root(sourcePath, "app"), loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' }) },
 			
 			// CSS loader for specific components' styles
-			{ test: /\.css$/, include: helpers.root(sourcePath, "app"), loader: 'raw-loader' },
+			//{ test: /\.css$/, include: helpers.root(sourcePath, "app"), loader: 'raw-loader' },
 
 			// Sass loader
-			{ test: /\.sass$/, use: [{ loader: "style-loader" }, { loader: "css-loader" }, { loader: "sass-loader" }] }
+			{ 
+				test: /\.sass$/, 
+				loader: ExtractTextPlugin.extract({
+					fallbackLoader: "style-loader",
+					loader: "css-loader!sass-loader",
+				})
+			}
 		]
 	},
 
@@ -90,9 +88,8 @@ module.exports = {
 
 		new HtmlWebpackPlugin({
 			template: (sourcePath + "/index.html")
-		}),
+		})
 
-		extractSass
 	],
 
 };

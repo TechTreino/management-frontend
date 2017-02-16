@@ -16,6 +16,9 @@ module.exports = webpackMerge(commonConfig, {
 
 	devtool: "source-map",
 
+	/*
+	 * Where built files are stored
+	 */
 	output: {
 		path: helpers.root(distPath),
 		publicPath: "/",
@@ -23,6 +26,9 @@ module.exports = webpackMerge(commonConfig, {
 		chunkFilename: "[id].[hash].chunk.js"
 	},
 
+	/*
+	 * Plugins
+	 */
 	plugins: [
 		new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.optimize.UglifyJsPlugin({ mangle: { keep_fnames: true }}),
