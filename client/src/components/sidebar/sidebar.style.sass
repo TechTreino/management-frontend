@@ -1,0 +1,50 @@
+$position-text-color: #8095a8
+
+nav.acad-sidebar
+
+	color: #a7b1c2
+	font-weight: 700
+	position: absolute
+	width: 230px
+	z-index: 2001
+
+	div
+		padding: 30px 20px 30px 25px
+
+		img,
+		span
+			display: block
+
+		img
+			+border-radius(100%)
+			margin-bottom: 3px
+
+		span
+			padding: 4px 0
+			width: 100%
+
+		.name
+			color: #DFE4ED 
+
+		.position
+			color: $position-text-color
+			font-weight: 300
+
+		.arrow
+			+arrow-down(4px, $position-text-color)
+	
+	ul
+		list-style-type: none
+		padding: 0
+
+	li
+		background: rgba(255, 255, 255, 0.05)
+		padding: 14px 20px 14px 25px
+
+		&.active,
+		&:hover
+			background: rgba(0, 0, 0, 0.2)
+			color: white
+
+		&.active
+			border-left: 3px solid $primary-color

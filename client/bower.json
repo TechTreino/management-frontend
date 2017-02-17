@@ -1,0 +1,22 @@
+{
+  "name": "academia-digital-client",
+  "description": "Aplicativo - Academia Digital",
+  "main": "index.js",
+  "authors": [
+    "Stanley Sathler <stanleysathlerpinto@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/StanleySathler/academia-digital",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.2",
+    "reset-css": "^2.2.0"
+  }
+}
