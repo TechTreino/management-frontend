@@ -18,7 +18,11 @@ module.exports = function(Grunt)
 				dest: (distJsPath + "/vendor.js")
 			},
 			app: {
-				src: [],
+				src: [ 
+					(sourcePath + "/app.module.js"),
+					(sourcePath + "/components/sidebar/sidebar.module.js"),
+					(sourcePath + "/components/sidebar/sidebar.directive.js"),
+				],
 				dest: (distJsPath + "/app.js")
 			}
 		},
@@ -41,10 +45,24 @@ module.exports = function(Grunt)
 
 		// Copy
 		copy: {
-			options: {},
+			components_templates: { 
+				expand: true,
+				cwd: (sourcePath + "/components"),
+				src: "**/*.html",
+				dest: (distPath + "/assets/templates/components")
+			},
+			pages_templates: {
+				expand: true,
+				cwd: (sourcePath + "/pages"),
+				src: "**/*.html",
+				dest: (distPath + "/assets/templates/pages")
+			},
 			app: {
 				files: [
-					{ src: [(sourcePath + "/index.html")], dest: (distPath + "/index.html") }
+					{ 
+						src: [ (sourcePath + "/index.html") ], 
+						dest: (distPath + "/index.html") 
+					}
 				]
 			}
 		}
@@ -55,6 +73,6 @@ module.exports = function(Grunt)
 	Grunt.loadNpmTasks("grunt-contrib-copy");
 	Grunt.loadNpmTasks("grunt-concat-css");
 
-	Grunt.registerTask("default", ["concat:app", "sass:app", "copy:app"]);
+	Grunt.registerTask("default", ["concat:app", "sass:app", "copy:app", "copy:components_templates", "copy:pages_templates"]);
 	Grunt.registerTask("vendor", ["concat:vendor", "concat_css:vendor"]);
 }

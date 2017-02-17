@@ -2,5 +2,7 @@
 
 angular.module(
 	"AcademiaDigital", 
-	[]
+	[
+		"AcadSidebar"
+	]
 );

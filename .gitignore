@@ -7,7 +7,7 @@
 
 # Cache files (server|client)
 **/.tscache/
-./client/**/.sass-cache/
+./client/.sass-cache/
 
 # TypeScript specific files
 **/.baseDir.ts
