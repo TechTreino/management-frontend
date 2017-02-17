@@ -65,12 +65,22 @@ module.exports = function(Grunt)
 					}
 				]
 			}
+		},
+
+		// Watch
+		watch: {
+			options: {},
+			app: {
+				files: (sourcePath + "/**/*"),
+				tasks: ["default"]
+			}
 		}
 	});
 
 	Grunt.loadNpmTasks("grunt-contrib-concat");
 	Grunt.loadNpmTasks("grunt-contrib-sass");
 	Grunt.loadNpmTasks("grunt-contrib-copy");
+	Grunt.loadNpmTasks("grunt-contrib-watch");
 	Grunt.loadNpmTasks("grunt-concat-css");
 
 	Grunt.registerTask("default", ["concat:app", "sass:app", "copy:app", "copy:components_templates", "copy:pages_templates"]);
