@@ -1,6 +1,7 @@
 /*
  * Dependencies
  */
+var path = require("path");
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -67,6 +68,10 @@ module.exports = {
 				loader: ExtractTextPlugin.extract({
 					fallbackLoader: "style-loader",
 					loader: "css-loader!sass-loader",
+					options: {
+						data: '@import "configs"',
+						includePaths: [ path.resolve(__dirname, "../src/app/sass-configs") ]
+					}
 				})
 			}
 		]

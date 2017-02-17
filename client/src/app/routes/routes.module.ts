@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-import { DashboardComponent } from "./pages/dashboard/dashboard.component";
-import { CustomersComponent } from "./pages/customers/customers.component";
-import { TrainingsComponent } from "./pages/trainings/trainings.component";
+import { DashboardComponent } from "./../pages/dashboard/dashboard.component";
+import { CustomersComponent } from "./../pages/customers/customers.component";
+import { TrainingsComponent } from "./../pages/trainings/trainings.component";
 
 const routes: Routes = [
 	{ path: "", redirectTo: "/customers", pathMatch: "full" },
@@ -16,4 +16,4 @@ const routes: Routes = [
 	imports: [ RouterModule.forRoot(routes) ],
 	exports: [ RouterModule ]
 })
-export class AppRoutingModule {}
+export class AppRoutesModule {}

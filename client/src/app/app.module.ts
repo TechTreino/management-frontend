@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppRoutingModule } from "./app-routing.module";
+import { AppRoutesModule } from "./routes/routes.module";
 
 import { AppComponent } from './app.component';
 
@@ -27,7 +27,7 @@ import { TopbarComponent } from "./components/topbar/topbar.component";
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
