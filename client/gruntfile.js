@@ -22,6 +22,10 @@ module.exports = function(Grunt)
 					(sourcePath + "/app.module.js"),
 					(sourcePath + "/components/sidebar/sidebar.module.js"),
 					(sourcePath + "/components/sidebar/sidebar.directive.js"),
+					(sourcePath + "/components/topbar/topbar.module.js"),
+					(sourcePath + "/components/topbar/topbar.directive.js"),
+					(sourcePath + "/components/topbar/content.module.js"),
+					(sourcePath + "/components/topbar/content.directive.js"),
 				],
 				dest: (distJsPath + "/app.js")
 			}
@@ -38,7 +42,10 @@ module.exports = function(Grunt)
 		// Concat CSS
 		concat_css: {
 			vendor: {
-				src: [ (bowerPath + "/reset-css/reset.css") ],
+				src: [ 
+					(bowerPath + "/reset-css/reset.css"),
+					(bowerPath) + "/components-font-awesome/css/font-awesome.min.css" 
+				],
 				dest: (distCssPath + "/vendor.css")
 			}
 		},
@@ -64,6 +71,12 @@ module.exports = function(Grunt)
 						dest: (distPath + "/index.html") 
 					}
 				]
+			},
+			vendor: {
+				expand: true,
+				cwd: (bowerPath + "/components-font-awesome/fonts"),
+				src: "**",
+				dest: (distPath + "/assets/fonts")
 			}
 		},
 
@@ -84,5 +97,5 @@ module.exports = function(Grunt)
 	Grunt.loadNpmTasks("grunt-concat-css");
 
 	Grunt.registerTask("default", ["concat:app", "sass:app", "copy:app", "copy:components_templates", "copy:pages_templates"]);
-	Grunt.registerTask("vendor", ["concat:vendor", "concat_css:vendor"]);
+	Grunt.registerTask("vendor", ["concat:vendor", "concat_css:vendor", "copy:vendor"]);
 }
