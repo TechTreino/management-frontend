@@ -14,7 +14,10 @@ module.exports = function(Grunt)
 		concat: {
 			options: { separator: "; \n" },
 			vendor: {
-				src: [ (bowerPath + "/angular/angular.min.js") ],
+				src: [ 
+					(bowerPath + "/angular/angular.min.js"),
+					(bowerPath + "/angular-route/angular-route.min.js")
+				],
 				dest: (distJsPath + "/vendor.js")
 			},
 			app: {
