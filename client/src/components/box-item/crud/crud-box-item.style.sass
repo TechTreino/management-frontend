@@ -18,4 +18,26 @@ acad-crud-box-item
 	th, 
 	td
 		border: 1px solid #e7e7e7
+
+	th
 		padding: 13px 8px
+
+	td
+		padding: 8px 8px
+		vertical-align: middle
+
+	a
+		+border-radius(3px)
+		display: inline-block
+		color: white
+		font-size: 16px
+		height: 30px
+		line-height: 30px
+		text-align: center
+		width: 30px
+
+		&.edit
+			background-color: $neutral-color
+
+		&.delete
+			background-color: $negative-color

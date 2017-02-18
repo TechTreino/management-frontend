@@ -5,11 +5,12 @@
 angular
 	.module("Customers")
 	.controller("CustomersController", [
-		"$scope", "CustomersService",
+		"$scope", "$location", 
+		"CustomersService",
 		Controller
 	]);
 
-function Controller($scope, CustomersService)
+function Controller($scope, $location, CustomersService)
 {
 
 	(function initialize(){
@@ -25,17 +26,19 @@ function Controller($scope, CustomersService)
 
 	$scope.addCustomer = function()
 	{
-		console.log("Adding a customer...");
+		$location.path("customers/create");
 	};
 
-	$scope.editCustomer = function()
+	$scope.editCustomer = function(customer)
 	{
 		console.log("Editing a customer...");
+		console.log(customer);
 	};
 
-	$scope.deleteCustomer = function()
+	$scope.deleteCustomer = function(customer)
 	{
 		console.log("Deleting a customer...");
+		console.log(customer);
 	};
 
 }

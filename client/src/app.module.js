@@ -15,4 +15,5 @@ angular
 		$routeProvider
 		.when("/", { redirectTo: "/customers" })
 		.when("/customers", { templateUrl: "./templates/pages/customers/template/customers.template.html" })
+		.when("/customers/create", { templateUrl: "./templates/pages/customers/template/create-customer.template.html" })
 	});

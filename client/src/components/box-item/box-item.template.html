@@ -3,6 +3,7 @@
 	<div class="title">
 		<h3>{{ title }}</h3>
 		<button 
+			ng-if="titleButton"
 			ng-class="titleButton.type"
 			ng-bind="titleButton.text"
 			ng-click="titleButton.click()">
