@@ -4,6 +4,8 @@ angular.module(
 	"AcademiaDigital", 
 	[
 		"AcadSidebar",
-		"AcadTopbar"
+		"AcadTopbar",
+		"AcadContent",
+		"AcadTitlebar"
 	]
 );

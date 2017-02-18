@@ -24,8 +24,10 @@ module.exports = function(Grunt)
 					(sourcePath + "/components/sidebar/sidebar.directive.js"),
 					(sourcePath + "/components/topbar/topbar.module.js"),
 					(sourcePath + "/components/topbar/topbar.directive.js"),
-					(sourcePath + "/components/topbar/content.module.js"),
-					(sourcePath + "/components/topbar/content.directive.js"),
+					(sourcePath + "/components/content/content.module.js"),
+					(sourcePath + "/components/content/content.directive.js"),
+					(sourcePath + "/components/titlebar/titlebar.module.js"),
+					(sourcePath + "/components/titlebar/titlebar.directive.js")
 				],
 				dest: (distJsPath + "/app.js")
 			}

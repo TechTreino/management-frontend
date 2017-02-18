@@ -1,13 +1,18 @@
 "use strict";
 
-angular
-	.module("AcadContent")
-	.directive("acadContent", Directive);
+(function(){
 
-function Directive(){
-	return {
-		restrict: "E",
-		templateUrl: "./templates/components/content/content.template.html",
-		scope: {}
-	};
-}
+	angular
+		.module("AcadContent")
+		.directive("acadContent", Directive);
+
+	function Directive(){
+		return {
+			restrict: "E",
+			transclude: true,
+			templateUrl: "./templates/components/content/content.template.html",
+			scope: {}
+		};
+	}
+
+})();
