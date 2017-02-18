@@ -15,6 +15,7 @@
 				title: "=",
 				columns: "=",
 				data: "=",
+				noDataText: "=",
 				addMethod: "&",
 				editMethod: "&",
 				deleteMethod: "&"

@@ -18,9 +18,8 @@ function Controller($scope, CustomersService)
 		});
 
 		$scope.columns = [
-			{ value: "id", text: "#" },
-			{ value: "name", text: "Nome" },
-			{ value: "registry", text: "Matrícula" }
+			{ value: "firstName", text: "Nome" },
+			{ value: "lastName", text: "Sobrenome" }
 		];
 	})();
 
