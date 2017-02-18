@@ -13,7 +13,10 @@ function Controller($scope, CustomersService)
 {
 
 	(function initialize(){
-		$scope.customers = CustomersService.all();
+		CustomersService.all().then(function(response){
+			$scope.customers = response.data;
+		});
+
 		$scope.columns = [
 			{ value: "id", text: "#" },
 			{ value: "name", text: "Nome" },

@@ -6,8 +6,7 @@ const logger = require("morgan");
 const path = require("path");
 const errorHandler = require("errorhandler");
 const methodOverride = require("method-override");
-const index_1 = require("./routes/index");
-const dashboard_route_1 = require("./modules/dashboard/dashboard.route");
+const customers_route_1 = require("./pages/customers/customers.route");
 class Server {
     static bootstrap() {
         return new Server();
@@ -35,8 +34,7 @@ class Server {
     api() { }
     routes() {
         let router = express.Router();
-        index_1.IndexRoute.create(router);
-        dashboard_route_1.DashboardRoute.create(router);
+        customers_route_1.CustomersRouting.initialize(router);
         this.app.use(router);
     }
 }

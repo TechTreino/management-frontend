@@ -7,6 +7,12 @@
 const server = require("../dist/server");
 const debug = require("debug")("express:server");
 const http = require("http");
+const mongoose = require("mongoose");
+
+/*
+ * Connect to the database
+ */
+mongoose.connect("mongodb://localhost/academia-digital");
 
 /*
  * Create the HTTP Server

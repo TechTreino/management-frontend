@@ -9,8 +9,7 @@ import * as path from "path";
 import errorHandler = require("errorhandler");
 import methodOverride = require("method-override");
 
-import { IndexRoute } from "./routes/index";
-import { DashboardRoute } from "./modules/dashboard/dashboard.route";
+import { CustomersRouting } from "./pages/customers/customers.route";
 
 /**
  * The server.
@@ -94,8 +93,7 @@ export class Server
 	{
 		let router: express.Router = express.Router();
 
-		IndexRoute.create(router);
-		DashboardRoute.create(router);
+		CustomersRouting.initialize(router);
 
 		this.app.use(router);
 	}
