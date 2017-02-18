@@ -8,10 +8,11 @@ angular
 		"AcadContent",
 		"AcadTitlebar",
 		"AcadTable",
-		"AcadBoxItem"
+		"AcadBoxItem",
+		"Customers"
 	])
 	.config(function($routeProvider){
 		$routeProvider
-		.when("/", { templateUrl: "./templates/pages/customers/template/customers.template.html" })
+		.when("/", { redirectTo: "/customers" })
 		.when("/customers", { templateUrl: "./templates/pages/customers/template/customers.template.html" })
 	});

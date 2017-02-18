@@ -23,19 +23,11 @@ module.exports = function(Grunt)
 			app: {
 				src: [ 
 					(sourcePath + "/app.module.js"),
-					(sourcePath + "/components/sidebar/sidebar.module.js"),
-					(sourcePath + "/components/sidebar/sidebar.directive.js"),
-					(sourcePath + "/components/topbar/topbar.module.js"),
-					(sourcePath + "/components/topbar/topbar.directive.js"),
-					(sourcePath + "/components/content/content.module.js"),
-					(sourcePath + "/components/content/content.directive.js"),
-					(sourcePath + "/components/titlebar/titlebar.module.js"),
-					(sourcePath + "/components/titlebar/titlebar.directive.js"),
-					(sourcePath + "/components/table/table.module.js"),
-					(sourcePath + "/components/table/table.directive.js"),
-					(sourcePath + "/components/box-item/box-item.module.js"),
-					(sourcePath + "/components/box-item/box-item.directive.js"),
-					(sourcePath + "/components/box-item/crud/crud-box-item.directive.js")
+					(sourcePath + "/components/**/*.module.js"),
+					(sourcePath + "/components/**/*.directive.js"),
+					(sourcePath + "/pages/**/*.module.js"),
+					(sourcePath + "/pages/**/*.service.js"),
+					(sourcePath + "/pages/**/*.controller.js")
 				],
 				dest: (distJsPath + "/app.js")
 			}

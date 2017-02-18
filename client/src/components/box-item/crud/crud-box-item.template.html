@@ -1,26 +1,23 @@
 
 <acad-box-item
 	title="title"
-	title-button="{ type: 'success', text: '+' }">
+	title-button="{ type: 'success', text: '+', click: this.addMethod }">
 	
 	<table>
 		<thead>
 			<tr>
-				<th>#</th>
-				<th>Nome</th>
-				<th>Matrícula</th>
+				<th 
+					ng-repeat="column in this.columns"
+					ng-bind="column.text">
+				</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>Stanley</td>
-				<td>11516519</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>Igor</td>
-				<td>11516511</td>
+			<tr ng-repeat="item in this.data">
+				<td 
+					ng-repeat="column in this.columns"
+					ng-bind="item[column.value]">
+				</td>
 			</tr>
 		</tbody>
 	</table>

@@ -1,10 +1,21 @@
-<acad-sidebar></acad-sidebar>
+<section ng-controller="CustomersController">
+	<acad-sidebar></acad-sidebar>
 
-<acad-content>
-	<acad-topbar></acad-topbar>
-	<acad-titlebar title="'Alunos'"></acad-titlebar>
-	<div class="content">
-		<acad-crud-box-item title="'Alunos registrados'">
-		</acad-crud-box-item>
-	</div>
-</acad-content>
+	<acad-content>
+		<acad-topbar></acad-topbar>
+		<acad-titlebar title="'Alunos'"></acad-titlebar>
+
+		<div class="content">
+
+			<acad-crud-box-item 
+				title="'Alunos registrados'"
+				columns="this.columns"
+				data="this.customers"
+				add-method="this.addCustomer()"
+				edit-method="this.editCustomer()"
+				delete-method="this.deleteCustomer()">
+			</acad-crud-box-item>
+
+		</div>
+	</acad-content>
+</section>
