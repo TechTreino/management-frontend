@@ -1,6 +1,15 @@
 <div class="acad-box-item">
-	<div class="title">{{ title }}</div>
+
+	<div class="title">
+		<h3>{{ title }}</h3>
+		<button 
+			ng-class="titleButton.type"
+			ng-bind="titleButton.text">
+		</button>
+	</div>
+
 	<div class="content">
 		<ng-transclude></ng-transclude>
 	</div>
+
 </div>

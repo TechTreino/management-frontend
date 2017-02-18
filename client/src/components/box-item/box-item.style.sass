@@ -1,16 +1,39 @@
-div.acad-table
+div.acad-box-item
+
+	$positive-color: #1ab394
+	$negative-color: #ed5565
+	$neutral-color: #1c84c6
 
 	@extend .col-xs-12
 	background-color: white
-	border-top: 2px solid #e7eaec
+	border: 1px solid #e7eaec
+	border-top-width: 2px
+	margin-bottom: 15px
 
 	.title
 		border-bottom: 1px solid #e7eaec
-		font-size: 14px
-		font-weight: 700
 		height: 48px
 		line-height: 48px
 		padding: 0 20px
+		position: relative
+
+		h3
+			display: inline-block
+			font-size: 14px
+			font-weight: 700
+
+		button
+			border: none
+			+border-radius(2px)
+			height: 30px
+			min-width: 30px
+			position: absolute
+			right: 9px
+			top: 9px
+
+		button.success
+			background-color: $positive-color
+			color: white
 
 	.content
 		padding: 10px 20px 10px 20px

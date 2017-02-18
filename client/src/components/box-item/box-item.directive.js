@@ -12,7 +12,8 @@
 			transclude: true,
 			templateUrl: "./templates/components/box-item/box-item.template.html",
 			scope: {
-				title: "="
+				title: "=",
+				titleButton: "="
 			}
 		};
 	}

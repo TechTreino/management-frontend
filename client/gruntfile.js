@@ -31,7 +31,8 @@ module.exports = function(Grunt)
 					(sourcePath + "/components/table/table.module.js"),
 					(sourcePath + "/components/table/table.directive.js"),
 					(sourcePath + "/components/box-item/box-item.module.js"),
-					(sourcePath + "/components/box-item/box-item.directive.js")
+					(sourcePath + "/components/box-item/box-item.directive.js"),
+					(sourcePath + "/components/box-item/crud/crud-box-item.directive.js")
 				],
 				dest: (distJsPath + "/app.js")
 			}
