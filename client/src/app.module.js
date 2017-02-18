@@ -6,6 +6,8 @@ angular.module(
 		"AcadSidebar",
 		"AcadTopbar",
 		"AcadContent",
-		"AcadTitlebar"
+		"AcadTitlebar",
+		"AcadTable",
+		"AcadBoxItem"
 	]
 );
