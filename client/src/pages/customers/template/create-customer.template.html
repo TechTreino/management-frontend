@@ -33,8 +33,19 @@
 					error-text="'E-mail válido obrigatório'">
 				</acad-input-text>
 
-				<acad-input-password model="this.customer.password" label="'Senha'"></acad-input-password>
-				<acad-input-password model="this.customer.repeatedPassword" label="'Repita a senha'"></acad-input-password>
+				<acad-input-password 
+					model="this.customer.password" 
+					label="'Senha'"
+					validator="this.validatePassword(this.customer.password || '')"
+					error-text="'Senha obrigatória'">
+				</acad-input-password>
+
+				<acad-input-password 
+					model="this.customer.repeatedPassword" 
+					label="'Repita a senha'"
+					validator="this.validateRepeatedPassword(this.customer.repeatedPassword)"
+					error-text="'As senhas não conferem'">
+				</acad-input-password>
 			</acad-form>
 		</div>
 	</acad-content>

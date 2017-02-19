@@ -8,6 +8,7 @@ export class CustomersRouting extends BaseRoute
 	public static initialize(router: Router)
 	{
 		router.get("/customers", CustomersController.findAll);
+		router.post("/customers", CustomersController.create);
 	}
 
 	constructor()

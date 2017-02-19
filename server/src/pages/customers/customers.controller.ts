@@ -11,4 +11,12 @@ export class CustomersController
 			response.jsonp(customers);
 		});
 	}
+
+	public static create(request: Request, response: Response, next: NextFunction)
+	{
+		let customer = request.body;
+		(new Customer(customer)).save().then( () => {
+			response.status(200).send({ message: "Customer created" });
+		});
+	}
 }

@@ -18,7 +18,8 @@ export var CustomerSchema: Schema = new Schema({
 	modifiedAt: Date,
 	email: String,
 	firstName: String,
-	lastName: String
+	lastName: String,
+	password: String
 });
 
 /*

@@ -14,10 +14,59 @@ function Controller($scope, $location, CustomersService)
 {
 	$scope.customer = {};
 
+	$scope.validateFirstName = function(content)
+	{
+		return hasAnyCharacter(content);
+	};
+
+	$scope.validateLastName = function(content)
+	{
+		return hasAnyCharacter(content);
+	};
+
+	$scope.validateEmail = function(content)
+	{
+		return (hasAnyCharacter(content) && seemsAnEmail(content));
+	};
+
+	function hasAnyCharacter(content)
+	{
+		return content.length > 0;
+	}
+
+	function seemsAnEmail(content)
+	{
+		return (
+			content.indexOf("@") !== -1 &&
+			content.indexOf(".") !== -1
+		);
+	}
+
+	$scope.validatePassword = function(content)
+	{
+		return hasAnyCharacter(content);
+	}
+
+	$scope.validateRepeatedPassword = function(content)
+	{
+		return content === $scope.customer.password;
+	}
+
+	$scope.cancel = function()
+	{
+		$location.path("/customers");
+	};
+
 	$scope.create = function()
 	{
 		if(!arePasswordsEqual()) return false;
 		if(!areFieldsFilled()) return false;
+
+		var customer = angular.copy($scope.customer);
+		CustomersService.create(customer).then(function(response){
+			console.log("Customer created");
+			$location.path("/customers");
+		});
 	};
 
 	function arePasswordsEqual()
@@ -32,28 +81,13 @@ function Controller($scope, $location, CustomersService)
 
 	function areFieldsFilled()
 	{
-		return true;
+		return (
+			hasAnyCharacter($scope.customer.firstName) &&
+			hasAnyCharacter($scope.customer.lastName) &&
+			hasAnyCharacter($scope.customer.email) &&
+			hasAnyCharacter($scope.customer.password)
+		)
 	}
-
-	$scope.validateFirstName = function(content)
-	{
-		return (!!content);
-	};
-
-	$scope.validateLastName = function(content)
-	{
-		return (!!content);
-	};
-
-	$scope.validateEmail = function(content)
-	{
-		return (!content && content.indexOf("@") !== -1);
-	};
-
-	$scope.cancel = function()
-	{
-		$location.path("/customers");
-	};
 }
 
 })();

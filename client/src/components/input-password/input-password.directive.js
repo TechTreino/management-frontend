@@ -12,7 +12,9 @@
 			templateUrl: "./templates/components/input-password/input-password.template.html",
 			scope: {
 				model: "=",
-				label: "="
+				label: "=",
+				validator: "&",
+				errorText: "="
 			}
 		};
 	}
