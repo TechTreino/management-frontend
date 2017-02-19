@@ -13,7 +13,9 @@
 			templateUrl: "./templates/components/input-text/input-text.template.html",
 			scope: {
 				model: "=",
-				label: "="
+				label: "=",
+				errorChecker: "&",
+				errorText: "="
 			}
 		};
 	}

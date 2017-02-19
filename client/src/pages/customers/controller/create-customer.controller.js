@@ -12,9 +12,32 @@ angular
 
 function Controller($scope, $location, CustomersService)
 {
+	$scope.customer = {};
+
 	$scope.create = function()
 	{
-		console.log($scope);
+		if(!arePasswordsEqual()) return false;
+		if(!areFieldsFilled()) return false;
+	};
+
+	function arePasswordsEqual()
+	{
+		var password = $scope.customer.password;
+		var repeatedPassword = $scope.customer.repeatedPassword;
+
+		if(!password || !repeatedPassword) return false;
+
+		return (password === repeatedPassword);
+	}
+
+	function areFieldsFilled()
+	{
+		return true;
+	}
+
+	$scope.validateFirstName = function(content)
+	{
+		return (!content);
 	};
 
 	$scope.cancel = function()

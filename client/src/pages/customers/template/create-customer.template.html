@@ -12,13 +12,17 @@
 				save-method="this.create()"
 				cancel-method="this.cancel()">
 
-				<acad-input-text model="this.firstName" label="'Nome'"></acad-input-text>
-				<acad-input-text model="this.lastName" label="'Sobrenome'"></acad-input-text>
-				<acad-input-text model="this.email" label="'E-mail'"></acad-input-text>
-				<acad-input-password model="this.password" label="'Senha'"></acad-input-password>
-				<acad-input-password model="this.repeatedPassword" label="'Repita a senha'"></acad-input-password>
-			
-				<input ng-model="firstName">
+				<acad-input-text 
+					model="this.customer.firstName" 
+					label="'Nome'"
+					error-checker="this.validateFirstName(this.customer.firstName || '')"
+					error-text="'Nome inválido'">
+				</acad-input-text>
+
+				<acad-input-text model="this.customer.lastName" label="'Sobrenome'"></acad-input-text>
+				<acad-input-text model="this.customer.email" label="'E-mail'"></acad-input-text>
+				<acad-input-password model="this.customer.password" label="'Senha'"></acad-input-password>
+				<acad-input-password model="this.customer.repeatedPassword" label="'Repita a senha'"></acad-input-password>
 			</acad-form>
 		</div>
 	</acad-content>
