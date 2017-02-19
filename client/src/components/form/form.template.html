@@ -1,0 +1,9 @@
+<div class="acad-form">
+	<acad-box-item title="this.title">
+		<form name="{{ this.name }}">
+			<ng-transclude></ng-transclude>
+			<button ng-click="this.cancelMethod()" class="cancel">{{ this.cancelText || "Cancelar" }}</button>
+			<button ng-click="this.saveMethod()" class="save">{{ this.saveText || "Salvar" }}</button>
+		</form>
+	</acad-box-item>
+</div>

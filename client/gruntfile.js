@@ -15,6 +15,7 @@ module.exports = function(Grunt)
 			options: { separator: "; \n" },
 			vendor: {
 				src: [ 
+					(bowerPath + "/jquery/dist/jquery.min.js"),
 					(bowerPath + "/angular/angular.min.js"),
 					(bowerPath + "/angular-route/angular-route.min.js")
 				],

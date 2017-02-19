@@ -7,14 +7,19 @@
 
 		<div class="content">
 
-			<acad-box-item title="'Detalhes do novo aluno'">
-				<acad-input-text label="'Nome'"></acad-input-text>
-				<acad-input-text label="'Sobrenome'"></acad-input-text>
-				<acad-input-text label="'E-mail'"></acad-input-text>
-				<acad-input-password label="'Senha'"></acad-input-password>
-				<acad-input-password label="'Repita a senha'"></acad-input-password>
-			</acad-box-item>
+			<acad-form 
+				title="'Detalhes do novo aluno'"
+				save-method="this.create()"
+				cancel-method="this.cancel()">
 
+				<acad-input-text model="this.firstName" label="'Nome'"></acad-input-text>
+				<acad-input-text model="this.lastName" label="'Sobrenome'"></acad-input-text>
+				<acad-input-text model="this.email" label="'E-mail'"></acad-input-text>
+				<acad-input-password model="this.password" label="'Senha'"></acad-input-password>
+				<acad-input-password model="this.repeatedPassword" label="'Repita a senha'"></acad-input-password>
+			
+				<input ng-model="firstName">
+			</acad-form>
 		</div>
 	</acad-content>
 </section>

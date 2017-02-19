@@ -10,6 +10,8 @@ angular
 		"AcadTable",
 		"AcadBoxItem",
 		"AcadInputText",
+		"AcadInputPassword",
+		"AcadForm",
 		"Customers"
 	])
 	.config(function($routeProvider){
