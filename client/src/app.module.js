@@ -9,6 +9,7 @@ angular
 		"AcadTitlebar",
 		"AcadTable",
 		"AcadBoxItem",
+		"AcadInputText",
 		"Customers"
 	])
 	.config(function($routeProvider){
