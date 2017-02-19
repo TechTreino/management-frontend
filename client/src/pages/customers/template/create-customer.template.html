@@ -15,12 +15,24 @@
 				<acad-input-text 
 					model="this.customer.firstName" 
 					label="'Nome'"
-					error-checker="this.validateFirstName(this.customer.firstName || '')"
-					error-text="'Nome inválido'">
+					validator="this.validateFirstName(this.customer.firstName || '')"
+					error-text="'Nome obrigatório'">
 				</acad-input-text>
 
-				<acad-input-text model="this.customer.lastName" label="'Sobrenome'"></acad-input-text>
-				<acad-input-text model="this.customer.email" label="'E-mail'"></acad-input-text>
+				<acad-input-text 
+					model="this.customer.lastName" 
+					label="'Sobrenome'"
+					validator="this.validateLastName(this.customer.lastName || '')"
+					error-text="'Sobrenome obrigatório'">
+				</acad-input-text>
+
+				<acad-input-text 
+					model="this.customer.email" 
+					label="'E-mail'"
+					validator="this.validateEmail(this.customer.email || '')"
+					error-text="'E-mail válido obrigatório'">
+				</acad-input-text>
+
 				<acad-input-password model="this.customer.password" label="'Senha'"></acad-input-password>
 				<acad-input-password model="this.customer.repeatedPassword" label="'Repita a senha'"></acad-input-password>
 			</acad-form>

@@ -14,7 +14,7 @@
 			scope: {
 				model: "=",
 				label: "=",
-				errorChecker: "&",
+				validator: "&",
 				errorText: "="
 			}
 		};

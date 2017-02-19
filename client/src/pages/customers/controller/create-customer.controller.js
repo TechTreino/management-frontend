@@ -37,7 +37,17 @@ function Controller($scope, $location, CustomersService)
 
 	$scope.validateFirstName = function(content)
 	{
-		return (!content);
+		return (!!content);
+	};
+
+	$scope.validateLastName = function(content)
+	{
+		return (!!content);
+	};
+
+	$scope.validateEmail = function(content)
+	{
+		return (!content && content.indexOf("@") !== -1);
 	};
 
 	$scope.cancel = function()

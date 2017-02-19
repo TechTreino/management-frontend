@@ -9,7 +9,7 @@
 		</div>
 
 		<input 
-			ng-change="{{ this.anyError = this.errorChecker() }}" 
+			ng-blur="this.anyError = !this.validator()" 
 			type="text" 
 			ng-model="this.model">
 	</div>
