@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-ts");
 
-	grunt.registerTask("default", []);
+	grunt.registerTask("default", ["ts:server"]);
 	grunt.registerTask("server", "Tasks needed to prepare server-side files", ["ts:server"]);
 
 };

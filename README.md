@@ -41,6 +41,10 @@ Para rodar o Grunt de qualquer diretório, é importante que você instale-o glo
 Se você usa Linux ou Mac OSX, é importante ressaltar que você precisa executar o comando usando `sudo`:
 `$ sudo npm install -g grunt`
 
+### Você também precisa ligar seu servidor
+O servidor que usamos é construído usando Node + Express. Logo, para acessar o endereço `localhost:3000` você antes precisa rodar o servidor. Use o comando dentro da pasta `server`:
+`$ npm start`
+
 ### Agora só rodar o Grunt toda vez que modificar alguma coisa no código-fonte:
 Como nós somos altamente profissionais e ninjas da programação, tentamos sempre buscar as melhores opções de performance para os nossos produtos. Isso inclui concatenação e minimificação dos códigos fontes para serem injetados no arquivo `index.html`.
 
