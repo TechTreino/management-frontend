@@ -9,7 +9,7 @@
 	function Directive(){
 		return {
 			restrict: "E",
-			templateUrl: "./templates/components/titlebar/titlebar.template.html",
+			templateUrl: "./assets/templates/components/titlebar/titlebar.template.html",
 			scope: {
 				title: "=",
 				breadcrumb: "="

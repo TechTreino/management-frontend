@@ -1,0 +1,22 @@
+<section ng-controller="ExercisesController">
+	<acad-sidebar></acad-sidebar>
+
+	<acad-content>
+		<acad-topbar></acad-topbar>
+		<acad-titlebar title="'Exercícios'"></acad-titlebar>
+
+		<div class="content">
+
+			<acad-crud-box-item 
+				title="'Exercícios cadastrados'"
+				columns="this.columns"
+				data="this.exercises"
+				no-data-text="'Nenhum exercício cadastrado até o momento'"
+				add-method="this.addExercise()"
+				edit-method="this.editExercise(row)"
+				delete-method="this.deleteExercise(row)">
+			</acad-crud-box-item>
+
+		</div>
+	</acad-content>
+</section>

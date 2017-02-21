@@ -1,3 +1,3 @@
 "use strict";
 
-angular.module("Customers", [])
+angular.module("Customers", []);

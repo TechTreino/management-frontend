@@ -10,7 +10,7 @@
 		return {
 			restrict: "E",
 			transclude: true,
-			templateUrl: "./templates/components/content/content.template.html",
+			templateUrl: "./assets/templates/components/content/content.template.html",
 			scope: {}
 		};
 	}

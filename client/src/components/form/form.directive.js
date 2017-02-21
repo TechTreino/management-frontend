@@ -10,7 +10,7 @@
 		return {
 			restrict: "E",
 			transclude: true,
-			templateUrl: "./templates/components/form/form.template.html",
+			templateUrl: "./assets/templates/components/form/form.template.html",
 			scope: {
 				name: "=",
 				title: "=",

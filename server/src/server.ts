@@ -10,6 +10,7 @@ import errorHandler = require("errorhandler");
 import methodOverride = require("method-override");
 
 import { CustomersRouting } from "./pages/customers/customers.route";
+import { ExercisesRouting } from "./pages/exercises/exercises.route";
 
 /**
  * The server.
@@ -94,6 +95,7 @@ export class Server
 		let router: express.Router = express.Router();
 
 		CustomersRouting.initialize(router);
+		ExercisesRouting.initialize(router);
 
 		this.app.use(router);
 	}

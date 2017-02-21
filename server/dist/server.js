@@ -7,6 +7,7 @@ const path = require("path");
 const errorHandler = require("errorhandler");
 const methodOverride = require("method-override");
 const customers_route_1 = require("./pages/customers/customers.route");
+const exercises_route_1 = require("./pages/exercises/exercises.route");
 class Server {
     static bootstrap() {
         return new Server();
@@ -35,6 +36,7 @@ class Server {
     routes() {
         let router = express.Router();
         customers_route_1.CustomersRouting.initialize(router);
+        exercises_route_1.ExercisesRouting.initialize(router);
         this.app.use(router);
     }
 }

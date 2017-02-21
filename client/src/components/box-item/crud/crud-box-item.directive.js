@@ -10,7 +10,7 @@
 		return {
 			restrict: "E",
 			transclude: true,
-			templateUrl: "./templates/components/box-item/crud/crud-box-item.template.html",
+			templateUrl: "./assets/templates/components/box-item/crud/crud-box-item.template.html",
 			scope: {
 				title: "=",
 				columns: "=",
