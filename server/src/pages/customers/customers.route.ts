@@ -9,6 +9,8 @@ export class CustomersRouting extends BaseRoute
 	{
 		router.get("/customers", CustomersController.findAll);
 		router.post("/customers", CustomersController.create);
+		router.get("/customers/:id", CustomersController.findById);
+		router.post("/customers/:id", CustomersController.update);
 	}
 
 	constructor()

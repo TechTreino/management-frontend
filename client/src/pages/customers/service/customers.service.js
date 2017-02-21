@@ -20,6 +20,16 @@ function Service($http)
 	{
 		return $http.post("/customers", customer);
 	};
+
+	this.update = function(id, customer)
+	{
+		return $http.post("/customers/" + id, customer);
+	}
+
+	this.byId = function(id)
+	{
+		return $http.get("/customers/" + id);
+	};
 }
 
 })();

@@ -23,8 +23,8 @@
 					ng-bind="item[column.value]">
 				</td>
 				<td>
-					<a class="edit" ng-click="this.editMethod('editing')"><i class="fa fa-pencil"></i></a>
-					<a class="delete" ng-click="this.deleteMethod('deleting')"><i class="fa fa-trash"></i></a>
+					<a class="edit" ng-click="this.editMethod({row: item})"><i class="fa fa-pencil"></i></a>
+					<a class="delete" ng-click="this.deleteMethod({row: item})"><i class="fa fa-trash"></i></a>
 				</td>
 			</tr>
 		</tbody>

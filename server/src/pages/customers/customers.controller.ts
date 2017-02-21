@@ -19,4 +19,30 @@ export class CustomersController
 			response.status(200).send({ message: "Customer created" });
 		});
 	}
+
+	public static findById(request: Request, response: Response, next: NextFunction)
+	{
+		let id = request.params.id;
+		Customer.findById(id).then( (customer: ICustomerModel) => {
+			delete customer.password;
+			response.jsonp(customer);
+		});
+	}
+
+	public static update(request: Request, response: Response, next: NextFunction)
+	{
+		let id = request.params.id;
+		let customer = request.body;
+		let updateQuery = {
+			$set: { 
+				firstName: customer.firstName,
+				lastName: customer.lastName,
+				email: customer.email
+			}
+		};
+
+		Customer.findByIdAndUpdate(id, updateQuery).then( () => {
+			response.status(200).send({ message: "Customer updated" });
+		});
+	}
 }

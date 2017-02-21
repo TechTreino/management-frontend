@@ -1,0 +1,40 @@
+<section ng-controller="EditCustomerController">
+	<acad-sidebar></acad-sidebar>
+
+	<acad-content>
+		<acad-topbar></acad-topbar>
+		<acad-titlebar title="'Editar aluno'"></acad-titlebar>
+
+		<div class="content">
+
+			<acad-form 
+				title="'Detalhes do aluno'"
+				save-method="this.save()"
+				cancel-method="this.cancel()">
+
+				<acad-input-text 
+					model="this.customer.firstName" 
+					label="'Nome'"
+					validator="this.validateFirstName(this.customer.firstName || '')"
+					error-text="'Nome obrigatório'">
+				</acad-input-text>
+
+				<acad-input-text 
+					model="this.customer.lastName" 
+					label="'Sobrenome'"
+					validator="this.validateLastName(this.customer.lastName || '')"
+					error-text="'Sobrenome obrigatório'">
+				</acad-input-text>
+
+				<acad-input-text 
+					model="this.customer.email" 
+					label="'E-mail'"
+					validator="this.validateEmail(this.customer.email || '')"
+					error-text="'E-mail válido obrigatório'">
+				</acad-input-text>
+
+			</acad-form>
+
+		</div>
+	</acad-content>
+</section>

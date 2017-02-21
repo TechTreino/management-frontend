@@ -31,14 +31,14 @@ function Controller($scope, $location, CustomersService)
 
 	$scope.editCustomer = function(customer)
 	{
-		console.log("Editing a customer...");
-		console.log(customer);
+		var customerId = customer._id;
+		$location.path("customers/" + customerId);
 	};
 
 	$scope.deleteCustomer = function(customer)
 	{
-		console.log("Deleting a customer...");
-		console.log(customer);
+		var customerId = customer._id;
+		console.log("Deleting the customer...");
 	};
 
 }
