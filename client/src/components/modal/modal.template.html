@@ -1,0 +1,18 @@
+<div 
+	class="acad-modal" 
+	ng-controller="AcadModalController" 
+	ng-show="this.isVisible">
+
+	<div class="box-modal">
+		<div class="title"><h3>{{ this.title }}</h3></div>
+		<div class="content">{{ this.message }}</div>
+		<div class="buttons">
+			<button 
+				ng-repeat="button in buttons"
+				ng-bind="button.text"
+				ng-class="button.type ? button.type : 'neutral'"
+				ng-click="this.onButtonClick(button)">
+			</button>
+		</div>
+	</div>
+</div>

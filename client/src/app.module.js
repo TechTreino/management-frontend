@@ -12,6 +12,7 @@ angular
 		"AcadInputText",
 		"AcadInputPassword",
 		"AcadForm",
+		"AcadModal",
 		"Customers"
 	])
 	.config(function($routeProvider){

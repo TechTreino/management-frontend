@@ -6,11 +6,11 @@ angular
 	.module("Customers")
 	.controller("CustomersController", [
 		"$scope", "$location", 
-		"CustomersService",
+		"CustomersService", "AcadModalService",
 		Controller
 	]);
 
-function Controller($scope, $location, CustomersService)
+function Controller($scope, $location, CustomersService, AcadModalService)
 {
 
 	(function initialize(){
@@ -38,8 +38,21 @@ function Controller($scope, $location, CustomersService)
 	$scope.deleteCustomer = function(customer)
 	{
 		var customerId = customer._id;
-		console.log("Deleting the customer...");
+		var title = "Deseja realmente excluir este aluno?";
+		var message = "Uma vez excluído, os dados do aluno serão perdidos para sempre :O";
+		var buttons = [
+			{ text: "Cancelar" },
+			{ text: "Excluir", type: "negative", method: deleteCustomer }
+		];
+
+		AcadModalService.showMessage(title, message, buttons, customerId);
 	};
+
+	function deleteCustomer(customerId)
+	{
+		console.log("Deleting the customer !!!");
+		console.log(customerId);
+	}
 
 }
 

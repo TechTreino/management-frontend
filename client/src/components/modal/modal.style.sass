@@ -1,0 +1,61 @@
+div.acad-modal
+
+	background-color: rgba(0, 0, 0, 0.5)
+	bottom: 0
+	color: #676a6c
+	left: 0
+	position: fixed
+	right: 0
+	top: 0
+	z-index: 12
+
+	> .box-modal
+
+		+box-shadow(0 0 4px rgba(0, 0, 0, 0.6))
+		+border-radius(3px)
+		background-color: white
+		position: fixed
+		left: 50%
+		top: 50%
+		transform: translate(-50%, -50%)
+		width: 300px
+
+		> .title
+			border-bottom: 1px solid #e5e6e7
+			padding: 15px 10px
+
+			h3
+				font-weight: 700
+				font-size: 14px
+
+		> .content
+			border-bottom: 1px solid #e5e6e7
+			line-height: 1.5em
+			padding: 15px
+
+		> .buttons
+			padding: 12px
+			text-align: right
+
+			button
+				border: none
+				+border-radius(5px)
+				cursor: pointer
+				display: inline-block
+				padding: 7px 12px
+
+			button:not(:last-child)
+				margin-right: 10px
+
+			button:not(.neutral)
+				color: white
+
+			button.neutral
+				background-color: transparent
+				border: 1px solid #e5e6e7
+
+			button.positive
+				background-color: $positive-color
+
+			button.negative
+				background-color: $negative-color
