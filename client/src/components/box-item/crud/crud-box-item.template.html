@@ -22,7 +22,7 @@
 					ng-repeat="column in this.columns"
 					ng-bind="item[column.value]">
 				</td>
-				<td>
+				<td class="actions">
 					<a class="edit" ng-click="this.editMethod({row: item})"><i class="fa fa-pencil"></i></a>
 					<a class="delete" ng-click="this.deleteMethod({row: item})"><i class="fa fa-trash"></i></a>
 				</td>
