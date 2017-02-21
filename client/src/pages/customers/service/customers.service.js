@@ -30,6 +30,11 @@ function Service($http)
 	{
 		return $http.get("/customers/" + id);
 	};
+
+	this.delete = function(id)
+	{
+		return $http.delete("/customers/" + id);
+	}
 }
 
 })();

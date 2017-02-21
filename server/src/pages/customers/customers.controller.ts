@@ -45,4 +45,13 @@ export class CustomersController
 			response.status(200).send({ message: "Customer updated" });
 		});
 	}
+
+	public static delete(request: Request, response: Response, next: NextFunction)
+	{
+		let id = request.params.id;
+
+		Customer.remove({ _id: id }).then( () => {
+			response.status(200).send({ message: "Customer deleted" });
+		});
+	}
 }

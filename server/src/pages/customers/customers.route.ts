@@ -11,6 +11,7 @@ export class CustomersRouting extends BaseRoute
 		router.post("/customers", CustomersController.create);
 		router.get("/customers/:id", CustomersController.findById);
 		router.post("/customers/:id", CustomersController.update);
+		router.delete("/customers/:id", CustomersController.delete);
 	}
 
 	constructor()

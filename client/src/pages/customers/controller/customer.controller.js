@@ -50,8 +50,21 @@ function Controller($scope, $location, CustomersService, AcadModalService)
 
 	function deleteCustomer(customerId)
 	{
-		console.log("Deleting the customer !!!");
-		console.log(customerId);
+		CustomersService.delete(customerId).then(function(response){
+			deleteFromList(customerId);
+		});
+	}
+
+	function deleteFromList(customerId)
+	{
+		var customers = $scope.customers;
+
+		for(var i = 0; i < customers.length; i++)
+		{
+			var customer = customers[i];
+			if(customer._id === customerId)
+				$scope.customers.splice(i, 1);
+		}
 	}
 
 }
