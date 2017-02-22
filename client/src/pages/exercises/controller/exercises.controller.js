@@ -6,11 +6,11 @@ angular
 	.module("Exercises")
 	.controller("ExercisesController", [
 		"$scope", "$location", 
-		"ExercisesService",
+		"ExercisesService", "AcadModalService",
 		Controller
 	]);
 
-function Controller($scope, $location, ExercisesService)
+function Controller($scope, $location, ExercisesService, AcadModalService)
 {
 
 	/**
@@ -55,9 +55,42 @@ function Controller($scope, $location, ExercisesService)
 		});
 	}
 
-	$scope.addExercise = function(){
+	$scope.addExercise = function()
+	{
 		$location.path("/exercises/create");
 	};
+
+	$scope.deleteExercise = function(exercise)
+	{
+		var exerciseId = exercise._id;
+		var title = "Deseja realmente excluir este exercício?";
+		var message = "Uma vez excluído um exercício não pode mais ser recuperado.";
+		var buttons = [
+			{ text: "Cancelar" },
+			{ text: "Excluir", type: "negative", method: deleteExercise }
+		];
+
+		AcadModalService.showMessage(title, message, buttons, exerciseId);
+	};
+
+	function deleteExercise(exerciseId)
+	{
+		ExercisesService.delete(exerciseId).then(function(response){
+			deleteFromList(exerciseId);
+		});
+	}
+
+	function deleteFromList(exerciseId)
+	{
+		var exercises = $scope.exercises;
+
+		for(var i = 0; i < exercises.length; i++)
+		{
+			var exercise = exercises[i];
+			if(exercise._id === exerciseId)
+				$scope.exercises.splice(i, 1);
+		}
+	}
 
 }
 
