@@ -13,7 +13,8 @@ export interface IExerciseModel extends IExercise, Document {}
 export var ExerciseSchema: Schema = new Schema({
 	createdAt: Date,
 	modifiedAt: Date,
-	name: String
+	name: String,
+	muscleGroupId: { type: Schema.Types.ObjectId, ref: "MuscleGroup" }
 });
 
 /*
@@ -33,4 +34,5 @@ ExerciseSchema.pre("save", next => {
 /*
  * Define the model as a Schema
  */
+console.log("ExerciseSchema should be defined");
 export const Exercise: Model<IExerciseModel> = model<IExerciseModel>("Exercise", ExerciseSchema);

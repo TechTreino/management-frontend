@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { Exercise, IExerciseModel } from "./../../model/exercise/exercise.schema";
+import { MuscleGroup, IMuscleGroupModel } from "./../../model/muscle-group/muscle-group.schema";
 
 export class ExercisesController
 {
@@ -7,7 +8,10 @@ export class ExercisesController
 
 	public static findAll(request: Request, response: Response, next: NextFunction)
 	{
-		Exercise.find().then( (exercises: IExerciseModel[]) => {
+		Exercise
+			.find()
+			.populate("muscleGroupId")
+			.then( (exercises: IExerciseModel[]) => {
 			response.jsonp(exercises);
 		});
 	}
