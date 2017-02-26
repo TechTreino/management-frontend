@@ -26,6 +26,7 @@ module.exports = function(Grunt)
 					(sourcePath + "/app.module.js"),
 					(sourcePath + "/components/**/*.module.js"),
 					(sourcePath + "/components/**/*.directive.js"),
+					(sourcePath + "/components/**/*.provider.js"),
 					(sourcePath + "/components/**/*.service.js"),
 					(sourcePath + "/components/**/*.controller.js"),
 					(sourcePath + "/pages/**/*.module.js"),

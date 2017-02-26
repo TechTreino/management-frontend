@@ -16,8 +16,9 @@ angular
 		"Customers",
 		"Exercises"
 	])
-	.config(function($routeProvider){
+	.config(function($routeProvider, AcadSidebarProvider){
 
+		// Routes configuration
 		$routeProvider
 		.when("/", { redirectTo: "/customers" })
 		
@@ -28,4 +29,13 @@ angular
 		.when("/exercises", { templateUrl: "./assets/templates/pages/exercises/template/exercises.template.html" })
 		.when("/exercises/create", { templateUrl: "./assets/templates/pages/exercises/template/create-exercise.template.html" })
 		.when("/exercises/edit", { templateUrl: "./assets/templates/pages/exercises/template/edit-exercise.template.html" })
+	
+
+		// Menu configuration
+		AcadSidebarProvider.configure.menu = [
+			{ text: "Dashboard", link: "#!/dashboard/" },
+			{ text: "Alunos", link: "#!/customers/" },
+			{ text: "Exercícios", link: "#!/exercises/" }
+		];
+
 	});
