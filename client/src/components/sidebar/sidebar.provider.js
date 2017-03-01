@@ -9,20 +9,18 @@
 	function Provider()
 	{
 		// Values acessed by config phase
-		var configure = {
-			menu: []
-		};
+		var configuration = { menu: [] };
 
-		// Factory function
+		// Factory function (can be injected as a service)
 		function AcadSidebar(){
 			return {
-				menu: configure.menu
+				menu: configuration.menu
 			};
 		}
 
 		return {
 			$get: AcadSidebar,
-			configure: configure
+			config: configuration
 		};
 	}
 
