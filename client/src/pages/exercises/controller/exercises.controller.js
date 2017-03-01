@@ -6,11 +6,11 @@ angular
 	.module("Exercises")
 	.controller("ExercisesController", [
 		"$scope", "$location", 
-		"ExercisesService", "AcadModalService",
+		"ExercisesService", "AcadModalService", "AcadSidebar",
 		Controller
 	]);
 
-function Controller($scope, $location, ExercisesService, AcadModalService)
+function Controller($scope, $location, ExercisesService, AcadModalService, AcadSidebar)
 {
 
 	/**
@@ -38,6 +38,7 @@ function Controller($scope, $location, ExercisesService, AcadModalService)
 	(function initialize(){
 		loadColumns();
 		loadData();
+		setActiveMenuItem();
 	})();
 
 	function loadColumns()
@@ -53,6 +54,11 @@ function Controller($scope, $location, ExercisesService, AcadModalService)
 		ExercisesService.all().then(function(response){
 			$scope.exercises = response.data;
 		});
+	}
+
+	function setActiveMenuItem()
+	{
+		AcadSidebar.setActive("exercises");
 	}
 
 	$scope.addExercise = function()

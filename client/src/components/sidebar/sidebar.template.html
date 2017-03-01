@@ -5,6 +5,8 @@
 		<span class="position">Web Developer <i class="arrow"></i></span>
 	</div>
 	<ul>
-		<a ng-repeat="item in menu" href="{{ item.link }}"><li>{{ item.text }}</li></a>
+		<a ng-repeat="item in menu" href="{{ item.link }}">
+			<li ng-class="{ 'active': this.isActive(item) }">{{ item.text }}</li>
+		</a>
 	</ul>
 </nav>

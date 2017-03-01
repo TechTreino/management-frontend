@@ -8,7 +8,12 @@
 
 	function Controller($scope, AcadSidebar)
 	{
-		$scope.menu = AcadSidebar.menu;
+		$scope.menu = AcadSidebar.getMenu();
+
+		$scope.isActive = function(item)
+		{
+			return !!(item.__isActive);
+		};
 	}
 
 })();

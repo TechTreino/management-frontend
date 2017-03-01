@@ -29,14 +29,14 @@ angular
 		.when("/exercises", { templateUrl: "./assets/templates/pages/exercises/template/exercises.template.html" })
 		.when("/exercises/create", { templateUrl: "./assets/templates/pages/exercises/template/create-exercise.template.html" })
 		.when("/exercises/edit", { templateUrl: "./assets/templates/pages/exercises/template/edit-exercise.template.html" })
-	
+
 		console.log(AcadSidebarProvider);
 
 		// Menu configuration
 		AcadSidebarProvider.config.menu = [
-			{ text: "Dashboard", link: "#!/dashboard/" },
-			{ text: "Alunos", link: "#!/customers/" },
-			{ text: "Exercícios", link: "#!/exercises/" }
+			{ id: "dashboard", text: "Dashboard", link: "#!/dashboard/" },
+			{ id: "customers", text: "Alunos", link: "#!/customers/" },
+			{ id: "exercises", text: "Exercícios", link: "#!/exercises/" }
 		];
 
 	});
