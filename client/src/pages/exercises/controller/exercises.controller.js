@@ -58,7 +58,7 @@ function Controller($scope, $location, ExercisesService, AcadModalService, AcadS
 
 	function setActiveMenuItem()
 	{
-		AcadSidebar.setActive("exercises");
+		AcadSidebar.setActiveItem("exercises");
 	}
 
 	$scope.addExercise = function()

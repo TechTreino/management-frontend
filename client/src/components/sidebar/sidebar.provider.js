@@ -9,7 +9,9 @@
 	function Provider()
 	{
 		// Values acessed by config phase
-		var configuration = { menu: [] };
+		var configuration = { 
+			menu: []
+		};
 
 		// Factory function (can be injected as a service)
 		function AcadSidebar(){
@@ -19,12 +21,12 @@
 				return configuration.menu;
 			}
 
-			function addMenu(id, text, link)
+			function addMenuItem(id, text, link)
 			{
 				configuration.menu.push({id: id, text: text, link: link});
 			}
 
-			function setActive(id)
+			function setActiveItem(id)
 			{
 				configuration.menu.forEach(function(menu){
 					menu.__isActive = (menu.id === id);
@@ -34,8 +36,8 @@
 			return {
 				__menu: configuration.menu,
 				getMenu: getMenu,
-				addMenu: addMenu,
-				setActive: setActive
+				addMenuItem: addMenuItem,
+				setActiveItem: setActiveItem
 			};
 		}
 

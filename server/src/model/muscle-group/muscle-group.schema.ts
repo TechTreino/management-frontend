@@ -1,11 +1,14 @@
 import { Document, Schema, Model, model } from "mongoose";
-import { IMuscleGroup } from "./muscle-group.interface";
 
 /*
- * Create an interface which joins both IMuscleGroup and Document
- * properties.
+ * Create an interface with gets Document properties.
  */
-export interface IMuscleGroupModel extends IMuscleGroup, Document {}
+export interface IMuscleGroup extends Document 
+{
+	createdAt: Date,
+	modifiedAt: Date,
+	name: string
+}
 
 /*
  * Schema definition.
@@ -33,5 +36,5 @@ MuscleGroupSchema.pre("save", next => {
 /*
  * Define the model as a Schema
  */
-console.log("MuscleGroup should be defined");
-export const MuscleGroup: Model<IMuscleGroupModel> = model<IMuscleGroupModel>("MuscleGroup", MuscleGroupSchema);
+console.log("MuscleGroup is now defined as a model");
+export const MuscleGroup: Model<IMuscleGroup> = model<IMuscleGroup>("MuscleGroup", MuscleGroupSchema);

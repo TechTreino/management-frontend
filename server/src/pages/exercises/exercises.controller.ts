@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { Exercise, IExerciseModel } from "./../../model/exercise/exercise.schema";
-import { MuscleGroup, IMuscleGroupModel } from "./../../model/muscle-group/muscle-group.schema";
+import { Exercise, IExercise } from "./../../model/exercise/exercise.schema";
+import { MuscleGroup, IMuscleGroup } from "./../../model/muscle-group/muscle-group.schema";
 
 export class ExercisesController
 {
@@ -10,8 +10,7 @@ export class ExercisesController
 	{
 		Exercise
 			.find()
-			.populate("muscleGroupId")
-			.then( (exercises: IExerciseModel[]) => {
+			.then( (exercises: IExercise[]) => {
 			response.jsonp(exercises);
 		});
 	}
@@ -27,7 +26,7 @@ export class ExercisesController
 	public static findById(request: Request, response: Response, next: NextFunction)
 	{
 		let id = request.params.id;
-		Exercise.findById(id).then( (exercise: IExerciseModel) => {
+		Exercise.findById(id).then( (exercise: IExercise) => {
 			response.jsonp(exercise);
 		});
 	}

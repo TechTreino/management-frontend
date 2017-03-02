@@ -30,8 +30,6 @@ angular
 		.when("/exercises/create", { templateUrl: "./assets/templates/pages/exercises/template/create-exercise.template.html" })
 		.when("/exercises/edit", { templateUrl: "./assets/templates/pages/exercises/template/edit-exercise.template.html" })
 
-		console.log(AcadSidebarProvider);
-
 		// Menu configuration
 		AcadSidebarProvider.config.menu = [
 			{ id: "dashboard", text: "Dashboard", link: "#!/dashboard/" },

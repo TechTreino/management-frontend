@@ -23,7 +23,7 @@ function Controller($scope, $location, CustomersService, AcadModalService, AcadS
 			{ value: "lastName", text: "Sobrenome" }
 		];
 
-		AcadSidebar.setActive("customers");
+		AcadSidebar.setActiveItem("customers");
 	})();
 
 	$scope.addCustomer = function()
