@@ -1,6 +1,7 @@
 # Global Dependencies (server|client)
 **/node_modules/
 **/bower_components/
+**/vendor/
 
 # Compiled outputs
 **/dist/
