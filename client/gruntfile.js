@@ -5,8 +5,8 @@ module.exports = function(Grunt)
 	var bowerPath = "./bower_components";
 	var sourcePath = "./src";
 	var distPath = "./dist";
-	var distCssPath = (distPath + "/assets/css");
-	var distJsPath = (distPath + "/assets/js");
+	var distCssPath = (distPath + "/css");
+	var distJsPath = (distPath + "/js");
 
 	Grunt.initConfig({
 
@@ -41,7 +41,7 @@ module.exports = function(Grunt)
 		sass: {
 			options: { sourcemap: "none", style: "compressed", update: true },
 			app: {
-				files: { "./dist/assets/css/app.css": "./src/style.loader.sass" }
+				files: { "./dist/css/app.css": "./src/style.loader.sass" }
 			}
 		},
 
@@ -62,19 +62,19 @@ module.exports = function(Grunt)
 				expand: true,
 				cwd: (sourcePath + "/components"),
 				src: "**/*.html",
-				dest: (distPath + "/assets/templates/components")
+				dest: (distPath + "/templates/components")
 			},
 			pages_templates: {
 				expand: true,
 				cwd: (sourcePath + "/pages"),
 				src: "**/*.html",
-				dest: (distPath + "/assets/templates/pages")
+				dest: (distPath + "/templates/pages")
 			},
 			vendor: {
 				expand: true,
 				cwd: (bowerPath + "/components-font-awesome/fonts"),
 				src: "**",
-				dest: (distPath + "/assets/fonts")
+				dest: (distPath + "/fonts")
 			}
 		},
 

@@ -9,7 +9,7 @@
 	function Directive(){
 		return {
 			restrict: "E",
-			templateUrl: "./assets/templates/components/topbar/topbar.template.html",
+			templateUrl: "./dist/templates/components/topbar/topbar.template.html",
 			scope: {}
 		};
 	}

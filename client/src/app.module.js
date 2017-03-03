@@ -22,13 +22,13 @@ angular
 		$routeProvider
 		.when("/", { redirectTo: "/customers" })
 		
-		.when("/customers", { templateUrl: "./assets/templates/pages/customers/template/customers.template.html" })
-		.when("/customers/create", { templateUrl: "./assets/templates/pages/customers/template/create-customer.template.html" })
-		.when("/customers/:id", { templateUrl: "./assets/templates/pages/customers/template/edit-customer.template.html" })
+		.when("/customers", { templateUrl: "./dist/templates/pages/customers/template/customers.template.html" })
+		.when("/customers/create", { templateUrl: "./dist/templates/pages/customers/template/create-customer.template.html" })
+		.when("/customers/:id", { templateUrl: "./dist/templates/pages/customers/template/edit-customer.template.html" })
 	
-		.when("/exercises", { templateUrl: "./assets/templates/pages/exercises/template/exercises.template.html" })
-		.when("/exercises/create", { templateUrl: "./assets/templates/pages/exercises/template/create-exercise.template.html" })
-		.when("/exercises/edit", { templateUrl: "./assets/templates/pages/exercises/template/edit-exercise.template.html" })
+		.when("/exercises", { templateUrl: "./dist/templates/pages/exercises/template/exercises.template.html" })
+		.when("/exercises/create", { templateUrl: "./dist/templates/pages/exercises/template/create-exercise.template.html" })
+		.when("/exercises/edit", { templateUrl: "./dist/templates/pages/exercises/template/edit-exercise.template.html" })
 
 		// Menu configuration
 		AcadSidebarProvider.config.menu = [

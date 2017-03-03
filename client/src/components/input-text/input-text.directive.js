@@ -10,7 +10,7 @@
 		return {
 			restrict: "E",
 			replace: true,
-			templateUrl: "./assets/templates/components/input-text/input-text.template.html",
+			templateUrl: "./dist/templates/components/input-text/input-text.template.html",
 			scope: {
 				model: "=",
 				label: "=",

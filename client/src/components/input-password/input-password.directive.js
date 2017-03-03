@@ -9,7 +9,7 @@
 	function Directive(){
 		return {
 			restrict: "E",
-			templateUrl: "./assets/templates/components/input-password/input-password.template.html",
+			templateUrl: "./dist/templates/components/input-password/input-password.template.html",
 			scope: {
 				model: "=",
 				label: "=",

@@ -10,7 +10,7 @@
 		return {
 			restrict: "E",
 			transclude: true,
-			templateUrl: "./assets/templates/components/box-item/box-item.template.html",
+			templateUrl: "./dist/templates/components/box-item/box-item.template.html",
 			scope: {
 				title: "=",
 				titleButton: "="
