@@ -20,3 +20,4 @@ Thumbs.db
 
 # Debug files
 **/npm-debug.log
+**/apache-logs/
