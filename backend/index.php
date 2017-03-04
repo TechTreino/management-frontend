@@ -14,7 +14,13 @@ $config["db"]["dbname"] = "academia-digital";
 
 $app = new \Slim\App(["settings" => $config]);
 $app->get('/customers', function (Request $request, Response $response) {
-    $response->getBody()->write("Hello, motherfucker");
-    return $response;
+
+	$data = array(
+		array("firstName" => "Stanley", "lastName" => "Sathler"),
+		array("firstName" => "Isabella", "lastName" => "Garbazza")
+	);
+
+    $newResponse = $response->withJson($data);
+    return $newResponse;
 });
 $app->run();
