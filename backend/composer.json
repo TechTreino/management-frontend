@@ -4,6 +4,10 @@
 		"propel/propel": "~2.0@dev"
 	},
 	"autoload": {
-		"psr-4": {"AcademiaDigital\\": "src/"}
+		"psr-4": {
+			"AcademiaDigital\\": "src/",
+			"AcademiaDigital\\Controller\\": "src/Controller/",
+			"AcademiaDigital\\Routing\\": "src/Routing/"
+		}
 	}
 }

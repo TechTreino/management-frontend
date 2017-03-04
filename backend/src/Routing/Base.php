@@ -3,7 +3,7 @@
 namespace AcademiaDigital\Routing;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-abstract class BaseRouting
+abstract class Base
 {
     /**
      * Slim app where routes are appended to.

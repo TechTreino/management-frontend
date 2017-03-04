@@ -4,7 +4,7 @@ namespace AcademiaDigital\Routing;
 use Slim\Http\Response;
 use Slim\Http\Request;
 
-class CustomerRouting extends BaseRouting
+class Customer extends Base
 {
     public function __construct($app)
     {

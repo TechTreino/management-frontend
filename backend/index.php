@@ -1,7 +1,5 @@
 <?php
 
-use \AcademiaDigital\Routing;
-
 /*
  * Requires Composer's autoloader
  */
@@ -16,7 +14,7 @@ $app = new \Slim\App(["settings" => $config]);
 /*
  * Register - manually, unfortunately - all routes
  */
-(new Routing\CustomerRouting($app))->initialize();
+(new AcademiaDigital\Routing\Customer($app))->initialize();
 
 /*
  * Runs the app
