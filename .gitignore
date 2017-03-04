@@ -15,7 +15,7 @@
 **/.baseDir.js
 
 # OS Files
-.DS_Store
+**/.DS_Store
 Thumbs.db
 
 # Debug files
