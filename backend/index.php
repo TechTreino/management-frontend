@@ -1,22 +1,24 @@
 <?php
 
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+use \AcademiaDigital\Routing;
 
+/*
+ * Requires Composer's autoloader
+ */
 require 'vendor/autoload.php';
 
+/*
+ * Configures the Slim application
+ */
 $config["displayErrorDetails"] = true;
-$config["addContentLengthHeader"] = false;
-
 $app = new \Slim\App(["settings" => $config]);
-$app->get('/customers', function (Request $request, Response $response) {
 
-	$data = array(
-		array("firstName" => "Stanley", "lastName" => "Sathler"),
-		array("firstName" => "Isabella", "lastName" => "Garbazza")
-	);
+/*
+ * Register - manually, unfortunately - all routes
+ */
+(new Routing\CustomerRouting($app))->initialize();
 
-    $newResponse = $response->withJson($data);
-    return $newResponse;
-});
+/*
+ * Runs the app
+ */
 $app->run();
