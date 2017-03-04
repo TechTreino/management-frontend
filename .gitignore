@@ -21,3 +21,9 @@ Thumbs.db
 # Debug files
 **/npm-debug.log
 **/apache-logs/
+
+# JetBrains IDE
+**/.idea/
+
+# Propel files
+**/generated-sql/

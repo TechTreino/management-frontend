@@ -7,10 +7,6 @@ require 'vendor/autoload.php';
 
 $config["displayErrorDetails"] = true;
 $config["addContentLengthHeader"] = false;
-$config["db"]["host"] = "localhost";
-$config["db"]["user"] = "root";
-$config["db"]["password"] = "root2017";
-$config["db"]["dbname"] = "academia-digital";
 
 $app = new \Slim\App(["settings" => $config]);
 $app->get('/customers', function (Request $request, Response $response) {
