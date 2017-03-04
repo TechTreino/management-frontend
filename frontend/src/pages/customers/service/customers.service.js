@@ -5,35 +5,35 @@
 angular
 	.module("Customers")
 	.service("CustomersService", [
-		"$http", 
+		"AcadHttp", 
 		Service
 	]);
 
-function Service($http)
+function Service(AcadHttp)
 {
 	this.all = function()
 	{
-		return $http.get("/customers");
+		return AcadHttp.get("/customers");
 	};
 
 	this.create = function(customer)
 	{
-		return $http.post("/customers", customer);
+		return AcadHttp.post("/customers", customer);
 	};
 
 	this.update = function(id, customer)
 	{
-		return $http.post("/customers/" + id, customer);
+		return AcadHttp.post("/customers/" + id, customer);
 	}
 
 	this.byId = function(id)
 	{
-		return $http.get("/customers/" + id);
+		return AcadHttp.get("/customers/" + id);
 	};
 
 	this.delete = function(id)
 	{
-		return $http.delete("/customers/" + id);
+		return AcadHttp.delete("/customers/" + id);
 	}
 }
 

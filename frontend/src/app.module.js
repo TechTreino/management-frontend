@@ -3,7 +3,6 @@
 angular
 	.module("AcademiaDigital", [
 		"ngRoute",
-		"AcadGlobals",
 		"AcadSidebar",
 		"AcadTopbar",
 		"AcadContent",
@@ -37,7 +36,5 @@ angular
 				{ id: "customers", text: "Alunos", link: "#!/customers/" },
 				{ id: "exercises", text: "Exercícios", link: "#!/exercises/" }
 			];
-
-			// Request Interceptor
 
 	});
