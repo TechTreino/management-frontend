@@ -9,7 +9,7 @@ $config["displayErrorDetails"] = true;
 $config["addContentLengthHeader"] = false;
 $config["db"]["host"] = "localhost";
 $config["db"]["user"] = "root";
-$config["db"]["password"] = "";
+$config["db"]["password"] = "root2017";
 $config["db"]["dbname"] = "academia-digital";
 
 $app = new \Slim\App(["settings" => $config]);
