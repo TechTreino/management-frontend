@@ -1,6 +1,7 @@
 <?php
 
 use AcademiaDigital\Controller;
+use AcademiaDigital\Service;
 
 /*
  * Requires Composer's autoloader
@@ -17,7 +18,15 @@ $app = new \Slim\App(["settings" => $config]);
  * Register - manually, unfortunately - all controllers
  */
 $container = $app->getContainer();
-$container["CustomerController"] = function(){ return new Controller\Customer(); };
+
+// Customer
+$container["CustomerService"] = function(){
+    return new Service\Customer();
+};
+$container["CustomerController"] = function(Slim\Container $c){
+    $customerService = $c->get("CustomerService");
+    return new Controller\Customer($customerService);
+};
 
 /*
  * Register - manually, unfortunately - all routes

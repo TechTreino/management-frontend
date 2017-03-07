@@ -11,6 +11,6 @@ class Customer extends Base
 
     public function initialize()
     {
-        $this->app->get("/customers", "\\AcademiaDigital\\Controller\\Customer:getAll");
+        $this->app->get("/customers", "CustomerController:getAll");
     }
 }
