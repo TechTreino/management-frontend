@@ -1,13 +1,12 @@
 {
 	"require": {
 		"slim/slim-skeleton": "3.1.*",
-		"propel/propel": "~2.0@dev"
+		"doctrine/orm": "2.4.*",
+		"symfony/yaml": "2.*"
 	},
 	"autoload": {
 		"psr-4": {
-			"AcademiaDigital\\": "src/",
-			"AcademiaDigital\\Controller\\": "src/Controller/",
-			"AcademiaDigital\\Routing\\": "src/Routing/"
+			"AcademiaDigital\\": "src/"
 		}
 	}
 }
