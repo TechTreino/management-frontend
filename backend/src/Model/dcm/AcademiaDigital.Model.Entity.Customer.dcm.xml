@@ -7,11 +7,11 @@
 		<id name="id" type="integer">
 			<generator strategy="AUTO" />
 		</id>
-        <field name="email" type="string" />
-		<field name="first_name" type="string" />
-        <field name="last_name" type="string" />
-        <field name="password" type="string" />
-        <field name="created_at" type="string" />
-        <field name="modified_at" type="string" />
+        <field name="email" column="email" type="string" />
+		<field name="firstName" column="first_name" type="string" />
+        <field name="lastName" column="last_name" type="string" />
+        <field name="password" column="password" type="string" />
+        <field name="createdAt" column="created_at" type="datetime" />
+        <field name="modifiedAt" column="modified_at" type="datetime" />
 	</entity>
 </doctrine-mapping>

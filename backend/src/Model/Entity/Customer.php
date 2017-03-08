@@ -3,7 +3,7 @@
 namespace AcademiaDigital\Model\Entity;
 
 /**
- * @Entity @Table(name="customer")
+ * @Entity @Table(name="customers")
  **/
 class Customer
 {
@@ -13,19 +13,19 @@ class Customer
 	/** @Column(type="string") **/
     protected $email;
 
-	/** @Column(type="string",name="first_name") **/
+	/** @Column(type="string", name="first_name") **/
     protected $firstName;
 
-	/** @Column(type="string") **/
+	/** @Column(type="string", name="last_name") **/
     protected $lastName;
 
 	/** @Column(type="string") **/
     protected $password;
 
-	/** @Column(type="string") **/
+	/** @Column(type="string", name="created_at") **/
     protected $createdAt;
 
-	/** @Column(type="string") **/
+	/** @Column(type="string", name="modified_at") **/
     protected $modifiedAt;
 
     public function getId()
