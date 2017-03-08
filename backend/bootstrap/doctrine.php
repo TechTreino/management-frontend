@@ -5,16 +5,15 @@ use Doctrine\ORM\EntityManager;
 
 // Create a simple "default" Doctrine ORM configuration for Annotations
 $isDevMode = true;
-$config = Setup::createXMLMetadataConfiguration(array(__DIR__ . "/../src/Model/DCM"), $isDevMode);
+$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . "/../src/Model/Entity"), $isDevMode);
 
 // Database configuration parameters
-// I DONT KNOW IF THIS IS CORRECT YET
 $conn = array(
-    "driver" => "pdo_mysql",
-    "dbname" => "academiadigital",
-    "host" => "localhost",
-    "user" => "root",
-    "password" => "root2017"
+    "driver"    => "pdo_mysql",
+	"host"      => "localhost",
+	"dbname"    => "academiadigital2",
+    "user" 	    => "root",
+    "password"  => "root2017"
 );
 
 // obtaining the entity manager

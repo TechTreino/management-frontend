@@ -2,14 +2,30 @@
 
 namespace AcademiaDigital\Model\Entity;
 
+/**
+ * @Entity @Table(name="customer")
+ **/
 class Customer
 {
+	/** @Id @Column(type="integer") @GeneratedValue **/
     protected $id;
+
+	/** @Column(type="string") **/
     protected $email;
+
+	/** @Column(type="string",name="first_name") **/
     protected $firstName;
+
+	/** @Column(type="string") **/
     protected $lastName;
+
+	/** @Column(type="string") **/
     protected $password;
+
+	/** @Column(type="string") **/
     protected $createdAt;
+
+	/** @Column(type="string") **/
     protected $modifiedAt;
 
     public function getId()
