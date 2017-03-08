@@ -1,16 +1,16 @@
 <?php
 
-namespace AcademiaDigital\Model\Base;
+namespace Base;
 
+use \Customer as ChildCustomer;
+use \CustomerQuery as ChildCustomerQuery;
+use \Training as ChildTraining;
+use \TrainingQuery as ChildTrainingQuery;
 use \DateTime;
 use \Exception;
 use \PDO;
-use AcademiaDigital\AcademiaDigital\Customer as ChildCustomer;
-use AcademiaDigital\AcademiaDigital\CustomerQuery as ChildCustomerQuery;
-use AcademiaDigital\AcademiaDigital\Training as ChildTraining;
-use AcademiaDigital\AcademiaDigital\TrainingQuery as ChildTrainingQuery;
-use AcademiaDigital\AcademiaDigital\Map\CustomerTableMap;
-use AcademiaDigital\AcademiaDigital\Map\TrainingTableMap;
+use Map\CustomerTableMap;
+use Map\TrainingTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -30,14 +30,14 @@ use Propel\Runtime\Util\PropelDateTime;
  *
  *
  *
- * @package    propel.generator.AcademiaDigital.AcademiaDigital.Base
+ * @package    propel.generator..Base
  */
 abstract class Customer implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\AcademiaDigital\\AcademiaDigital\\Map\\CustomerTableMap';
+    const TABLE_MAP = '\\Map\\CustomerTableMap';
 
 
     /**
@@ -136,7 +136,7 @@ abstract class Customer implements ActiveRecordInterface
     protected $trainingsScheduledForDeletion = null;
 
     /**
-     * Initializes internal state of AcademiaDigital\AcademiaDigital\Base\Customer object.
+     * Initializes internal state of Base\Customer object.
      */
     public function __construct()
     {
@@ -454,7 +454,7 @@ abstract class Customer implements ActiveRecordInterface
      * Set the value of [id] column.
      *
      * @param int $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer The current object (for fluent API support)
+     * @return $this|\Customer The current object (for fluent API support)
      */
     public function setId($v)
     {
@@ -474,7 +474,7 @@ abstract class Customer implements ActiveRecordInterface
      * Set the value of [email] column.
      *
      * @param string $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer The current object (for fluent API support)
+     * @return $this|\Customer The current object (for fluent API support)
      */
     public function setEmail($v)
     {
@@ -494,7 +494,7 @@ abstract class Customer implements ActiveRecordInterface
      * Set the value of [first_name] column.
      *
      * @param string $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer The current object (for fluent API support)
+     * @return $this|\Customer The current object (for fluent API support)
      */
     public function setFirstName($v)
     {
@@ -514,7 +514,7 @@ abstract class Customer implements ActiveRecordInterface
      * Set the value of [last_name] column.
      *
      * @param string $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer The current object (for fluent API support)
+     * @return $this|\Customer The current object (for fluent API support)
      */
     public function setLastName($v)
     {
@@ -534,7 +534,7 @@ abstract class Customer implements ActiveRecordInterface
      * Set the value of [password] column.
      *
      * @param string $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer The current object (for fluent API support)
+     * @return $this|\Customer The current object (for fluent API support)
      */
     public function setPassword($v)
     {
@@ -555,7 +555,7 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param  mixed $v string, integer (timestamp), or \DateTimeInterface value.
      *               Empty strings are treated as NULL.
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer The current object (for fluent API support)
+     * @return $this|\Customer The current object (for fluent API support)
      */
     public function setCreatedAt($v)
     {
@@ -575,7 +575,7 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param  mixed $v string, integer (timestamp), or \DateTimeInterface value.
      *               Empty strings are treated as NULL.
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer The current object (for fluent API support)
+     * @return $this|\Customer The current object (for fluent API support)
      */
     public function setModifiedAt($v)
     {
@@ -663,7 +663,7 @@ abstract class Customer implements ActiveRecordInterface
             return $startcol + 7; // 7 = CustomerTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\AcademiaDigital\\AcademiaDigital\\Customer'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\Customer'), 0, $e);
         }
     }
 
@@ -839,7 +839,7 @@ abstract class Customer implements ActiveRecordInterface
 
             if ($this->trainingsScheduledForDeletion !== null) {
                 if (!$this->trainingsScheduledForDeletion->isEmpty()) {
-                    \AcademiaDigital\AcademiaDigital\TrainingQuery::create()
+                    \TrainingQuery::create()
                         ->filterByPrimaryKeys($this->trainingsScheduledForDeletion->getPrimaryKeys(false))
                         ->delete($con);
                     $this->trainingsScheduledForDeletion = null;
@@ -1097,7 +1097,7 @@ abstract class Customer implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer
+     * @return $this|\Customer
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
@@ -1112,7 +1112,7 @@ abstract class Customer implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer
+     * @return $this|\Customer
      */
     public function setByPosition($pos, $value)
     {
@@ -1204,7 +1204,7 @@ abstract class Customer implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer The current object, for fluid interface
+     * @return $this|\Customer The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1326,7 +1326,7 @@ abstract class Customer implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \AcademiaDigital\AcademiaDigital\Customer (or compatible) type.
+     * @param      object $copyObj An object of \Customer (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1368,7 +1368,7 @@ abstract class Customer implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \AcademiaDigital\AcademiaDigital\Customer Clone of current object.
+     * @return \Customer Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1440,7 +1440,7 @@ abstract class Customer implements ActiveRecordInterface
         $collectionClassName = TrainingTableMap::getTableMap()->getCollectionClassName();
 
         $this->collTrainings = new $collectionClassName;
-        $this->collTrainings->setModel('\AcademiaDigital\AcademiaDigital\Training');
+        $this->collTrainings->setModel('\Training');
     }
 
     /**
@@ -1573,7 +1573,7 @@ abstract class Customer implements ActiveRecordInterface
      * through the ChildTraining foreign key attribute.
      *
      * @param  ChildTraining $l ChildTraining
-     * @return $this|\AcademiaDigital\AcademiaDigital\Customer The current object (for fluent API support)
+     * @return $this|\Customer The current object (for fluent API support)
      */
     public function addTraining(ChildTraining $l)
     {

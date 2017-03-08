@@ -1,0 +1,8 @@
+{
+    "propel": {
+        "paths": {
+            "schemaDir": "\/Users\/stanleysathler\/Workfolder\/academia-digital\/backend\/config",
+            "phpDir": "\/Users\/stanleysathler\/Workfolder\/academia-digital\/backend\/src\/Model"
+        }
+    }
+}

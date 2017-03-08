@@ -1,8 +1,6 @@
 <?php
 
-namespace AcademiaDigital\AcademiaDigital;
-
-use AcademiaDigital\Model\Base\MuscleGroup as BaseMuscleGroup;
+use Base\MuscleGroup as BaseMuscleGroup;
 
 /**
  * Skeleton subclass for representing a row from the 'muscle_group' table.

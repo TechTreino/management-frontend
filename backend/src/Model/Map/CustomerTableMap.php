@@ -1,9 +1,9 @@
 <?php
 
-namespace AcademiaDigital\Model\Map;
+namespace Map;
 
-use AcademiaDigital\AcademiaDigital\Customer;
-use AcademiaDigital\AcademiaDigital\CustomerQuery;
+use \Customer;
+use \CustomerQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -34,7 +34,7 @@ class CustomerTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = 'AcademiaDigital.AcademiaDigital.Map.CustomerTableMap';
+    const CLASS_NAME = '.Map.CustomerTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class CustomerTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\AcademiaDigital\\AcademiaDigital\\Customer';
+    const OM_CLASS = '\\Customer';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'AcademiaDigital.AcademiaDigital.Customer';
+    const CLASS_DEFAULT = 'Customer';
 
     /**
      * The total number of columns
@@ -152,8 +152,8 @@ class CustomerTableMap extends TableMap
         $this->setName('customer');
         $this->setPhpName('Customer');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\AcademiaDigital\\AcademiaDigital\\Customer');
-        $this->setPackage('AcademiaDigital.AcademiaDigital');
+        $this->setClassName('\\Customer');
+        $this->setPackage('');
         $this->setUseIdGenerator(true);
         // columns
         $this->addPrimaryKey('id', 'Id', 'INTEGER', true, null, null);
@@ -170,7 +170,7 @@ class CustomerTableMap extends TableMap
      */
     public function buildRelations()
     {
-        $this->addRelation('Training', '\\AcademiaDigital\\AcademiaDigital\\Training', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('Training', '\\Training', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
     0 => ':customer_id',
@@ -381,7 +381,7 @@ class CustomerTableMap extends TableMap
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \AcademiaDigital\AcademiaDigital\Customer) { // it's a model object
+        } elseif ($values instanceof \Customer) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks

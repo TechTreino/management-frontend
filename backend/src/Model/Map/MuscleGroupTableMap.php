@@ -1,9 +1,9 @@
 <?php
 
-namespace AcademiaDigital\Model\Map;
+namespace Map;
 
-use AcademiaDigital\AcademiaDigital\MuscleGroup;
-use AcademiaDigital\AcademiaDigital\MuscleGroupQuery;
+use \MuscleGroup;
+use \MuscleGroupQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -34,7 +34,7 @@ class MuscleGroupTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = 'AcademiaDigital.AcademiaDigital.Map.MuscleGroupTableMap';
+    const CLASS_NAME = '.Map.MuscleGroupTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class MuscleGroupTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\AcademiaDigital\\AcademiaDigital\\MuscleGroup';
+    const OM_CLASS = '\\MuscleGroup';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'AcademiaDigital.AcademiaDigital.MuscleGroup';
+    const CLASS_DEFAULT = 'MuscleGroup';
 
     /**
      * The total number of columns
@@ -137,8 +137,8 @@ class MuscleGroupTableMap extends TableMap
         $this->setName('muscle_group');
         $this->setPhpName('MuscleGroup');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\AcademiaDigital\\AcademiaDigital\\MuscleGroup');
-        $this->setPackage('AcademiaDigital.AcademiaDigital');
+        $this->setClassName('\\MuscleGroup');
+        $this->setPackage('');
         $this->setUseIdGenerator(true);
         // columns
         $this->addPrimaryKey('id', 'Id', 'INTEGER', true, null, null);
@@ -152,7 +152,7 @@ class MuscleGroupTableMap extends TableMap
      */
     public function buildRelations()
     {
-        $this->addRelation('Exercise', '\\AcademiaDigital\\AcademiaDigital\\Exercise', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('Exercise', '\\Exercise', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
     0 => ':muscle_group_id',
@@ -357,7 +357,7 @@ class MuscleGroupTableMap extends TableMap
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \AcademiaDigital\AcademiaDigital\MuscleGroup) { // it's a model object
+        } elseif ($values instanceof \MuscleGroup) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks

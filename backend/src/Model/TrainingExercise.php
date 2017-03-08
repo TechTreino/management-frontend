@@ -1,8 +1,6 @@
 <?php
 
-namespace AcademiaDigital\AcademiaDigital;
-
-use AcademiaDigital\Model\Base\TrainingExercise as BaseTrainingExercise;
+use Base\TrainingExercise as BaseTrainingExercise;
 
 /**
  * Skeleton subclass for representing a row from the 'training_exercise' table.

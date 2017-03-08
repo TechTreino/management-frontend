@@ -1,18 +1,18 @@
 <?php
 
-namespace AcademiaDigital\Model\Base;
+namespace Base;
 
+use \Customer as ChildCustomer;
+use \CustomerQuery as ChildCustomerQuery;
+use \Training as ChildTraining;
+use \TrainingExercise as ChildTrainingExercise;
+use \TrainingExerciseQuery as ChildTrainingExerciseQuery;
+use \TrainingQuery as ChildTrainingQuery;
 use \DateTime;
 use \Exception;
 use \PDO;
-use AcademiaDigital\AcademiaDigital\Customer as ChildCustomer;
-use AcademiaDigital\AcademiaDigital\CustomerQuery as ChildCustomerQuery;
-use AcademiaDigital\AcademiaDigital\Training as ChildTraining;
-use AcademiaDigital\AcademiaDigital\TrainingExercise as ChildTrainingExercise;
-use AcademiaDigital\AcademiaDigital\TrainingExerciseQuery as ChildTrainingExerciseQuery;
-use AcademiaDigital\AcademiaDigital\TrainingQuery as ChildTrainingQuery;
-use AcademiaDigital\AcademiaDigital\Map\TrainingExerciseTableMap;
-use AcademiaDigital\AcademiaDigital\Map\TrainingTableMap;
+use Map\TrainingExerciseTableMap;
+use Map\TrainingTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -32,14 +32,14 @@ use Propel\Runtime\Util\PropelDateTime;
  *
  *
  *
- * @package    propel.generator.AcademiaDigital.AcademiaDigital.Base
+ * @package    propel.generator..Base
  */
 abstract class Training implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\AcademiaDigital\\AcademiaDigital\\Map\\TrainingTableMap';
+    const TABLE_MAP = '\\Map\\TrainingTableMap';
 
 
     /**
@@ -143,7 +143,7 @@ abstract class Training implements ActiveRecordInterface
     protected $trainingExercisesScheduledForDeletion = null;
 
     /**
-     * Initializes internal state of AcademiaDigital\AcademiaDigital\Base\Training object.
+     * Initializes internal state of Base\Training object.
      */
     public function __construct()
     {
@@ -461,7 +461,7 @@ abstract class Training implements ActiveRecordInterface
      * Set the value of [id] column.
      *
      * @param int $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training The current object (for fluent API support)
+     * @return $this|\Training The current object (for fluent API support)
      */
     public function setId($v)
     {
@@ -481,7 +481,7 @@ abstract class Training implements ActiveRecordInterface
      * Set the value of [name] column.
      *
      * @param string $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training The current object (for fluent API support)
+     * @return $this|\Training The current object (for fluent API support)
      */
     public function setName($v)
     {
@@ -501,7 +501,7 @@ abstract class Training implements ActiveRecordInterface
      * Set the value of [customer_id] column.
      *
      * @param int $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training The current object (for fluent API support)
+     * @return $this|\Training The current object (for fluent API support)
      */
     public function setCustomerId($v)
     {
@@ -525,7 +525,7 @@ abstract class Training implements ActiveRecordInterface
      * Set the value of [exercise_id] column.
      *
      * @param int $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training The current object (for fluent API support)
+     * @return $this|\Training The current object (for fluent API support)
      */
     public function setExerciseId($v)
     {
@@ -546,7 +546,7 @@ abstract class Training implements ActiveRecordInterface
      *
      * @param  mixed $v string, integer (timestamp), or \DateTimeInterface value.
      *               Empty strings are treated as NULL.
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training The current object (for fluent API support)
+     * @return $this|\Training The current object (for fluent API support)
      */
     public function setCreatedAt($v)
     {
@@ -566,7 +566,7 @@ abstract class Training implements ActiveRecordInterface
      *
      * @param  mixed $v string, integer (timestamp), or \DateTimeInterface value.
      *               Empty strings are treated as NULL.
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training The current object (for fluent API support)
+     * @return $this|\Training The current object (for fluent API support)
      */
     public function setModifiedAt($v)
     {
@@ -585,7 +585,7 @@ abstract class Training implements ActiveRecordInterface
      * Set the value of [exercise_id1] column.
      *
      * @param int $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training The current object (for fluent API support)
+     * @return $this|\Training The current object (for fluent API support)
      */
     public function setExerciseId1($v)
     {
@@ -674,7 +674,7 @@ abstract class Training implements ActiveRecordInterface
             return $startcol + 7; // 7 = TrainingTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\AcademiaDigital\\AcademiaDigital\\Training'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\Training'), 0, $e);
         }
     }
 
@@ -866,7 +866,7 @@ abstract class Training implements ActiveRecordInterface
 
             if ($this->trainingExercisesScheduledForDeletion !== null) {
                 if (!$this->trainingExercisesScheduledForDeletion->isEmpty()) {
-                    \AcademiaDigital\AcademiaDigital\TrainingExerciseQuery::create()
+                    \TrainingExerciseQuery::create()
                         ->filterByPrimaryKeys($this->trainingExercisesScheduledForDeletion->getPrimaryKeys(false))
                         ->delete($con);
                     $this->trainingExercisesScheduledForDeletion = null;
@@ -1139,7 +1139,7 @@ abstract class Training implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training
+     * @return $this|\Training
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
@@ -1154,7 +1154,7 @@ abstract class Training implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training
+     * @return $this|\Training
      */
     public function setByPosition($pos, $value)
     {
@@ -1246,7 +1246,7 @@ abstract class Training implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training The current object, for fluid interface
+     * @return $this|\Training The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1368,7 +1368,7 @@ abstract class Training implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \AcademiaDigital\AcademiaDigital\Training (or compatible) type.
+     * @param      object $copyObj An object of \Training (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1410,7 +1410,7 @@ abstract class Training implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \AcademiaDigital\AcademiaDigital\Training Clone of current object.
+     * @return \Training Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1427,7 +1427,7 @@ abstract class Training implements ActiveRecordInterface
      * Declares an association between this object and a ChildCustomer object.
      *
      * @param  ChildCustomer $v
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training The current object (for fluent API support)
+     * @return $this|\Training The current object (for fluent API support)
      * @throws PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
@@ -1533,7 +1533,7 @@ abstract class Training implements ActiveRecordInterface
         $collectionClassName = TrainingExerciseTableMap::getTableMap()->getCollectionClassName();
 
         $this->collTrainingExercises = new $collectionClassName;
-        $this->collTrainingExercises->setModel('\AcademiaDigital\AcademiaDigital\TrainingExercise');
+        $this->collTrainingExercises->setModel('\TrainingExercise');
     }
 
     /**
@@ -1666,7 +1666,7 @@ abstract class Training implements ActiveRecordInterface
      * through the ChildTrainingExercise foreign key attribute.
      *
      * @param  ChildTrainingExercise $l ChildTrainingExercise
-     * @return $this|\AcademiaDigital\AcademiaDigital\Training The current object (for fluent API support)
+     * @return $this|\Training The current object (for fluent API support)
      */
     public function addTrainingExercise(ChildTrainingExercise $l)
     {

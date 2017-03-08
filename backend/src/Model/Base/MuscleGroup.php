@@ -1,16 +1,16 @@
 <?php
 
-namespace AcademiaDigital\Model\Base;
+namespace Base;
 
+use \Exercise as ChildExercise;
+use \ExerciseQuery as ChildExerciseQuery;
+use \MuscleGroup as ChildMuscleGroup;
+use \MuscleGroupQuery as ChildMuscleGroupQuery;
 use \DateTime;
 use \Exception;
 use \PDO;
-use AcademiaDigital\AcademiaDigital\Exercise as ChildExercise;
-use AcademiaDigital\AcademiaDigital\ExerciseQuery as ChildExerciseQuery;
-use AcademiaDigital\AcademiaDigital\MuscleGroup as ChildMuscleGroup;
-use AcademiaDigital\AcademiaDigital\MuscleGroupQuery as ChildMuscleGroupQuery;
-use AcademiaDigital\AcademiaDigital\Map\ExerciseTableMap;
-use AcademiaDigital\AcademiaDigital\Map\MuscleGroupTableMap;
+use Map\ExerciseTableMap;
+use Map\MuscleGroupTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -30,14 +30,14 @@ use Propel\Runtime\Util\PropelDateTime;
  *
  *
  *
- * @package    propel.generator.AcademiaDigital.AcademiaDigital.Base
+ * @package    propel.generator..Base
  */
 abstract class MuscleGroup implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\AcademiaDigital\\AcademiaDigital\\Map\\MuscleGroupTableMap';
+    const TABLE_MAP = '\\Map\\MuscleGroupTableMap';
 
 
     /**
@@ -115,7 +115,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
     protected $exercisesScheduledForDeletion = null;
 
     /**
-     * Initializes internal state of AcademiaDigital\AcademiaDigital\Base\MuscleGroup object.
+     * Initializes internal state of Base\MuscleGroup object.
      */
     public function __construct()
     {
@@ -403,7 +403,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
      * Set the value of [id] column.
      *
      * @param int $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\MuscleGroup The current object (for fluent API support)
+     * @return $this|\MuscleGroup The current object (for fluent API support)
      */
     public function setId($v)
     {
@@ -423,7 +423,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
      * Set the value of [name] column.
      *
      * @param string $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\MuscleGroup The current object (for fluent API support)
+     * @return $this|\MuscleGroup The current object (for fluent API support)
      */
     public function setName($v)
     {
@@ -444,7 +444,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
      *
      * @param  mixed $v string, integer (timestamp), or \DateTimeInterface value.
      *               Empty strings are treated as NULL.
-     * @return $this|\AcademiaDigital\AcademiaDigital\MuscleGroup The current object (for fluent API support)
+     * @return $this|\MuscleGroup The current object (for fluent API support)
      */
     public function setCreatedAt($v)
     {
@@ -464,7 +464,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
      *
      * @param  mixed $v string, integer (timestamp), or \DateTimeInterface value.
      *               Empty strings are treated as NULL.
-     * @return $this|\AcademiaDigital\AcademiaDigital\MuscleGroup The current object (for fluent API support)
+     * @return $this|\MuscleGroup The current object (for fluent API support)
      */
     public function setModifiedAt($v)
     {
@@ -543,7 +543,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
             return $startcol + 4; // 4 = MuscleGroupTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\AcademiaDigital\\AcademiaDigital\\MuscleGroup'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\MuscleGroup'), 0, $e);
         }
     }
 
@@ -719,7 +719,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
 
             if ($this->exercisesScheduledForDeletion !== null) {
                 if (!$this->exercisesScheduledForDeletion->isEmpty()) {
-                    \AcademiaDigital\AcademiaDigital\ExerciseQuery::create()
+                    \ExerciseQuery::create()
                         ->filterByPrimaryKeys($this->exercisesScheduledForDeletion->getPrimaryKeys(false))
                         ->delete($con);
                     $this->exercisesScheduledForDeletion = null;
@@ -947,7 +947,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\AcademiaDigital\AcademiaDigital\MuscleGroup
+     * @return $this|\MuscleGroup
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
@@ -962,7 +962,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\AcademiaDigital\AcademiaDigital\MuscleGroup
+     * @return $this|\MuscleGroup
      */
     public function setByPosition($pos, $value)
     {
@@ -1036,7 +1036,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\AcademiaDigital\AcademiaDigital\MuscleGroup The current object, for fluid interface
+     * @return $this|\MuscleGroup The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1149,7 +1149,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \AcademiaDigital\AcademiaDigital\MuscleGroup (or compatible) type.
+     * @param      object $copyObj An object of \MuscleGroup (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1188,7 +1188,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \AcademiaDigital\AcademiaDigital\MuscleGroup Clone of current object.
+     * @return \MuscleGroup Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1260,7 +1260,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
         $collectionClassName = ExerciseTableMap::getTableMap()->getCollectionClassName();
 
         $this->collExercises = new $collectionClassName;
-        $this->collExercises->setModel('\AcademiaDigital\AcademiaDigital\Exercise');
+        $this->collExercises->setModel('\Exercise');
     }
 
     /**
@@ -1393,7 +1393,7 @@ abstract class MuscleGroup implements ActiveRecordInterface
      * through the ChildExercise foreign key attribute.
      *
      * @param  ChildExercise $l ChildExercise
-     * @return $this|\AcademiaDigital\AcademiaDigital\MuscleGroup The current object (for fluent API support)
+     * @return $this|\MuscleGroup The current object (for fluent API support)
      */
     public function addExercise(ChildExercise $l)
     {

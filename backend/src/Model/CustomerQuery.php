@@ -1,8 +1,6 @@
 <?php
 
-namespace AcademiaDigital\Model;
-
-use AcademiaDigital\Model\Base\CustomerQuery as BaseCustomerQuery;
+use Base\CustomerQuery as BaseCustomerQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'customer' table.

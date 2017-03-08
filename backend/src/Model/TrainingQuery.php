@@ -1,8 +1,6 @@
 <?php
 
-namespace AcademiaDigital\AcademiaDigital;
-
-use AcademiaDigital\Model\Base\TrainingQuery as BaseTrainingQuery;
+use Base\TrainingQuery as BaseTrainingQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'training' table.

@@ -1,8 +1,6 @@
 <?php
 
-namespace AcademiaDigital\AcademiaDigital;
-
-use AcademiaDigital\Model\Base\MuscleGroupQuery as BaseMuscleGroupQuery;
+use Base\MuscleGroupQuery as BaseMuscleGroupQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'muscle_group' table.

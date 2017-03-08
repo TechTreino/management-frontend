@@ -1,15 +1,15 @@
 <?php
 
-namespace AcademiaDigital\Model\Base;
+namespace Base;
 
+use \Exercise as ChildExercise;
+use \ExerciseQuery as ChildExerciseQuery;
+use \Training as ChildTraining;
+use \TrainingExerciseQuery as ChildTrainingExerciseQuery;
+use \TrainingQuery as ChildTrainingQuery;
 use \Exception;
 use \PDO;
-use AcademiaDigital\AcademiaDigital\Exercise as ChildExercise;
-use AcademiaDigital\AcademiaDigital\ExerciseQuery as ChildExerciseQuery;
-use AcademiaDigital\AcademiaDigital\Training as ChildTraining;
-use AcademiaDigital\AcademiaDigital\TrainingExerciseQuery as ChildTrainingExerciseQuery;
-use AcademiaDigital\AcademiaDigital\TrainingQuery as ChildTrainingQuery;
-use AcademiaDigital\AcademiaDigital\Map\TrainingExerciseTableMap;
+use Map\TrainingExerciseTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -27,14 +27,14 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  *
  *
- * @package    propel.generator.AcademiaDigital.AcademiaDigital.Base
+ * @package    propel.generator..Base
  */
 abstract class TrainingExercise implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\AcademiaDigital\\AcademiaDigital\\Map\\TrainingExerciseTableMap';
+    const TABLE_MAP = '\\Map\\TrainingExerciseTableMap';
 
 
     /**
@@ -96,7 +96,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
-     * Initializes internal state of AcademiaDigital\AcademiaDigital\Base\TrainingExercise object.
+     * Initializes internal state of Base\TrainingExercise object.
      */
     public function __construct()
     {
@@ -344,7 +344,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
      * Set the value of [training_id] column.
      *
      * @param int $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\TrainingExercise The current object (for fluent API support)
+     * @return $this|\TrainingExercise The current object (for fluent API support)
      */
     public function setTrainingId($v)
     {
@@ -368,7 +368,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
      * Set the value of [exercise_id] column.
      *
      * @param int $v new value
-     * @return $this|\AcademiaDigital\AcademiaDigital\TrainingExercise The current object (for fluent API support)
+     * @return $this|\TrainingExercise The current object (for fluent API support)
      */
     public function setExerciseId($v)
     {
@@ -440,7 +440,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
             return $startcol + 2; // 2 = TrainingExerciseTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\AcademiaDigital\\AcademiaDigital\\TrainingExercise'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\TrainingExercise'), 0, $e);
         }
     }
 
@@ -828,7 +828,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\AcademiaDigital\AcademiaDigital\TrainingExercise
+     * @return $this|\TrainingExercise
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
@@ -843,7 +843,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\AcademiaDigital\AcademiaDigital\TrainingExercise
+     * @return $this|\TrainingExercise
      */
     public function setByPosition($pos, $value)
     {
@@ -905,7 +905,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\AcademiaDigital\AcademiaDigital\TrainingExercise The current object, for fluid interface
+     * @return $this|\TrainingExercise The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1015,7 +1015,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \AcademiaDigital\AcademiaDigital\TrainingExercise (or compatible) type.
+     * @param      object $copyObj An object of \TrainingExercise (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1038,7 +1038,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \AcademiaDigital\AcademiaDigital\TrainingExercise Clone of current object.
+     * @return \TrainingExercise Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1055,7 +1055,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
      * Declares an association between this object and a ChildExercise object.
      *
      * @param  ChildExercise $v
-     * @return $this|\AcademiaDigital\AcademiaDigital\TrainingExercise The current object (for fluent API support)
+     * @return $this|\TrainingExercise The current object (for fluent API support)
      * @throws PropelException
      */
     public function setExercise(ChildExercise $v = null)
@@ -1106,7 +1106,7 @@ abstract class TrainingExercise implements ActiveRecordInterface
      * Declares an association between this object and a ChildTraining object.
      *
      * @param  ChildTraining $v
-     * @return $this|\AcademiaDigital\AcademiaDigital\TrainingExercise The current object (for fluent API support)
+     * @return $this|\TrainingExercise The current object (for fluent API support)
      * @throws PropelException
      */
     public function setTraining(ChildTraining $v = null)

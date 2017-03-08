@@ -1,11 +1,11 @@
 <?php
 
-namespace AcademiaDigital\Model\Base;
+namespace Base;
 
+use \TrainingExercise as ChildTrainingExercise;
+use \TrainingExerciseQuery as ChildTrainingExerciseQuery;
 use \Exception;
-use AcademiaDigital\AcademiaDigital\TrainingExercise as ChildTrainingExercise;
-use AcademiaDigital\AcademiaDigital\TrainingExerciseQuery as ChildTrainingExerciseQuery;
-use AcademiaDigital\AcademiaDigital\Map\TrainingExerciseTableMap;
+use Map\TrainingExerciseTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -54,7 +54,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildTrainingExerciseQuery rightJoinWithTraining() Adds a RIGHT JOIN clause and with to the query using the Training relation
  * @method     ChildTrainingExerciseQuery innerJoinWithTraining() Adds a INNER JOIN clause and with to the query using the Training relation
  *
- * @method     \AcademiaDigital\AcademiaDigital\ExerciseQuery|\AcademiaDigital\AcademiaDigital\TrainingQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ExerciseQuery|\TrainingQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildTrainingExercise findOne(ConnectionInterface $con = null) Return the first ChildTrainingExercise matching the query
  * @method     ChildTrainingExercise findOneOrCreate(ConnectionInterface $con = null) Return the first ChildTrainingExercise matching the query, or a new ChildTrainingExercise object populated from the query conditions when no match is found
@@ -79,13 +79,13 @@ abstract class TrainingExerciseQuery extends ModelCriteria
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \AcademiaDigital\AcademiaDigital\Base\TrainingExerciseQuery object.
+     * Initializes internal state of \Base\TrainingExerciseQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\AcademiaDigital\\AcademiaDigital\\TrainingExercise', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\TrainingExercise', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
@@ -259,9 +259,9 @@ abstract class TrainingExerciseQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \AcademiaDigital\AcademiaDigital\Exercise object
+     * Filter the query by a related \Exercise object
      *
-     * @param \AcademiaDigital\AcademiaDigital\Exercise|ObjectCollection $exercise The related object(s) to use as filter
+     * @param \Exercise|ObjectCollection $exercise The related object(s) to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
@@ -270,7 +270,7 @@ abstract class TrainingExerciseQuery extends ModelCriteria
      */
     public function filterByExercise($exercise, $comparison = null)
     {
-        if ($exercise instanceof \AcademiaDigital\AcademiaDigital\Exercise) {
+        if ($exercise instanceof \Exercise) {
             return $this
                 ->addUsingAlias(TrainingExerciseTableMap::COL_EXERCISE_ID, $exercise->getId(), $comparison);
         } elseif ($exercise instanceof ObjectCollection) {
@@ -281,7 +281,7 @@ abstract class TrainingExerciseQuery extends ModelCriteria
             return $this
                 ->addUsingAlias(TrainingExerciseTableMap::COL_EXERCISE_ID, $exercise->toKeyValue('PrimaryKey', 'Id'), $comparison);
         } else {
-            throw new PropelException('filterByExercise() only accepts arguments of type \AcademiaDigital\AcademiaDigital\Exercise or Collection');
+            throw new PropelException('filterByExercise() only accepts arguments of type \Exercise or Collection');
         }
     }
 
@@ -326,19 +326,19 @@ abstract class TrainingExerciseQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \AcademiaDigital\AcademiaDigital\ExerciseQuery A secondary query class using the current class as primary query
+     * @return \ExerciseQuery A secondary query class using the current class as primary query
      */
     public function useExerciseQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinExercise($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Exercise', '\AcademiaDigital\AcademiaDigital\ExerciseQuery');
+            ->useQuery($relationAlias ? $relationAlias : 'Exercise', '\ExerciseQuery');
     }
 
     /**
-     * Filter the query by a related \AcademiaDigital\AcademiaDigital\Training object
+     * Filter the query by a related \Training object
      *
-     * @param \AcademiaDigital\AcademiaDigital\Training|ObjectCollection $training The related object(s) to use as filter
+     * @param \Training|ObjectCollection $training The related object(s) to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
@@ -347,7 +347,7 @@ abstract class TrainingExerciseQuery extends ModelCriteria
      */
     public function filterByTraining($training, $comparison = null)
     {
-        if ($training instanceof \AcademiaDigital\AcademiaDigital\Training) {
+        if ($training instanceof \Training) {
             return $this
                 ->addUsingAlias(TrainingExerciseTableMap::COL_TRAINING_ID, $training->getId(), $comparison);
         } elseif ($training instanceof ObjectCollection) {
@@ -358,7 +358,7 @@ abstract class TrainingExerciseQuery extends ModelCriteria
             return $this
                 ->addUsingAlias(TrainingExerciseTableMap::COL_TRAINING_ID, $training->toKeyValue('PrimaryKey', 'Id'), $comparison);
         } else {
-            throw new PropelException('filterByTraining() only accepts arguments of type \AcademiaDigital\AcademiaDigital\Training or Collection');
+            throw new PropelException('filterByTraining() only accepts arguments of type \Training or Collection');
         }
     }
 
@@ -403,13 +403,13 @@ abstract class TrainingExerciseQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \AcademiaDigital\AcademiaDigital\TrainingQuery A secondary query class using the current class as primary query
+     * @return \TrainingQuery A secondary query class using the current class as primary query
      */
     public function useTrainingQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinTraining($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Training', '\AcademiaDigital\AcademiaDigital\TrainingQuery');
+            ->useQuery($relationAlias ? $relationAlias : 'Training', '\TrainingQuery');
     }
 
     /**

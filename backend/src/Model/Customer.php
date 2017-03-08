@@ -1,8 +1,6 @@
 <?php
 
-namespace AcademiaDigital\Model;
-
-use AcademiaDigital\Model\Base\Customer as BaseCustomer;
+use Base\Customer as BaseCustomer;
 
 /**
  * Skeleton subclass for representing a row from the 'customer' table.

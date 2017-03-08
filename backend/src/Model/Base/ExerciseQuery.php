@@ -1,12 +1,12 @@
 <?php
 
-namespace AcademiaDigital\Model\Base;
+namespace Base;
 
+use \Exercise as ChildExercise;
+use \ExerciseQuery as ChildExerciseQuery;
 use \Exception;
 use \PDO;
-use AcademiaDigital\AcademiaDigital\Exercise as ChildExercise;
-use AcademiaDigital\AcademiaDigital\ExerciseQuery as ChildExerciseQuery;
-use AcademiaDigital\AcademiaDigital\Map\ExerciseTableMap;
+use Map\ExerciseTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -60,7 +60,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildExerciseQuery rightJoinWithTrainingExercise() Adds a RIGHT JOIN clause and with to the query using the TrainingExercise relation
  * @method     ChildExerciseQuery innerJoinWithTrainingExercise() Adds a INNER JOIN clause and with to the query using the TrainingExercise relation
  *
- * @method     \AcademiaDigital\AcademiaDigital\MuscleGroupQuery|\AcademiaDigital\AcademiaDigital\TrainingExerciseQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \MuscleGroupQuery|\TrainingExerciseQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildExercise findOne(ConnectionInterface $con = null) Return the first ChildExercise matching the query
  * @method     ChildExercise findOneOrCreate(ConnectionInterface $con = null) Return the first ChildExercise matching the query, or a new ChildExercise object populated from the query conditions when no match is found
@@ -94,13 +94,13 @@ abstract class ExerciseQuery extends ModelCriteria
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \AcademiaDigital\AcademiaDigital\Base\ExerciseQuery object.
+     * Initializes internal state of \Base\ExerciseQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\AcademiaDigital\\AcademiaDigital\\Exercise', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\Exercise', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
@@ -470,9 +470,9 @@ abstract class ExerciseQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \AcademiaDigital\AcademiaDigital\MuscleGroup object
+     * Filter the query by a related \MuscleGroup object
      *
-     * @param \AcademiaDigital\AcademiaDigital\MuscleGroup|ObjectCollection $muscleGroup The related object(s) to use as filter
+     * @param \MuscleGroup|ObjectCollection $muscleGroup The related object(s) to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
@@ -481,7 +481,7 @@ abstract class ExerciseQuery extends ModelCriteria
      */
     public function filterByMuscleGroup($muscleGroup, $comparison = null)
     {
-        if ($muscleGroup instanceof \AcademiaDigital\AcademiaDigital\MuscleGroup) {
+        if ($muscleGroup instanceof \MuscleGroup) {
             return $this
                 ->addUsingAlias(ExerciseTableMap::COL_MUSCLE_GROUP_ID, $muscleGroup->getId(), $comparison);
         } elseif ($muscleGroup instanceof ObjectCollection) {
@@ -492,7 +492,7 @@ abstract class ExerciseQuery extends ModelCriteria
             return $this
                 ->addUsingAlias(ExerciseTableMap::COL_MUSCLE_GROUP_ID, $muscleGroup->toKeyValue('PrimaryKey', 'Id'), $comparison);
         } else {
-            throw new PropelException('filterByMuscleGroup() only accepts arguments of type \AcademiaDigital\AcademiaDigital\MuscleGroup or Collection');
+            throw new PropelException('filterByMuscleGroup() only accepts arguments of type \MuscleGroup or Collection');
         }
     }
 
@@ -537,26 +537,26 @@ abstract class ExerciseQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \AcademiaDigital\AcademiaDigital\MuscleGroupQuery A secondary query class using the current class as primary query
+     * @return \MuscleGroupQuery A secondary query class using the current class as primary query
      */
     public function useMuscleGroupQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinMuscleGroup($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'MuscleGroup', '\AcademiaDigital\AcademiaDigital\MuscleGroupQuery');
+            ->useQuery($relationAlias ? $relationAlias : 'MuscleGroup', '\MuscleGroupQuery');
     }
 
     /**
-     * Filter the query by a related \AcademiaDigital\AcademiaDigital\TrainingExercise object
+     * Filter the query by a related \TrainingExercise object
      *
-     * @param \AcademiaDigital\AcademiaDigital\TrainingExercise|ObjectCollection $trainingExercise the related object to use as filter
+     * @param \TrainingExercise|ObjectCollection $trainingExercise the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return ChildExerciseQuery The current query, for fluid interface
      */
     public function filterByTrainingExercise($trainingExercise, $comparison = null)
     {
-        if ($trainingExercise instanceof \AcademiaDigital\AcademiaDigital\TrainingExercise) {
+        if ($trainingExercise instanceof \TrainingExercise) {
             return $this
                 ->addUsingAlias(ExerciseTableMap::COL_ID, $trainingExercise->getExerciseId(), $comparison);
         } elseif ($trainingExercise instanceof ObjectCollection) {
@@ -565,7 +565,7 @@ abstract class ExerciseQuery extends ModelCriteria
                 ->filterByPrimaryKeys($trainingExercise->getPrimaryKeys())
                 ->endUse();
         } else {
-            throw new PropelException('filterByTrainingExercise() only accepts arguments of type \AcademiaDigital\AcademiaDigital\TrainingExercise or Collection');
+            throw new PropelException('filterByTrainingExercise() only accepts arguments of type \TrainingExercise or Collection');
         }
     }
 
@@ -610,13 +610,13 @@ abstract class ExerciseQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \AcademiaDigital\AcademiaDigital\TrainingExerciseQuery A secondary query class using the current class as primary query
+     * @return \TrainingExerciseQuery A secondary query class using the current class as primary query
      */
     public function useTrainingExerciseQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinTrainingExercise($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'TrainingExercise', '\AcademiaDigital\AcademiaDigital\TrainingExerciseQuery');
+            ->useQuery($relationAlias ? $relationAlias : 'TrainingExercise', '\TrainingExerciseQuery');
     }
 
     /**

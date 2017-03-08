@@ -1,9 +1,9 @@
 <?php
 
-namespace AcademiaDigital\Model\Map;
+namespace Map;
 
-use AcademiaDigital\AcademiaDigital\Exercise;
-use AcademiaDigital\AcademiaDigital\ExerciseQuery;
+use \Exercise;
+use \ExerciseQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -34,7 +34,7 @@ class ExerciseTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = 'AcademiaDigital.AcademiaDigital.Map.ExerciseTableMap';
+    const CLASS_NAME = '.Map.ExerciseTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class ExerciseTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\AcademiaDigital\\AcademiaDigital\\Exercise';
+    const OM_CLASS = '\\Exercise';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'AcademiaDigital.AcademiaDigital.Exercise';
+    const CLASS_DEFAULT = 'Exercise';
 
     /**
      * The total number of columns
@@ -142,8 +142,8 @@ class ExerciseTableMap extends TableMap
         $this->setName('exercise');
         $this->setPhpName('Exercise');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\AcademiaDigital\\AcademiaDigital\\Exercise');
-        $this->setPackage('AcademiaDigital.AcademiaDigital');
+        $this->setClassName('\\Exercise');
+        $this->setPackage('');
         $this->setUseIdGenerator(true);
         // columns
         $this->addPrimaryKey('id', 'Id', 'INTEGER', true, null, null);
@@ -158,14 +158,14 @@ class ExerciseTableMap extends TableMap
      */
     public function buildRelations()
     {
-        $this->addRelation('MuscleGroup', '\\AcademiaDigital\\AcademiaDigital\\MuscleGroup', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('MuscleGroup', '\\MuscleGroup', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
     0 => ':muscle_group_id',
     1 => ':id',
   ),
 ), null, null, null, false);
-        $this->addRelation('TrainingExercise', '\\AcademiaDigital\\AcademiaDigital\\TrainingExercise', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('TrainingExercise', '\\TrainingExercise', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
     0 => ':exercise_id',
@@ -372,7 +372,7 @@ class ExerciseTableMap extends TableMap
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \AcademiaDigital\AcademiaDigital\Exercise) { // it's a model object
+        } elseif ($values instanceof \Exercise) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks

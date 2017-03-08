@@ -6,6 +6,6 @@ class Customer
 {
     public function getAll()
     {
-
+        return [];
     }
 }

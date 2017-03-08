@@ -1,12 +1,12 @@
 <?php
 
-namespace AcademiaDigital\Model\Base;
+namespace Base;
 
+use \Customer as ChildCustomer;
+use \CustomerQuery as ChildCustomerQuery;
 use \Exception;
 use \PDO;
-use AcademiaDigital\AcademiaDigital\Customer as ChildCustomer;
-use AcademiaDigital\AcademiaDigital\CustomerQuery as ChildCustomerQuery;
-use AcademiaDigital\AcademiaDigital\Map\CustomerTableMap;
+use Map\CustomerTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -54,7 +54,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithTraining() Adds a RIGHT JOIN clause and with to the query using the Training relation
  * @method     ChildCustomerQuery innerJoinWithTraining() Adds a INNER JOIN clause and with to the query using the Training relation
  *
- * @method     \AcademiaDigital\AcademiaDigital\TrainingQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \TrainingQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
@@ -94,13 +94,13 @@ abstract class CustomerQuery extends ModelCriteria
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \AcademiaDigital\AcademiaDigital\Base\CustomerQuery object.
+     * Initializes internal state of \Base\CustomerQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\AcademiaDigital\\Model\\Customer', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\Customer', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
@@ -502,16 +502,16 @@ abstract class CustomerQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \AcademiaDigital\AcademiaDigital\Training object
+     * Filter the query by a related \Training object
      *
-     * @param \AcademiaDigital\AcademiaDigital\Training|ObjectCollection $training the related object to use as filter
+     * @param \Training|ObjectCollection $training the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return ChildCustomerQuery The current query, for fluid interface
      */
     public function filterByTraining($training, $comparison = null)
     {
-        if ($training instanceof \AcademiaDigital\AcademiaDigital\Training) {
+        if ($training instanceof \Training) {
             return $this
                 ->addUsingAlias(CustomerTableMap::COL_ID, $training->getCustomerId(), $comparison);
         } elseif ($training instanceof ObjectCollection) {
@@ -520,7 +520,7 @@ abstract class CustomerQuery extends ModelCriteria
                 ->filterByPrimaryKeys($training->getPrimaryKeys())
                 ->endUse();
         } else {
-            throw new PropelException('filterByTraining() only accepts arguments of type \AcademiaDigital\AcademiaDigital\Training or Collection');
+            throw new PropelException('filterByTraining() only accepts arguments of type \Training or Collection');
         }
     }
 
@@ -565,13 +565,13 @@ abstract class CustomerQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \AcademiaDigital\AcademiaDigital\TrainingQuery A secondary query class using the current class as primary query
+     * @return \TrainingQuery A secondary query class using the current class as primary query
      */
     public function useTrainingQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinTraining($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Training', '\AcademiaDigital\AcademiaDigital\TrainingQuery');
+            ->useQuery($relationAlias ? $relationAlias : 'Training', '\TrainingQuery');
     }
 
     /**
