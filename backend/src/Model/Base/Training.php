@@ -1,6 +1,6 @@
 <?php
 
-namespace Base;
+namespace AcademiaDigital\Model\Base;
 
 use \Customer as ChildCustomer;
 use \CustomerQuery as ChildCustomerQuery;

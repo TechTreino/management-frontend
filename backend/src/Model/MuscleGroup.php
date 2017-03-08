@@ -1,5 +1,6 @@
 <?php
 
+namespace AcademiaDigital\Model;
 use Base\MuscleGroup as BaseMuscleGroup;
 
 /**

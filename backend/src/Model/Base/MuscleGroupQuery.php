@@ -1,6 +1,6 @@
 <?php
 
-namespace Base;
+namespace AcademiaDigital\Model\Base;
 
 use \MuscleGroup as ChildMuscleGroup;
 use \MuscleGroupQuery as ChildMuscleGroupQuery;

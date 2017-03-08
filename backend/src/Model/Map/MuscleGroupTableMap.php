@@ -1,6 +1,6 @@
 <?php
 
-namespace Map;
+namespace AcademiaDigital\Model\Map;
 
 use \MuscleGroup;
 use \MuscleGroupQuery;

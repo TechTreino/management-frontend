@@ -1,6 +1,6 @@
 <?php
 
-namespace Base;
+namespace AcademiaDigital\Model\Base;
 
 use \Training as ChildTraining;
 use \TrainingQuery as ChildTrainingQuery;
