@@ -5,11 +5,12 @@
 
     <entity name="AcademiaDigital\Model\Entity\Exercise" table="exercises">
         <id name="id" type="integer"><generator strategy="AUTO" /></id>
-        <field name="email" column="email" length="45" type="string" unique="true"/>
-        <field name="firstName" column="first_name" length="20" type="string" />
-        <field name="lastName" column="last_name" length="30" type="string" />
-        <field name="password" column="password" length="32" type="string" />
+        <field name="name" column="name" length="50" type="string" />
         <field name="createdAt" column="created_at" type="datetime" />
         <field name="modifiedAt" column="modified_at" type="datetime" />
+
+        <many-to-one target-entity="AcademiaDigital\Model\Entity\MuscleGroup" field="muscleGroup">
+            <join-column name="muscle_group_id" referenced-column-name="id" />
+        </many-to-one>
     </entity>
 </doctrine-mapping>
