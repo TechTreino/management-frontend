@@ -14,9 +14,16 @@ $app = new \Slim\App(["settings" => $slimConfig]);
  */
 $container = $app->getContainer();
 
+// Doctrine Entity Manager
+$container["EntityManager"] = function(){
+	global $entityManager;
+	return $entityManager; // located at ./doctrine.php file
+};
+
 // Customer
 $container["CustomerService"] = function(Slim\Container $c){
-    return new Service\Customer();
+	$entityManager = $c->get("EntityManager");
+    return new Service\Customer($entityManager);
 };
 $container["CustomerController"] = function(Slim\Container $c){
     $customerService = $c->get("CustomerService");

@@ -2,10 +2,20 @@
 
 namespace AcademiaDigital\Service;
 
+use Doctrine\ORM\EntityManager;
+
 class Customer
 {
+	protected $entityManager;
+
+	public function __construct(EntityManager $entityManager)
+	{
+		$this->entityManager = $entityManager;
+	}
+
 	public function getAll()
     {
-        return [];
+        $customerRepository = $this->entityManager->getRepository("AcademiaDigital\\Model\\Entity\\Customer");
+		$customers = $customerRepository->findAll();
     }
 }

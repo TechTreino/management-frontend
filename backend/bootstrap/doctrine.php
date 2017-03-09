@@ -11,7 +11,7 @@ $doctrineConfig = Setup::createXMLMetadataConfiguration(array(__DIR__ . "/../src
 $conn = array(
     "driver"    => "pdo_mysql",
 	"host"      => "localhost",
-	"dbname"    => "academiadigital2",
+	"dbname"    => "academiadigital",
     "user" 	    => "root",
     "password"  => "root2017"
 );
