@@ -4,7 +4,7 @@ namespace AcademiaDigital\Service;
 
 class Customer
 {
-    public function getAll()
+	public function getAll()
     {
         return [];
     }

@@ -6,8 +6,8 @@ use AcademiaDigital\Service;
 /*
  * Configures the Slim application
  */
-$config["displayErrorDetails"] = true;
-$app = new \Slim\App(["settings" => $config]);
+$slimConfig["displayErrorDetails"] = true;
+$app = new \Slim\App(["settings" => $slimConfig]);
 
 /*
  * Register - manually, unfortunately - all controllers
@@ -15,7 +15,7 @@ $app = new \Slim\App(["settings" => $config]);
 $container = $app->getContainer();
 
 // Customer
-$container["CustomerService"] = function(){
+$container["CustomerService"] = function(Slim\Container $c){
     return new Service\Customer();
 };
 $container["CustomerController"] = function(Slim\Container $c){

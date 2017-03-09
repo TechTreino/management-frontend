@@ -5,7 +5,7 @@ use Doctrine\ORM\EntityManager;
 
 // Create a simple "default" Doctrine ORM configuration for Annotations
 $isDevMode = true;
-$config = Setup::createXMLMetadataConfiguration(array(__DIR__ . "/../src/Model/dcm"), $isDevMode);
+$doctrineConfig = Setup::createXMLMetadataConfiguration(array(__DIR__ . "/../src/Model/dcm"), $isDevMode);
 
 // Database configuration parameters
 $conn = array(
@@ -17,4 +17,4 @@ $conn = array(
 );
 
 // obtaining the entity manager
-$entityManager = EntityManager::create($conn, $config);
+$entityManager = EntityManager::create($conn, $doctrineConfig);
