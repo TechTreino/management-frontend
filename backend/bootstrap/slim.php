@@ -32,15 +32,7 @@ $slimContainer["EntityManager"] = function(){
 };
 
 // Customer
-$slimContainer["CustomerService"] = function(Slim\Container $c){
-	$entityManager = $c->get("EntityManager");
-	return new Service\Customer($entityManager);
-};
-
-$slimContainer["CustomerController"] = function(Slim\Container $c){
-	$customerService = $c->get("CustomerService");
-	return new Controller\Customer($customerService);
-};
+(new AcademiaDigital\Dependency\Customer($slimContainer))->inject();
 
 
 /*
