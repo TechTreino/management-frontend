@@ -2,40 +2,54 @@
 
 use AcademiaDigital\Controller;
 use AcademiaDigital\Service;
+use AcademiaDigital\Routing;
+
 
 /*
- * Configures the Slim application
+ * Some application settings
  */
-$slimConfig["displayErrorDetails"] = true;
-$app = new \Slim\App(["settings" => $slimConfig]);
+$slimSettings = array(
+	"displayErrorDetails" => true,
+	"addContentLengthHeader" => false
+);
+
 
 /*
- * Register - manually, unfortunately - all controllers
+ * Creates an application instance
  */
-$container = $app->getContainer();
+$slimApplication = new Slim\App(["settings" => $slimSettings]);
+
+
+/*
+ * Container DI
+ */
+$slimContainer = $slimApplication->getContainer();
 
 // Doctrine Entity Manager
-$container["EntityManager"] = function(){
+$slimContainer["EntityManager"] = function(){
 	global $entityManager;
 	return $entityManager; // located at ./doctrine.php file
 };
 
 // Customer
-$container["CustomerService"] = function(Slim\Container $c){
+$slimContainer["CustomerService"] = function(Slim\Container $c){
 	$entityManager = $c->get("EntityManager");
-    return new Service\Customer($entityManager);
-};
-$container["CustomerController"] = function(Slim\Container $c){
-    $customerService = $c->get("CustomerService");
-    return new Controller\Customer($customerService);
+	return new Service\Customer($entityManager);
 };
 
+$slimContainer["CustomerController"] = function(Slim\Container $c){
+	$customerService = $c->get("CustomerService");
+	return new Controller\Customer($customerService);
+};
+
+
 /*
- * Register - manually, unfortunately - all routes
+ * Routes
  */
-(new AcademiaDigital\Routing\Customer($app))->initialize();
+(new Routing\Customer($slimApplication))->configure();
+
 
 /*
  * Runs the app
  */
-$app->run();
+$slimApplication->run();

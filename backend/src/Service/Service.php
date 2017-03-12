@@ -3,7 +3,7 @@
 namespace AcademiaDigital\Service;
 use Doctrine\ORM\EntityManager;
 
-class Base
+abstract class Service
 {
 	protected $entityManager;
 

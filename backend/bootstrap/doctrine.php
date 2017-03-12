@@ -3,18 +3,24 @@
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
-// Create a simple "default" Doctrine ORM configuration for Annotations
+/*
+ * Configures where .dcm files are stored and which type they are
+ */
 $isDevMode = true;
 $doctrineConfig = Setup::createXMLMetadataConfiguration(array(__DIR__ . "/../src/Model/dcm"), $isDevMode);
 
-// Database configuration parameters
-$conn = array(
-    "driver"    => "pdo_mysql",
+/*
+ * Database configuration parameters
+ */
+$doctrineConnection = array(
+	"driver"    => "pdo_mysql",
 	"host"      => "localhost",
 	"dbname"    => "academiadigital",
-    "user" 	    => "root",
-    "password"  => "root2017"
+	"user" 	    => "root",
+	"password"  => "root2017"
 );
 
-// obtaining the entity manager
-$entityManager = EntityManager::create($conn, $doctrineConfig);
+/*
+ * Creating the Entity Manager
+ */
+$entityManager = EntityManager::create($doctrineConnection, $doctrineConfig);

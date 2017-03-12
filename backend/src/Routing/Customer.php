@@ -2,15 +2,15 @@
 
 namespace AcademiaDigital\Routing;
 
-class Customer extends Base
+class Customer extends Routing
 {
-    public function __construct($app)
-    {
-        parent::__construct($app);
-    }
+	public function __construct($app)
+	{
+		parent::__construct($app);
+	}
 
-    public function initialize()
-    {
-        $this->app->get("/customers", "CustomerController:getAll");
-    }
+	public function configure()
+	{
+		$this->app->get("/customers", "CustomerController:getAll");
+	}
 }

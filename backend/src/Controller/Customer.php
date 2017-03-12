@@ -7,17 +7,17 @@ use AcademiaDigital\Service;
 
 class Customer
 {
-    protected $customerService;
+	protected $customerService;
 
-    public function __construct(Service\Customer $customerService)
-    {
-        $this->customerService = $customerService;
-    }
+	public function __construct(Service\Customer $customerService)
+	{
+		$this->customerService = $customerService;
+	}
 
-    public function getAll(Request $request, Response $response)
-    {
-        $data = $this->customerService->getAll();
-        $newResponse = $response->withJson($data);
-        return $newResponse;
-    }
+	public function getAll(Request $request, Response $response)
+	{
+		$data = $this->customerService->getAll();
+		$newResponse = $response->withJson($data);
+		return $newResponse;
+	}
 }
