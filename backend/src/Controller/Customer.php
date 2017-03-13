@@ -16,8 +16,10 @@ class Customer
 
 	public function getAll(Request $request, Response $response)
 	{
-		$data = $this->customerService->getAll();
-		$newResponse = $response->withJson($data);
-		return $newResponse;
+		$customers = $this->customerService->getAll();
+
+		$serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+		$data = $serializer->serialize($customers, "json");
+		return $response->write($data)->withHeader("Content-Type", "application/json;charset=utf-8");
 	}
 }

@@ -4,7 +4,6 @@ use AcademiaDigital\Controller;
 use AcademiaDigital\Service;
 use AcademiaDigital\Routing;
 
-
 /*
  * Some application settings
  */
@@ -13,12 +12,10 @@ $slimSettings = array(
 	"addContentLengthHeader" => false
 );
 
-
 /*
  * Creates an application instance
  */
 $slimApplication = new Slim\App(["settings" => $slimSettings]);
-
 
 /*
  * Container DI
@@ -34,12 +31,10 @@ $slimContainer["EntityManager"] = function(){
 // Customer
 (new AcademiaDigital\Dependency\Customer($slimContainer))->inject();
 
-
 /*
  * Routes
  */
 (new Routing\Customer($slimApplication))->configure();
-
 
 /*
  * Runs the app
