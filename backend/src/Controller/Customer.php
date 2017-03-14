@@ -6,7 +6,7 @@ use Slim\Http\Response;
 use Slim\Http\Request;
 use AcademiaDigital\Service;
 
-class Customer
+class Customer extends Controller
 {
 	protected $customerService;
 
@@ -18,12 +18,6 @@ class Customer
 	public function getAll(Request $request, Response $response)
 	{
 		$customers = $this->customerService->getAll();
-
-		$serializer = \JMS\Serializer\SerializerBuilder::create()
-			->setPropertyNamingStrategy(new IdenticalPropertyNamingStrategy())
-			->build();
-
-		$data = $serializer->serialize($customers, "json");
-		return $response->write($data)->withHeader("Content-Type", "application/json;charset=utf-8");
+		return $this->respond($response, $customers);
 	}
 }

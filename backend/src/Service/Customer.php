@@ -18,12 +18,5 @@ class Customer
 		$customerRepository = $this->entityManager->getRepository("AcademiaDigital\\Model\\Entity\\Customer");
 		$customers = $customerRepository->findAll();
 		return $customers;
-
-    	/*
-        return array(
-        	array("firstName" => "Stanley", "lastName" => "Sathler"),
-			array("firstName" => "Bella", "lastName" => "Garbazza"),
-		);
-    	*/
     }
 }
