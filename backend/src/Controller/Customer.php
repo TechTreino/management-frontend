@@ -20,4 +20,10 @@ class Customer extends Controller
 		$customers = $this->customerService->getAll();
 		return $this->respond($response, $customers);
 	}
+
+	public function create(Request $request, Response $response)
+	{
+		$this->customerService->create();
+		return $this->respond($response, ["message" => "Customer created successfully"]);
+	}
 }
