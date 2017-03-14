@@ -2,6 +2,7 @@
 
 namespace AcademiaDigital\Service;
 
+use AcademiaDigital\Util\MD5;
 use Doctrine\ORM\EntityManager;
 
 class Customer
@@ -26,7 +27,7 @@ class Customer
 		$customer->setFirstName($firstName);
 		$customer->setLastName($lastName);
 		$customer->setEmail($email);
-		$customer->setPassword("e8d95a51f3af4a3b134bf6bb680a213a");
+		$customer->setPassword(MD5::hash($password));
 		$customer->setCreatedAt(new \DateTime());
 		$customer->setModifiedAt(new \DateTime());
 		$this->entityManager->persist($customer);
