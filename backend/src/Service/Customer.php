@@ -20,12 +20,12 @@ class Customer
 		return $customers;
     }
 
-    public function create()
+    public function create($firstName, $lastName, $email, $password)
 	{
 		$customer = new \AcademiaDigital\Model\Entity\Customer();
-		$customer->setFirstName("Bruno");
-		$customer->setLastName("Ricardo");
-		$customer->setEmail("bruno@mail.com");
+		$customer->setFirstName($firstName);
+		$customer->setLastName($lastName);
+		$customer->setEmail($email);
 		$customer->setPassword("e8d95a51f3af4a3b134bf6bb680a213a");
 		$customer->setCreatedAt(new \DateTime());
 		$customer->setModifiedAt(new \DateTime());

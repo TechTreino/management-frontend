@@ -23,7 +23,13 @@ class Customer extends Controller
 
 	public function create(Request $request, Response $response)
 	{
-		$this->customerService->create();
+		$body = $request->getParsedBody();
+		$firstName = $body["firstName"];
+		$lastName = $body["lastName"];
+		$email = $body["email"];
+		$password = $body["password"];
+
+		$this->customerService->create($firstName, $lastName, $email, $password);
 		return $this->respond($response, ["message" => "Customer created successfully"]);
 	}
 }
