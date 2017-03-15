@@ -8,18 +8,24 @@ use Doctrine\ORM\EntityManager;
 class Customer
 {
 	protected $entityManager;
+	protected $customerRepository;
 
 	public function __construct(EntityManager $entityManager)
 	{
 		$this->entityManager = $entityManager;
+		$this->customerRepository = $this->entityManager->getRepository("AcademiaDigital\\Model\\Entity\\Customer");
 	}
 
 	public function getAll()
     {
-		$customerRepository = $this->entityManager->getRepository("AcademiaDigital\\Model\\Entity\\Customer");
-		$customers = $customerRepository->findAll();
+		$customers = $this->customerRepository->findAll();
 		return $customers;
     }
+
+    public function getOne($id)
+	{
+		return $this->customerRepository->findOneBy(array("id" => $id));
+	}
 
     public function create($firstName, $lastName, $email, $password)
 	{

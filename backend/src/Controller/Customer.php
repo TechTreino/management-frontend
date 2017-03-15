@@ -21,6 +21,13 @@ class Customer extends Controller
 		return $this->respond($response, $customers);
 	}
 
+	public function getOne(Request $request, Response $response, $args)
+	{
+		$id = $args["id"];
+		$customer = $this->customerService->getOne($id);
+		return $this->respond($response, $customer);
+	}
+
 	public function create(Request $request, Response $response)
 	{
 		$body = $request->getParsedBody();
@@ -31,5 +38,10 @@ class Customer extends Controller
 
 		$this->customerService->create($firstName, $lastName, $email, $password);
 		return $this->respond($response, ["message" => "Customer created successfully"]);
+	}
+
+	public function update(Request $request, Response $response, $args)
+	{
+		var_dump($args); die;
 	}
 }

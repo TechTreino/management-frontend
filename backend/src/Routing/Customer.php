@@ -12,6 +12,9 @@ class Customer extends Routing
 	public function configure()
 	{
 		$this->app->get("/customers", "CustomerController:getAll");
+		$this->app->get("/customers/{id}", "CustomerController:getOne");
 		$this->app->post("/customers", "CustomerController:create");
+		$this->app->post("/customers/{id}", "CustomerController:update");
+		$this->app->delete("/customers/{id}", "CustomerController:delete");
 	}
 }

@@ -33,13 +33,13 @@ function Controller($scope, $location, CustomersService, AcadModalService, AcadS
 
 	$scope.editCustomer = function(customer)
 	{
-		var customerId = customer._id;
+		var customerId = customer.id;
 		$location.path("customers/" + customerId);
 	};
 
 	$scope.deleteCustomer = function(customer)
 	{
-		var customerId = customer._id;
+		var customerId = customer.id;
 		var title = "Deseja realmente excluir este aluno?";
 		var message = "Uma vez excluído, os dados do aluno serão perdidos para sempre :O";
 		var buttons = [
@@ -64,7 +64,7 @@ function Controller($scope, $location, CustomersService, AcadModalService, AcadS
 		for(var i = 0; i < customers.length; i++)
 		{
 			var customer = customers[i];
-			if(customer._id === customerId)
+			if(customer.id === customerId)
 				$scope.customers.splice(i, 1);
 		}
 	}
