@@ -11,5 +11,10 @@
         <field name="password" column="password" length="32" type="string" />
         <field name="createdAt" column="created_at" type="datetime" />
         <field name="modifiedAt" column="modified_at" type="datetime" />
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="onPrePersist"/>
+            <lifecycle-callback type="preUpdate" method="onPreUpdate"/>
+        </lifecycle-callbacks>
     </entity>
 </doctrine-mapping>

@@ -1,16 +1,15 @@
 <?php
 
 namespace AcademiaDigital\Model\Entity;
+use AcademiaDigital\Model\Entity\Auditable\Auditable;
 
-class Customer
+class Customer extends Auditable
 {
     protected $id;
     protected $email;
     protected $firstName;
     protected $lastName;
     protected $password;
-    protected $createdAt;
-    protected $modifiedAt;
 
     public function getId()
     {
@@ -55,25 +54,5 @@ class Customer
     public function setPassword($password)
     {
         $this->password = $password;
-    }
-
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function getModifiedAt()
-    {
-        return $this->modifiedAt;
-    }
-
-    public function setModifiedAt($modifiedAt)
-    {
-        $this->modifiedAt = $modifiedAt;
     }
 }

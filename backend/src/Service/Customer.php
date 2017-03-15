@@ -28,8 +28,6 @@ class Customer
 		$customer->setLastName($lastName);
 		$customer->setEmail($email);
 		$customer->setPassword(MD5::hash($password));
-		$customer->setCreatedAt(new \DateTime());
-		$customer->setModifiedAt(new \DateTime());
 		$this->entityManager->persist($customer);
 		$this->entityManager->flush();
 		return true;
