@@ -52,4 +52,11 @@ class Customer extends Controller
 		$modifiedCustomer = $this->customerService->update($id, $firstName, $lastName, $email);
 		return $this->respond($response, ["message" => "Customer modified successfully", "customer" => $modifiedCustomer]);
 	}
+
+	public function delete(Request $request, Response $response, array $args)
+	{
+		$id = $args["id"];
+		$wasDeleted = $this->customerService->delete($id);
+		return $this->respond($response, ["message" => "Customer deleted successfully", "deleted" => true]);
+	}
 }

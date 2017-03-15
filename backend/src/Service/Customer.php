@@ -50,4 +50,11 @@ class Customer
 
 		return $customer;
 	}
+
+	public function delete($id)
+	{
+		$customer = $this->customerRepository->findOneBy(["id" => $id]);
+		$this->entityManager->remove($customer);
+		$this->entityManager->flush();
+	}
 }
