@@ -21,7 +21,7 @@ class Customer extends Controller
 		return $this->respond($response, $customers);
 	}
 
-	public function getOne(Request $request, Response $response, $args)
+	public function getOne(Request $request, Response $response, array $args)
 	{
 		$id = $args["id"];
 		$customer = $this->customerService->getOne($id);
@@ -40,8 +40,16 @@ class Customer extends Controller
 		return $this->respond($response, ["message" => "Customer created successfully"]);
 	}
 
-	public function update(Request $request, Response $response, $args)
+	public function update(Request $request, Response $response, array $args)
 	{
-		var_dump($args); die;
+		$body = $request->getParsedBody();
+
+		$id = $args["id"];
+		$firstName = $body["firstName"];
+		$lastName = $body["lastName"];
+		$email = $body["email"];
+
+		$modifiedCustomer = $this->customerService->update($id, $firstName, $lastName, $email);
+		return $this->respond($response, ["message" => "Customer modified successfully", "customer" => $modifiedCustomer]);
 	}
 }

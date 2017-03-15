@@ -1,7 +1,7 @@
 <?php
 
 namespace AcademiaDigital\Model\Entity\Auditable;
-use Doctrine\Common\Persistence\Event\PreUpdateEventArgs;
+use Doctrine\ORM\Event\PreUpdateEventArgs;
 
 abstract class Auditable implements DoctrineLifecycleInterface
 {

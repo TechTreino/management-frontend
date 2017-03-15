@@ -38,4 +38,16 @@ class Customer
 		$this->entityManager->flush();
 		return true;
 	}
+
+	public function update($id, $firstName, $lastName, $email)
+	{
+		$customer = $this->customerRepository->findOneBy(["id" => $id]);
+		$customer->setFirstName($firstName);
+		$customer->setLastName($lastName);
+		$customer->setEmail($email);
+		$this->entityManager->persist($customer);
+		$this->entityManager->flush();
+
+		return $customer;
+	}
 }
