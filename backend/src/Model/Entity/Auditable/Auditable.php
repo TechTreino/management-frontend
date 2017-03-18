@@ -20,4 +20,14 @@ abstract class Auditable implements DoctrineLifecycleInterface
 		$rightNow = new \DateTime();
 		$this->modifiedAt = $rightNow;
 	}
+
+	public function getCreatedAt()
+	{
+		return $this->createdAt;
+	}
+
+	public function getModifiedAt()
+	{
+		return $this->modifiedAt;
+	}
 }

@@ -1,13 +1,11 @@
 <?php
 
 namespace AcademiaDigital\Model\Entity;
-use AcademiaDigital\Model\Entity\Auditable\Auditable;
 
-class Exercise extends Auditable
+class MuscleGroup
 {
 	protected $id;
 	protected $name;
-	protected $muscleGroup;
 	protected $createdAt;
 	protected $modifiedAt;
 
@@ -31,8 +29,23 @@ class Exercise extends Auditable
 		return $this->muscleGroup;
 	}
 
-	public function setMuscleGroup($muscleGroup)
+	public function getCreatedAt()
 	{
-		$this->muscleGroup = $muscleGroup;
+		return $this->createdAt;
+	}
+
+	public function setCreatedAt($createdAt)
+	{
+		$this->createdAt = $createdAt;
+	}
+
+	public function getModifiedAt()
+	{
+		return $this->modifiedAt;
+	}
+
+	public function setModifiedAt($modifiedAt)
+	{
+		$this->modifiedAt = $modifiedAt;
 	}
 }

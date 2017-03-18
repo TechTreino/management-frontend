@@ -5,35 +5,35 @@
 angular
 	.module("Exercises")
 	.service("ExercisesService", [
-		"$http", 
+		"AcadHttp",
 		Service
 	]);
 
-function Service($http)
+function Service(AcadHttp)
 {
 	this.all = function()
 	{
-		return $http.get("/exercises");
+		return AcadHttp.get("/exercises");
 	};
 
 	this.create = function(exercise)
 	{
-		return $http.post("/exercises", exercise);
+		return AcadHttp.post("/exercises", exercise);
 	};
 
 	this.update = function(id, exercise)
 	{
-		return $http.post("/exercises/" + id, exercise);
+		return AcadHttp.post("/exercises/" + id, exercise);
 	}
 
 	this.byId = function(id)
 	{
-		return $http.get("/exercises/" + id);
+		return AcadHttp.get("/exercises/" + id);
 	};
 
 	this.delete = function(id)
 	{
-		return $http.delete("/exercises/" + id);
+		return AcadHttp.delete("/exercises/" + id);
 	}
 }
 

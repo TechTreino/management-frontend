@@ -30,11 +30,13 @@ $slimContainer["EntityManager"] = function(){
 
 // Customer
 (new AcademiaDigital\Dependency\Customer($slimContainer))->inject();
+(new AcademiaDigital\Dependency\Exercise($slimContainer))->inject();
 
 /*
  * Routes
  */
 (new Routing\Customer($slimApplication))->configure();
+(new Routing\Exercise($slimApplication))->configure();
 
 /*
  * Runs the app
