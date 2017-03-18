@@ -3,7 +3,7 @@
 	title="title"
 	title-button="{ type: 'success', text: '+', click: this.addMethod }">
 
-	<table>
+	<table ng-controller="AcadCrudBoxItemController">
 
 		<thead>
 			<tr>
@@ -20,7 +20,7 @@
 			<tr ng-repeat="item in this.data">
 				<td 
 					ng-repeat="column in this.columns"
-					ng-bind="item[column.value]">
+					ng-bind="this.getColumnValue(item, column)">
 				</td>
 				<td class="actions">
 					<a class="edit" ng-click="this.editMethod({row: item})"><i class="fa fa-pencil"></i></a>

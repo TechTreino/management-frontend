@@ -12,29 +12,6 @@ angular
 
 function Controller($scope, $location, ExercisesService, AcadModalService, AcadSidebar)
 {
-
-	/**
-	 * Grupos musculares
-	 *
-	 * - Peito
-	 * - Ombro
-	 * - Costas
-	 * - Bíceps
-	 * - Tríceps
-	 * - Antebraço
-	 * - Abdômem
-	 * - Lombar
-	 * - Oblíquo
-	 * - Perna
-	 * - Panturrilha
-	 */
-
-	 /**
-	  * Modelagem exercício:
-	  * - name
-	  * - group
-	  */
-
 	(function initialize(){
 		loadColumns();
 		loadData();
@@ -45,7 +22,7 @@ function Controller($scope, $location, ExercisesService, AcadModalService, AcadS
 	{
 		$scope.columns = [
 			{ value: "name", text: "Nome" },
-			{ value: "group", text: "Grupo" }
+			{ value: "muscleGroup.name", text: "Grupo" }
 		];
 	}
 
