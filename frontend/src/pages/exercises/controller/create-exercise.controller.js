@@ -6,13 +6,26 @@ angular
 	.module("Exercises")
 	.controller("CreateExerciseController", [
 		"$scope", "$location", 
-		"ExercisesService", "AcadFormService",
+		"ExercisesService", "MuscleGroupsService", 
+		"AcadFormService",
 		Controller
 	]);
 
-function Controller($scope, $location, ExercisesService, AcadFormService)
+function Controller($scope, $location, ExercisesService, MuscleGroupsService, AcadFormService)
 {
 	$scope.exercise = {};
+	$scope.muscleGroups = [];
+
+	(function initialize(){
+		loadMuscleGroups();
+	})();
+
+	function loadMuscleGroups()
+	{
+		MuscleGroupsService.all().then(function(response){
+			$scope.muscleGroups = response.data;
+		});
+	}
 
 	$scope.validateName = function(content)
 	{
@@ -23,7 +36,6 @@ function Controller($scope, $location, ExercisesService, AcadFormService)
 	{
 		var exercise = angular.copy($scope.exercise);
 		ExercisesService.create(exercise).then(function(response){
-			console.log("Exercise created");
 			$location.path("/exercises");
 		});
 	};

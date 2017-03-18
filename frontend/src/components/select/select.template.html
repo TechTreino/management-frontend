@@ -1,0 +1,9 @@
+<div class="acad-select">
+    <label>{{ this.label }}</label>
+    <div>
+        <select 
+        	ng-model="this.model"
+        	ng-options="item[this.value] as item[this.description] for item in this.data">
+        </select>
+    </div>
+</div>

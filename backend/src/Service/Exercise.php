@@ -9,11 +9,13 @@ class Exercise
 {
 	protected $entityManager;
 	protected $exerciseRepository;
+	protected $muscleGroupRepository;
 
 	public function __construct(EntityManager $entityManager)
 	{
 		$this->entityManager = $entityManager;
 		$this->exerciseRepository = $this->entityManager->getRepository("AcademiaDigital\\Model\\Entity\\Exercise");
+		$this->muscleGroupRepository = $this->entityManager->getRepository("AcademiaDigital\\Model\\Entity\\MuscleGroup");
 	}
 
 	public function getAll()
@@ -27,9 +29,16 @@ class Exercise
 
 	}
 
-	public function create($firstName, $lastName, $email, $password)
+	public function create($name, $muscleGroupId)
 	{
+		$exercise = new \AcademiaDigital\Model\Entity\Exercise();
+		$muscleGroup = $this->muscleGroupRepository->findOneBy(["id" => $muscleGroupId]);
 
+		$exercise->setName($name);
+		$exercise->setMuscleGroup($muscleGroup);
+
+		$this->entityManager->persist($exercise);
+		$this->entityManager->flush();
 	}
 
 	public function update($id, $firstName, $lastName, $email)

@@ -52,7 +52,7 @@ module.exports = function(Grunt)
 			vendor: {
 				src: [ 
 					(bowerPath + "/reset-css/reset.css"),
-					(bowerPath) + "/components-font-awesome/css/font-awesome.min.css" 
+					(bowerPath + "/components-font-awesome/css/font-awesome.min.css")
 				],
 				dest: (distCssPath + "/vendor.css")
 			}

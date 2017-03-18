@@ -27,7 +27,12 @@ class Exercise extends Controller
 
 	public function create(Request $request, Response $response)
 	{
+		$body = $request->getParsedBody();
+		$name = $body["name"];
+		$muscleGroupId = $body["muscleGroup"];
 
+		$this->exerciseService->create($name, $muscleGroupId);
+		return $this->respond($response, ["message" => "Exercise created successfully"]);
 	}
 
 	public function update(Request $request, Response $response, array $args)

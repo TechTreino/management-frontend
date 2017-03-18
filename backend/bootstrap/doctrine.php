@@ -17,7 +17,8 @@ $doctrineConnection = array(
 	"host"      => "localhost",
 	"dbname"    => "academiadigital",
 	"user" 	    => "root",
-	"password"  => "root2017"
+	"password"  => "root2017",
+	"charset"	=> "utf8"
 );
 
 /*

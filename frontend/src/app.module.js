@@ -11,10 +11,12 @@ angular
 		"AcadBoxItem",
 		"AcadInputText",
 		"AcadInputPassword",
+		"AcadSelect",
 		"AcadForm",
 		"AcadModal",
 		"Customers",
-		"Exercises"
+		"Exercises",
+		"MuscleGroups"
 	])
 	.config(function($routeProvider, $httpProvider, AcadSidebarProvider){
 
