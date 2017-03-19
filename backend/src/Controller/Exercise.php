@@ -37,11 +37,20 @@ class Exercise extends Controller
 
 	public function update(Request $request, Response $response, array $args)
 	{
+		$body = $request->getParsedBody();
 
+		$id = $args["id"];
+		$name = $body["name"];
+		$muscleGroupId = $body["muscleGroup"];
+
+		$modifiedExercise = $this->exerciseService->update($id, $name, $muscleGroupId);
+		return $this->respond($response, ["message" => "Exercise modified successfully", "customer" => $modifiedExercise]);
 	}
 
 	public function delete(Request $request, Response $response, array $args)
 	{
-
+		$id = $args["id"];
+		$wasDeleted = $this->exerciseService->delete($id);
+		return $this->respond($response, ["message" => "Exercise deleted successfully", "deleted" => true]);
 	}
 }

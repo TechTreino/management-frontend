@@ -48,6 +48,8 @@ class Exercise
 
 	public function delete($id)
 	{
-
+		$exercise = $this->exerciseRepository->findOneBy(["id" => $id]);
+		$this->entityManager->remove($exercise);
+		$this->entityManager->flush();
 	}
 }
