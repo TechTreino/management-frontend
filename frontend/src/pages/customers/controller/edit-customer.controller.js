@@ -59,12 +59,12 @@ function Controller($scope, $location, $routeParams, CustomersService)
 	$scope.validatePassword = function(content)
 	{
 		return hasAnyCharacter(content);
-	}
+	};
 
 	$scope.validateRepeatedPassword = function(content)
 	{
 		return content === $scope.customer.password;
-	}
+	};
 
 	$scope.cancel = function()
 	{

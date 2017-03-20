@@ -22,7 +22,9 @@ class Exercise extends Controller
 
 	public function getOne(Request $request, Response $response, array $args)
 	{
-
+		$id = $args["id"];
+		$exercise = $this->exerciseService->getOne($id);
+		return $this->respond($response, $exercise);
 	}
 
 	public function create(Request $request, Response $response)
@@ -50,7 +52,7 @@ class Exercise extends Controller
 	public function delete(Request $request, Response $response, array $args)
 	{
 		$id = $args["id"];
-		$wasDeleted = $this->exerciseService->delete($id);
+		$this->exerciseService->delete($id);
 		return $this->respond($response, ["message" => "Exercise deleted successfully", "deleted" => true]);
 	}
 }

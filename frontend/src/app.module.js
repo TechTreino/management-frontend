@@ -30,7 +30,7 @@ angular
 		
 			.when("/exercises", { templateUrl: "./dist/templates/pages/exercises/template/exercises.template.html" })
 			.when("/exercises/create", { templateUrl: "./dist/templates/pages/exercises/template/create-exercise.template.html" })
-			.when("/exercises/edit", { templateUrl: "./dist/templates/pages/exercises/template/edit-exercise.template.html" })
+			.when("/exercises/:id", { templateUrl: "./dist/templates/pages/exercises/template/edit-exercise.template.html" })
 
 			// Menu configuration
 			AcadSidebarProvider.config.menu = [

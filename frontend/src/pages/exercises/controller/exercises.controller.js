@@ -5,7 +5,7 @@
 angular
 	.module("Exercises")
 	.controller("ExercisesController", [
-		"$scope", "$location", 
+		"$scope", "$location",
 		"ExercisesService", "AcadModalService", "AcadSidebar",
 		Controller
 	]);
@@ -45,7 +45,7 @@ function Controller($scope, $location, ExercisesService, AcadModalService, AcadS
 
 	$scope.deleteExercise = function(exercise)
 	{
-		var exerciseId = exercise._id;
+		var exerciseId = exercise.id;
 		var title = "Deseja realmente excluir este exercício?";
 		var message = "Uma vez excluído um exercício não pode mais ser recuperado.";
 		var buttons = [
@@ -70,11 +70,16 @@ function Controller($scope, $location, ExercisesService, AcadModalService, AcadS
 		for(var i = 0; i < exercises.length; i++)
 		{
 			var exercise = exercises[i];
-			if(exercise._id === exerciseId)
+			if(exercise.id === exerciseId)
 				$scope.exercises.splice(i, 1);
 		}
 	}
 
+	$scope.editExercise = function(exercise)
+	{
+		var exerciseId = exercise.id;
+		$location.path("/exercises/" + exerciseId);
+	}
 }
 
 })();

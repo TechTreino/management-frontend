@@ -26,7 +26,7 @@ class Exercise
 
 	public function getOne($id)
 	{
-
+		return $this->exerciseRepository->findOneBy(["id" => $id]);
 	}
 
 	public function create($name, $muscleGroupId)
@@ -41,9 +41,17 @@ class Exercise
 		$this->entityManager->flush();
 	}
 
-	public function update($id, $firstName, $lastName, $email)
+	public function update($id, $name, $muscleGroupId)
 	{
+		$exercise = $this->exerciseRepository->findOneBy(["id" => $id]);
+		$muscleGroup = $this->muscleGroupRepository->findOneBy(["id" => $muscleGroupId]);
 
+		$exercise->setName($name);
+		$exercise->setMuscleGroup($muscleGroup);
+		$this->entityManager->persist($exercise);
+		$this->entityManager->flush();
+
+		return $exercise;
 	}
 
 	public function delete($id)
