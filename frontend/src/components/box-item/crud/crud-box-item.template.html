@@ -1,7 +1,7 @@
 
 <acad-box-item
 	title="title"
-	title-button="{ type: 'success', text: '+', click: this.addMethod }">
+	title-button="{ type: 'success', text: (this.addLabel || 'add'), click: this.addMethod }">
 
 	<table ng-controller="AcadCrudBoxItemController">
 
@@ -23,8 +23,9 @@
 					ng-bind="this.getColumnValue(item, column)">
 				</td>
 				<td class="actions">
-					<a class="edit" ng-click="this.editMethod({row: item})"><i class="fa fa-pencil"></i></a>
-					<a class="delete" ng-click="this.deleteMethod({row: item})"><i class="fa fa-trash"></i></a>
+					<button class="edit" ng-click="this.editMethod({row: item})">{{ this.editLabel || 'edit' }}</button><!--
+					--><div class="divider"><span>ou</span></div><!--
+					--><button class="delete" ng-click="this.deleteMethod({row: item})">{{ this.deleteLabel || 'delete' }}</button>
 				</td>
 			</tr>
 		</tbody>

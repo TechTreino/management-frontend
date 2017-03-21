@@ -59,8 +59,6 @@ function Controller($scope, $location, $routeParams, ExercisesService, MuscleGro
 
 	$scope.onSaveClick = function()
 	{
-		console.log($scope.exercise);
-
 		if(!areFieldsFilled()) return false;
 
 		var exerciseId = $routeParams.id;

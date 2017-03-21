@@ -17,8 +17,11 @@
 				data: "=",
 				noDataText: "=",
 				addMethod: "&",
+				addLabel: "=",
 				editMethod: "&",
-				deleteMethod: "&"
+				editLabel: "=",
+				deleteMethod: "&",
+				deleteLabel: "="
 			}
 		};
 	}

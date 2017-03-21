@@ -16,7 +16,8 @@ acad-crud-box-item
 		border-bottom: none
 
 	td.actions
-		width: 81px
+		text-align: center
+		width: 155px
 
 	th, 
 	td
@@ -29,18 +30,38 @@ acad-crud-box-item
 		padding: 8px 8px
 		vertical-align: middle
 
-	a
-		+border-radius(3px)
+	div.divider
+		background: linear-gradient(90deg, $neutral-color 50%, $negative-color 50%)
+		display: inline-block
+		font-size: .78em
+		height: 30px
+		line-height: 30px
+		vertical-align: middle
+
+		span
+			+border-radius(100%)
+			background: white
+			padding: 3px
+
+	button
+		border: none
 		display: inline-block
 		color: white
-		font-size: 16px
+		font-size: .93em
 		height: 30px
 		line-height: 30px
 		text-align: center
-		width: 30px
+		vertical-align: middle
+		padding: 0 5px
 
 		&.edit
+			+border-left-radius(15px)
 			background-color: $neutral-color
+			padding-left: 12px
+			padding-right: 8px
 
 		&.delete
+			+border-right-radius(15px)
 			background-color: $negative-color
+			padding-left: 8px
+			padding-right: 12px
