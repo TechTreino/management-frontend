@@ -1,0 +1,15 @@
+<section ng-controller="CustomersListController">
+    <acad-content>
+        <acad-topbar></acad-topbar>
+        <acad-titlebar title="'Fichas'"></acad-titlebar>
+
+        <div class="content">
+            <acad-box-item title="'Alunos cadastrados'">
+                <acad-table
+                    columns="this.columns"
+                    data="this.customers">
+                </acad-table>
+            </acad-box-item>
+        </div>
+    </acad-content>
+</section>

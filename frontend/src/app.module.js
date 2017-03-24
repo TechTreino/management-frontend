@@ -16,7 +16,8 @@ angular
 		"AcadModal",
 		"Customers",
 		"Exercises",
-		"MuscleGroups"
+		"MuscleGroups",
+		"Trainings"
 	])
 	.config(function($routeProvider, $httpProvider, AcadSidebarProvider){
 
@@ -32,11 +33,13 @@ angular
 			.when("/exercises/create", { templateUrl: "./dist/templates/pages/exercises/template/create-exercise.template.html" })
 			.when("/exercises/:id", { templateUrl: "./dist/templates/pages/exercises/template/edit-exercise.template.html" })
 
+			.when("/trainings", { templateUrl: "./dist/templates/pages/trainings/template/customers-list.template.html" });
+
 			// Menu configuration
 			AcadSidebarProvider.config.menu = [
-				{ id: "dashboard", text: "Dashboard", link: "#!/dashboard/" },
 				{ id: "customers", text: "Alunos", link: "#!/customers/" },
-				{ id: "exercises", text: "Exercícios", link: "#!/exercises/" }
+				{ id: "exercises", text: "Exercícios", link: "#!/exercises/" },
+				{ id: "trainings", text: "Fichas", link: "#!/trainings/" }
 			];
 
 	});

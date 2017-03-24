@@ -10,7 +10,11 @@
 		return {
 			restrict: "E",
 			templateUrl: "./dist/templates/components/table/table.template.html",
-			scope: {}
+			scope: {
+				columns: "=",
+				data: "=",
+				noDataText: "="
+			}
 		};
 	}
 

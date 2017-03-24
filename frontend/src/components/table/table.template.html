@@ -1,25 +1,22 @@
-<div class="acad-table">
-	<acad-box-item title="'Alunos registrados'">
-		<table>
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Nome</th>
-					<th>Matrícula</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td>Stanley</td>
-					<td>11516519</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>Igor</td>
-					<td>11516511</td>
-				</tr>
-			</tbody>
-		</table>
-	</acad-box-item>
+<div class="acad-table" ng-controller="AcadTableController">
+	<table>
+
+		<thead>
+			<tr>
+				<th ng-repeat="column in this.columns" ng-bind="column.text"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-if="this.data.length < 1">
+				<td colspan="{{ this.columns.length }}" ng-bind="this.noDataText"></td>
+			</tr>
+
+			<tr ng-repeat="item in this.data">
+				<td ng-repeat="column in this.columns"
+					ng-bind="this.getColumnValue(item, column)">
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
