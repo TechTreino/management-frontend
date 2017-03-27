@@ -6,29 +6,39 @@
 		.module("Trainings")
 		.controller("CustomersListController", [
 			"$scope",
-			"CustomersService",
+			"CustomersService", "AcadSidebar",
 			Controller
 		]);
 	
-	function Controller($scope, CustomersService)
+	function Controller($scope, CustomersService, AcadSidebar)
 	{
 		$scope.customers = [];
 		$scope.columns = [];
 
 		(function initialize(){
-			$scope.columns = getColumns();
-
-			CustomersService.all().then(function(res){
-				$scope.customers = res.data;
-			});
+			setActiveMenuItem();
+			loadColumns();
+			loadData();
 		})();
 
-		function getColumns()
+		function loadColumns()
 		{
-			return [
+			$scope.columns = [
 				{ text: "Nome", value: "firstName" },
 				{ text: "Sobrenome", value: "lastName" }
 			];
+		}
+
+		function loadData()
+		{
+			CustomersService.all().then(function(res){
+				$scope.customers = res.data;
+			});
+		}
+
+		function setActiveMenuItem()
+		{
+			AcadSidebar.setActiveItem("trainings");
 		}
 
 	}
