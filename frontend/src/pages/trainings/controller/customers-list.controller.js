@@ -6,17 +6,16 @@
 		.module("Trainings")
 		.controller("CustomersListController", [
 			"$scope",
-			"CustomersService", "AcadSidebar",
+			"CustomersService",
 			Controller
 		]);
 	
-	function Controller($scope, CustomersService, AcadSidebar)
+	function Controller($scope, CustomersService)
 	{
 		$scope.customers = [];
 		$scope.columns = [];
 
 		(function initialize(){
-			setActiveMenuItem();
 			loadColumns();
 			loadData();
 		})();
@@ -34,11 +33,6 @@
 			CustomersService.all().then(function(res){
 				$scope.customers = res.data;
 			});
-		}
-
-		function setActiveMenuItem()
-		{
-			AcadSidebar.setActiveItem("trainings");
 		}
 
 	}

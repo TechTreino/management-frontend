@@ -6,11 +6,11 @@ angular
 	.module("Customers")
 	.controller("CustomersController", [
 		"$scope", "$location", 
-		"CustomersService", "AcadModalService", "AcadSidebar",
+		"CustomersService", "AcadModalService",
 		Controller
 	]);
 
-function Controller($scope, $location, CustomersService, AcadModalService, AcadSidebar)
+function Controller($scope, $location, CustomersService, AcadModalService)
 {
 
 	(function initialize(){
@@ -22,8 +22,6 @@ function Controller($scope, $location, CustomersService, AcadModalService, AcadS
 			{ value: "firstName", text: "Nome" },
 			{ value: "lastName", text: "Sobrenome" }
 		];
-
-		AcadSidebar.setActiveItem("customers");
 	})();
 
 	$scope.addCustomer = function()
