@@ -6,8 +6,9 @@
         <div class="content">
             <acad-box-item title="'Alunos cadastrados'">
                 <acad-table
-                    columns="this.columns"
-                    data="this.customers">
+                    columns="columns"
+                    data="customers"
+                    select-item-method="onSelectItem">
                 </acad-table>
             </acad-box-item>
         </div>

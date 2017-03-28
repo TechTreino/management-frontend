@@ -5,12 +5,12 @@
 	angular
 		.module("Trainings")
 		.controller("CustomersListController", [
-			"$scope",
+			"$scope", "$location",
 			"CustomersService",
 			Controller
 		]);
 	
-	function Controller($scope, CustomersService)
+	function Controller($scope, $location, CustomersService)
 	{
 		$scope.customers = [];
 		$scope.columns = [];
@@ -34,6 +34,12 @@
 				$scope.customers = res.data;
 			});
 		}
+
+		$scope.onSelectItem = function(selectedItem)
+		{
+			var id = selectedItem.id;
+			$location.path("/training/" + id);
+		};
 
 	}
 

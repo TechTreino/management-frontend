@@ -33,7 +33,9 @@ angular
 			.when("/exercises/create", { templateUrl: "./dist/templates/pages/exercises/template/create-exercise.template.html" })
 			.when("/exercises/:id", { templateUrl: "./dist/templates/pages/exercises/template/edit-exercise.template.html" })
 
-			.when("/trainings", { templateUrl: "./dist/templates/pages/trainings/template/customers-list.template.html" });
+			.when("/trainings", { templateUrl: "./dist/templates/pages/trainings/template/customers-list.template.html" })
+			.when("/trainings/:id", { templateUrl: "./dist/templates/pages/trainings/template/customer-trainings.template.html" })
+			;
 
 			// Menu configuration
 			AcadSidebarProvider.config.menu = [

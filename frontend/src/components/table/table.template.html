@@ -12,7 +12,7 @@
 				<td colspan="{{ this.columns.length }}" ng-bind="this.noDataText"></td>
 			</tr>
 
-			<tr ng-repeat="item in this.data">
+			<tr ng-repeat="item in this.data" ng-click="selectItemMethod(item)">
 				<td ng-repeat="column in this.columns"
 					ng-bind="this.getColumnValue(item, column)">
 				</td>
