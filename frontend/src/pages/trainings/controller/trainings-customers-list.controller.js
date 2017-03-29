@@ -4,7 +4,7 @@
 
 	angular
 		.module("Trainings")
-		.controller("CustomersListController", [
+		.controller("TrainingsCustomersListController", [
 			"$scope", "$location",
 			"CustomersService",
 			Controller
@@ -41,7 +41,7 @@
 		$scope.onSelectItem = function(selectedItem)
 		{
 			var id = selectedItem.id;
-			$location.path("/training/" + id);
+			$location.path("/trainings/" + id);
 		};
 
 	}
