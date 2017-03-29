@@ -23,6 +23,10 @@
 			
 			return finalResult;
 		};
+
+		$scope.isThereNoData = function(data){
+			return (!data || data.length < 1);
+		};
 	}
 
 })();
