@@ -11,7 +11,7 @@
 			restrict: "E",
 			templateUrl: "./dist/templates/components/titlebar/titlebar.template.html",
 			scope: {
-				title: "=",
+				title: "@",
 				breadcrumb: "="
 			}
 		};
