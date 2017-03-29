@@ -27,9 +27,12 @@ function Controller($scope, $location, ExercisesService, AcadModalService)
 
 	function loadData()
 	{
-		ExercisesService.all().then(function(response){
+		ExercisesService.all().then(onSuccess, angular.noop);
+
+		function onSuccess(response)
+		{
 			$scope.exercises = response.data;
-		});
+		}
 	}
 
 	$scope.addExercise = function()

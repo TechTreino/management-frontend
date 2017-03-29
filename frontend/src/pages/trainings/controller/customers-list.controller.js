@@ -30,9 +30,12 @@
 
 		function loadData()
 		{
-			CustomersService.all().then(function(res){
-				$scope.customers = res.data;
-			});
+			CustomersService.all().then(onSuccess, angular.noop);
+
+			function onSuccess(response)
+			{
+				$scope.customers = response.data;
+			}
 		}
 
 		$scope.onSelectItem = function(selectedItem)

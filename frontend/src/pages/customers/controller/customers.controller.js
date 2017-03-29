@@ -14,15 +14,28 @@ function Controller($scope, $location, CustomersService, AcadModalService)
 {
 
 	(function initialize(){
-		CustomersService.all().then(function(response){
-			$scope.customers = response.data;
-		});
+		loadColumns();
+		loadData();
 
+	})();
+	
+	function loadColumns()
+	{
 		$scope.columns = [
 			{ value: "firstName", text: "Nome" },
 			{ value: "lastName", text: "Sobrenome" }
 		];
-	})();
+	}
+
+	function loadData()
+	{
+		CustomersService.all().then(onSuccess, angular.noop);
+
+		function onSuccess(response)
+		{
+			$scope.customers = response.data;
+		}
+	}
 
 	$scope.addCustomer = function()
 	{
