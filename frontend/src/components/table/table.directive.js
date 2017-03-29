@@ -13,7 +13,7 @@
 			scope: {
 				columns: "=",
 				data: "=",
-				noDataText: "=",
+				noDataText: "@",
 				selectItemMethod: "="
 			}
 		};

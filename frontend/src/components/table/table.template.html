@@ -8,7 +8,7 @@
 		</thead>
 
 		<tbody>
-			<tr ng-if="this.data.length < 1">
+			<tr ng-if="isThereNoData(data)">
 				<td colspan="{{ this.columns.length }}" ng-bind="this.noDataText"></td>
 			</tr>
 
