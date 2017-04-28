@@ -5,15 +5,30 @@
 	angular
 		.module("Trainings")
 		.controller("TrainingsCustomerController", [
-			"$scope",
+			"$scope", "$routeParams",
+			"CustomersService",
 			Controller
 		]);
 
-	function Controller($scope)
+	function Controller($scope, $routeParams, CustomersService)
 	{
-		(function initialize(){
+		$scope.customer = {};
 
+		(function initialize(){
+			loadData();
 		})();
+	
+		function loadData()
+		{
+			var customerId = $routeParams.id;
+			CustomersService.byId(customerId).then(onSuccess, angular.noop);
+
+			function onSuccess(res)
+			{
+				$scope.customer = res.data;
+				console.log("Customer loaded", res.data);
+			}
+		}
 	}
 
 })();

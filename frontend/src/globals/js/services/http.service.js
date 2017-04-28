@@ -8,7 +8,6 @@
 
 	function Service($http)
 	{
-
 		this.get = function(route, query)
 		{
 			route = buildRoute(route);
@@ -29,7 +28,7 @@
 	
 		function buildRoute(route)
 		{
-			return "/backend" + route;
+			return "../backend" + route;
 		}
 	}
 

@@ -1,10 +1,10 @@
 <section ng-controller="TrainingsCustomerController">
     <acad-content>
         <acad-topbar></acad-topbar>
-        <acad-titlebar title="Treino do Fulano"></acad-titlebar>
+        <acad-titlebar title="{{ ('Treino do(a) ' + customer.firstName) }}"></acad-titlebar>
 
         <div class="content">
-            <acad-box-item title="Alunos cadastrados">
+            <acad-box-item title="Exercícios da ficha atual">
                 <h1>Danadinho</h1>
             </acad-box-item>
         </div>
