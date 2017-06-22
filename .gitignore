@@ -5,6 +5,7 @@
 
 # Compiled outputs
 **/dist/
+**/build/
 
 # Cache files (server|client)
 **/.tscache/

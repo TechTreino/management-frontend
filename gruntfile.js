@@ -98,4 +98,5 @@ module.exports = function(Grunt)
 
 	Grunt.registerTask("default", ["concat:app", "sass:app", "copy:components_templates", "copy:pages_templates"]);
 	Grunt.registerTask("vendor", ["concat:vendor", "concat_css:vendor", "copy:vendor"]);
+	Grunt.registerTask("build", ["vendor", "default"]);
 }

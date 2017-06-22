@@ -4,16 +4,23 @@
   "description": "Aplicativo - Academia Digital",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean:build": "rimraf build",
+    "build": "npm run clean:build && bower install && grunt build && node ./scripts/build.js",
+    "build:prod": "NODE_ENV=production npm run build"
   },
   "author": "Stanley Sathler <stanleysathlerpinto@gmail.com>",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
+    "bower": "^1.8.0",
     "grunt": "^1.0.1",
     "grunt-concat-css": "^0.3.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt-contrib-watch": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "rimraf": "^2.6.1"
   }
 }

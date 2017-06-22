@@ -28,7 +28,7 @@
 	
 		function buildRoute(route)
 		{
-			return "../backend" + route;
+			return window.appBaseApiPath + route;
 		}
 	}
 
