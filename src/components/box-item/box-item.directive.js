@@ -1,12 +1,11 @@
 "use strict";
 
-(function(){
-
+(function() {
 	angular
 		.module("AcadBoxItem")
 		.directive("acadBoxItem", Directive);
 
-	function Directive(){
+	function Directive() {
 		return {
 			restrict: "E",
 			transclude: true,
@@ -17,5 +16,4 @@
 			}
 		};
 	}
-
 })();

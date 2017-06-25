@@ -1,17 +1,15 @@
 "use strict";
 
-(function(){
-
+(function() {
 	angular
 		.module("AcadModal")
 		.directive("acadModal", Directive);
 
-	function Directive(){
+	function Directive() {
 		return {
 			restrict: "E",
 			templateUrl: "./dist/templates/components/modal/modal.template.html",
 			scope: {}
 		};
 	}
-
 })();

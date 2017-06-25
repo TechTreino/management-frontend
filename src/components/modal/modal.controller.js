@@ -1,7 +1,6 @@
 "use strict";
 
-(function(){
-
+(function() {
 	angular
 		.module("AcadModal")
 		.controller("AcadModalController", [
@@ -9,13 +8,12 @@
 			Controller
 		]);
 
-	function Controller($scope)
-	{
-		(function initialize(){
+	function Controller($scope) {
+		(function initialize() {
 			$scope.isVisible = false;
 		})();
 
-		$scope.$on("AcadModalService.onReceiveMessage", function(event, data){
+		$scope.$on("AcadModalService.onReceiveMessage", function(event, data) {
 			$scope.title = data.title;
 			$scope.message = data.message;
 			$scope.buttons = data.buttons;
@@ -23,13 +21,12 @@
 			$scope.isVisible = true;
 		});
 
-		$scope.onButtonClick = function(clickedButton)
-		{
+		$scope.onButtonClick = function(clickedButton) {
 			$scope.isVisible = false;
 
-			if(clickedButton.method)
-				clickedButton.method($scope.dataToCallback);
+			if (clickedButton.method) {
+clickedButton.method($scope.dataToCallback);
+}
 		};
 	}
-
 })();

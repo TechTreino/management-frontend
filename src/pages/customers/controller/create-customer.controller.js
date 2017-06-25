@@ -1,93 +1,79 @@
 "use strict";
 
-(function(){
-
+(function() {
 angular
 	.module("Customers")
 	.controller("CreateCustomerController", [
-		"$scope", "$location", 
+		"$scope", "$location",
 		"CustomersService",
 		Controller
 	]);
 
-function Controller($scope, $location, CustomersService)
-{
+function Controller($scope, $location, CustomersService) {
 	$scope.customer = {};
 
-	$scope.validateFirstName = function(content)
-	{
+	$scope.validateFirstName = function(content) {
 		return hasAnyCharacter(content);
 	};
 
-	$scope.validateLastName = function(content)
-	{
+	$scope.validateLastName = function(content) {
 		return hasAnyCharacter(content);
 	};
 
-	$scope.validateEmail = function(content)
-	{
+	$scope.validateEmail = function(content) {
 		return (hasAnyCharacter(content) && seemsAnEmail(content));
 	};
 
-	function hasAnyCharacter(content)
-	{
+	function hasAnyCharacter(content) {
 		return content.length > 0;
 	}
 
-	function seemsAnEmail(content)
-	{
+	function seemsAnEmail(content) {
 		return (
 			content.indexOf("@") !== -1 &&
 			content.indexOf(".") !== -1
 		);
 	}
 
-	$scope.validatePassword = function(content)
-	{
+	$scope.validatePassword = function(content) {
 		return hasAnyCharacter(content);
-	}
+	};
 
-	$scope.validateRepeatedPassword = function(content)
-	{
+	$scope.validateRepeatedPassword = function(content) {
 		return content === $scope.customer.password;
-	}
+	};
 
-	$scope.cancel = function()
-	{
+	$scope.cancel = function() {
 		$location.path("/customers");
 	};
 
-	$scope.create = function()
-	{
-		if(!arePasswordsEqual()) return false;
-		if(!areFieldsFilled()) return false;
+	$scope.create = function() {
+		if (!arePasswordsEqual()) return false;
+		if (!areFieldsFilled()) return false;
 
-		var customer = angular.copy($scope.customer);
-		CustomersService.create(customer).then(function(response){
+		let customer = angular.copy($scope.customer);
+		CustomersService.create(customer).then(function(response) {
 			console.log("Customer created");
 			$location.path("/customers");
 		});
 	};
 
-	function arePasswordsEqual()
-	{
-		var password = $scope.customer.password;
-		var repeatedPassword = $scope.customer.repeatedPassword;
+	function arePasswordsEqual() {
+		let password = $scope.customer.password;
+		let repeatedPassword = $scope.customer.repeatedPassword;
 
-		if(!password || !repeatedPassword) return false;
+		if (!password || !repeatedPassword) return false;
 
 		return (password === repeatedPassword);
 	}
 
-	function areFieldsFilled()
-	{
+	function areFieldsFilled() {
 		return (
 			hasAnyCharacter($scope.customer.firstName) &&
 			hasAnyCharacter($scope.customer.lastName) &&
 			hasAnyCharacter($scope.customer.email) &&
 			hasAnyCharacter($scope.customer.password)
-		)
+		);
 	}
 }
-
 })();

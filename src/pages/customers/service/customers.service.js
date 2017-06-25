@@ -1,40 +1,32 @@
 "use strict";
 
-(function(){
-
+(function() {
 angular
 	.module("Customers")
 	.service("CustomersService", [
-		"AcadHttp", 
+		"AcadHttp",
 		Service
 	]);
 
-function Service(AcadHttp)
-{
-	this.all = function()
-	{
+function Service(AcadHttp) {
+	this.all = function() {
 		return AcadHttp.get("/customers");
 	};
 
-	this.create = function(customer)
-	{
+	this.create = function(customer) {
 		return AcadHttp.post("/customers", customer);
 	};
 
-	this.update = function(id, customer)
-	{
+	this.update = function(id, customer) {
 		return AcadHttp.post("/customers/" + id, customer);
-	}
+	};
 
-	this.byId = function(id)
-	{
+	this.byId = function(id) {
 		return AcadHttp.get("/customers/" + id);
 	};
 
-	this.delete = function(id)
-	{
+	this.delete = function(id) {
 		return AcadHttp.delete("/customers/" + id);
-	}
+	};
 }
-
 })();

@@ -1,12 +1,11 @@
 "use strict";
 
-(function(){
-
+(function() {
 	angular
 		.module("AcadForm")
 		.directive("acadForm", Directive);
 
-	function Directive(){
+	function Directive() {
 		return {
 			restrict: "E",
 			transclude: true,
@@ -21,5 +20,4 @@
 			}
 		};
 	}
-
 })();

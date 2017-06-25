@@ -1,12 +1,11 @@
 "use strict";
 
-(function(){
-
+(function() {
 	angular
 		.module("AcadInputText")
 		.directive("acadInputText", Directive);
 
-	function Directive(){
+	function Directive() {
 		return {
 			restrict: "E",
 			replace: true,
@@ -19,5 +18,4 @@
 			}
 		};
 	}
-
 })();

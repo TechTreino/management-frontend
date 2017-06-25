@@ -1,7 +1,6 @@
 "use strict";
 
-(function(){
-
+(function() {
 	angular
 		.module("Trainings")
 		.controller("TrainingsCustomerController", [
@@ -10,25 +9,21 @@
 			Controller
 		]);
 
-	function Controller($scope, $routeParams, CustomersService)
-	{
+	function Controller($scope, $routeParams, CustomersService) {
 		$scope.customer = {};
 
-		(function initialize(){
+		(function initialize() {
 			loadData();
 		})();
-	
-		function loadData()
-		{
-			var customerId = $routeParams.id;
+
+		function loadData() {
+			let customerId = $routeParams.id;
 			CustomersService.byId(customerId).then(onSuccess, angular.noop);
 
-			function onSuccess(res)
-			{
+			function onSuccess(res) {
 				$scope.customer = res.data;
 				console.log("Customer loaded", res.data);
 			}
 		}
 	}
-
 })();

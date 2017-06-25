@@ -1,12 +1,11 @@
 "use strict";
 
-(function(){
-
+(function() {
 	angular
 		.module("AcadTitlebar")
 		.directive("acadTitlebar", Directive);
 
-	function Directive(){
+	function Directive() {
 		return {
 			restrict: "E",
 			templateUrl: "./dist/templates/components/titlebar/titlebar.template.html",
@@ -16,5 +15,4 @@
 			}
 		};
 	}
-
 })();

@@ -1,12 +1,11 @@
 "use strict";
 
-(function(){
-
+(function() {
 	angular
 		.module("AcadSelect")
 		.directive("acadSelect", Directive);
 
-	function Directive(){
+	function Directive() {
 		return {
 			restrict: "E",
 			templateUrl: "./dist/templates/components/select/select.template.html",
@@ -19,5 +18,4 @@
 			}
 		};
 	}
-
 })();

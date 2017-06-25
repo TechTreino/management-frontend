@@ -1,7 +1,6 @@
 "use strict";
 
-(function(){
-
+(function() {
 	angular
 		.module("Trainings")
 		.controller("TrainingsCustomersListController", [
@@ -9,41 +8,34 @@
 			"CustomersService",
 			Controller
 		]);
-	
-	function Controller($scope, $location, CustomersService)
-	{
+
+	function Controller($scope, $location, CustomersService) {
 		$scope.customers = [];
 		$scope.columns = [];
 
-		(function initialize(){
+		(function initialize() {
 			loadColumns();
 			loadData();
 		})();
 
-		function loadColumns()
-		{
+		function loadColumns() {
 			$scope.columns = [
 				{ text: "Nome", value: "firstName" },
 				{ text: "Sobrenome", value: "lastName" }
 			];
 		}
 
-		function loadData()
-		{
+		function loadData() {
 			CustomersService.all().then(onSuccess, angular.noop);
 
-			function onSuccess(response)
-			{
+			function onSuccess(response) {
 				$scope.customers = response.data;
 			}
 		}
 
-		$scope.onSelectItem = function(selectedItem)
-		{
-			var id = selectedItem.id;
+		$scope.onSelectItem = function(selectedItem) {
+			let id = selectedItem.id;
 			$location.path("/trainings/" + id);
 		};
-
 	}
-
 })();

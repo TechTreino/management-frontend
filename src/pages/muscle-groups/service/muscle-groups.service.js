@@ -1,7 +1,6 @@
 "use strict";
 
-(function(){
-
+(function() {
 angular
 	.module("MuscleGroups")
 	.service("MuscleGroupsService", [
@@ -9,12 +8,9 @@ angular
 		Service
 	]);
 
-function Service(AcadHttp)
-{
-	this.all = function()
-	{
+function Service(AcadHttp) {
+	this.all = function() {
 		return AcadHttp.get("/muscleGroups");
 	};
 }
-
 })();

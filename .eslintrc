@@ -1,0 +1,13 @@
+{
+  "extends": ["google"],
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "max-len": [2, 120],
+    "quotes": [2, "double", { "allowTemplateLiterals": true }],
+    "object-curly-spacing": [2, "always"],
+    "comma-dangle": "off",
+    "require-jsdoc": "off"
+  }
+}

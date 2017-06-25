@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npm run lint:js",
+    "lint:js": "eslint --ignore-path .gitignore --ext .js ./src",
     "clean:build": "rimraf build",
     "build": "npm run clean:build && bower install && grunt build && node ./scripts/build.js",
     "build:prod": "NODE_ENV=production npm run build"
@@ -13,6 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "bower": "^1.8.0",
+    "eslint": "^4.1.0",
+    "eslint-config-google": "^0.8.0",
     "grunt": "^1.0.1",
     "grunt-concat-css": "^0.3.1",
     "grunt-contrib-concat": "^1.0.1",

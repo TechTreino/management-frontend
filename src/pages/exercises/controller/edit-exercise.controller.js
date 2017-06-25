@@ -1,7 +1,6 @@
 "use strict";
 
-(function(){
-
+(function() {
 angular
 	.module("Exercises")
 	.controller("EditExerciseController", [
@@ -10,40 +9,34 @@ angular
 		Controller
 	]);
 
-function Controller($scope, $location, $routeParams, ExercisesService, MuscleGroupsService)
-{
+function Controller($scope, $location, $routeParams, ExercisesService, MuscleGroupsService) {
 	$scope.exercise = {};
 
-	(function initialize(){
-		var exerciseId = $routeParams.id;
-		ExercisesService.byId(exerciseId).then(function(response){
+	(function initialize() {
+		let exerciseId = $routeParams.id;
+		ExercisesService.byId(exerciseId).then(function(response) {
 			populateExercise(response.data);
-			MuscleGroupsService.all().then(function(response){
+			MuscleGroupsService.all().then(function(response) {
 				populateMuscleGroups(response.data);
 				applyCorrectItemOnMuscleGroupsSelect(response.data);
 			});
 		});
 	})();
 
-	function populateExercise(exercise)
-	{
+	function populateExercise(exercise) {
 		$scope.exercise = exercise;
 	}
 
-	function populateMuscleGroups(muscleGroups)
-	{
+	function populateMuscleGroups(muscleGroups) {
 		$scope.muscleGroups = muscleGroups;
-		//$scope.exercise.muscleGroup = muscleGroups[3].id;
+		// $scope.exercise.muscleGroup = muscleGroups[3].id;
 	}
 
-	function applyCorrectItemOnMuscleGroupsSelect(muscleGroups)
-	{
-		var index = 0;
+	function applyCorrectItemOnMuscleGroupsSelect(muscleGroups) {
+		let index = 0;
 
-		for(var i = 0; i < muscleGroups.length; i++)
-		{
-			if(muscleGroups[i].id === $scope.exercise.muscleGroup.id)
-			{
+		for (let i = 0; i < muscleGroups.length; i++) {
+			if (muscleGroups[i].id === $scope.exercise.muscleGroup.id) {
 				index = i;
 				break;
 			}
@@ -52,31 +45,26 @@ function Controller($scope, $location, $routeParams, ExercisesService, MuscleGro
 		$scope.exercise.muscleGroup = muscleGroups[index].id;
 	}
 
-	$scope.validateName = function(exerciseName)
-	{
+	$scope.validateName = function(exerciseName) {
 		return exerciseName.length > 0;
 	};
 
-	$scope.onSaveClick = function()
-	{
-		if(!areFieldsFilled()) return false;
+	$scope.onSaveClick = function() {
+		if (!areFieldsFilled()) return false;
 
-		var exerciseId = $routeParams.id;
-		var exercise = angular.copy($scope.exercise);
-		ExercisesService.update(exerciseId, exercise).then(function(){
+		let exerciseId = $routeParams.id;
+		let exercise = angular.copy($scope.exercise);
+		ExercisesService.update(exerciseId, exercise).then(function() {
 			$location.path("/exercises");
 		});
 	};
 
-	function areFieldsFilled()
-	{
+	function areFieldsFilled() {
 		return $scope.validateName($scope.exercise.name);
 	}
 
-	$scope.onCancelClick = function()
-	{
+	$scope.onCancelClick = function() {
 		$location.path("/exercises");
 	};
 }
-
 })();

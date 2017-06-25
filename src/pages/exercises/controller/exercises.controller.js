@@ -1,7 +1,6 @@
 "use strict";
 
-(function(){
-
+(function() {
 angular
 	.module("Exercises")
 	.controller("ExercisesController", [
@@ -10,42 +9,36 @@ angular
 		Controller
 	]);
 
-function Controller($scope, $location, ExercisesService, AcadModalService)
-{
-	(function initialize(){
+function Controller($scope, $location, ExercisesService, AcadModalService) {
+	(function initialize() {
 		loadColumns();
 		loadData();
 	})();
 
-	function loadColumns()
-	{
+	function loadColumns() {
 		$scope.columns = [
 			{ value: "name", text: "Nome" },
 			{ value: "muscleGroup.name", text: "Grupo" }
 		];
 	}
 
-	function loadData()
-	{
+	function loadData() {
 		ExercisesService.all().then(onSuccess, angular.noop);
 
-		function onSuccess(response)
-		{
+		function onSuccess(response) {
 			$scope.exercises = response.data;
 		}
 	}
 
-	$scope.addExercise = function()
-	{
+	$scope.addExercise = function() {
 		$location.path("/exercises/create");
 	};
 
-	$scope.deleteExercise = function(exercise)
-	{
-		var exerciseId = exercise.id;
-		var title = "Deseja realmente excluir este exercício?";
-		var message = "Uma vez excluído um exercício não pode mais ser recuperado.";
-		var buttons = [
+	$scope.deleteExercise = function(exercise) {
+		let exerciseId = exercise.id;
+		let title = "Deseja realmente excluir este exercício?";
+		let message = "Uma vez excluído um exercício não pode mais ser recuperado.";
+		let buttons = [
 			{ text: "Cancelar" },
 			{ text: "Excluir", type: "negative", method: deleteExercise }
 		];
@@ -53,30 +46,26 @@ function Controller($scope, $location, ExercisesService, AcadModalService)
 		AcadModalService.showMessage(title, message, buttons, exerciseId);
 	};
 
-	function deleteExercise(exerciseId)
-	{
-		ExercisesService.delete(exerciseId).then(function(response){
+	function deleteExercise(exerciseId) {
+		ExercisesService.delete(exerciseId).then(function(response) {
 			deleteFromList(exerciseId);
 		});
 	}
 
-	function deleteFromList(exerciseId)
-	{
-		var exercises = $scope.exercises;
+	function deleteFromList(exerciseId) {
+		let exercises = $scope.exercises;
 
-		for(var i = 0; i < exercises.length; i++)
-		{
-			var exercise = exercises[i];
-			if(exercise.id === exerciseId)
-				$scope.exercises.splice(i, 1);
+		for (let i = 0; i < exercises.length; i++) {
+			let exercise = exercises[i];
+			if (exercise.id === exerciseId) {
+					$scope.exercises.splice(i, 1);
+			}
 		}
 	}
 
-	$scope.editExercise = function(exercise)
-	{
-		var exerciseId = exercise.id;
+	$scope.editExercise = function(exercise) {
+		let exerciseId = exercise.id;
 		$location.path("/exercises/" + exerciseId);
-	}
+	};
 }
-
 })();
