@@ -6,7 +6,7 @@
     .factory("AcadAuthInterceptor", ["AcadAuth", factory]);
 
   function factory(AcadAuth) {
-    const authInfoKeys = ["access-token", "client", "expiry", "token-type", "uid"]
+    const authInfoKeys = ["access-token", "client", "expiry", "token-type", "uid"];
 
     return {
       request: function(config) {

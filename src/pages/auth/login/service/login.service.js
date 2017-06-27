@@ -1,6 +1,6 @@
 "use strict";
 
-(function () {
+(function() {
 	angular
 		.module("Auth")
 		.service("LoginService", [
@@ -9,7 +9,7 @@
 		]);
 
 	function Service(AcadHttp) {
-		this.authenticate = function (userData) {
+		this.authenticate = function(userData) {
 			return AcadHttp
 				.post("/auth/sign_in", {
 					email: userData.email,

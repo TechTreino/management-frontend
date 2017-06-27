@@ -1,6 +1,6 @@
 "use strict";
 
-(function () {
+(function() {
   angular
     .module("Auth")
     .controller("LoginController", [
@@ -11,13 +11,16 @@
   function Controller($scope, $location, LoginService, AcadAuth) {
     $scope.userData = {};
 
-    $scope.authenticate = function (content) {
+    $scope.authenticate = function(content) {
       LoginService.authenticate($scope.userData)
-        .then(function (response) {
-          const headers = response.headers();
-          debugger
-
+        .then(function(response) {
           AcadAuth.setUser(response.data.data);
+          $location.path("/");
+        })
+        .catch(function(response) {
+          if (response.status === 401 || response.status === 403) {
+            alert(response.data.errors[0]);
+          }
         });
     };
 

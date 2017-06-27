@@ -9,14 +9,7 @@
 		this.get = function(route, query) {
 			route = buildRoute(route);
 
-			if (route.indexOf('customers')){
-				debugger
-			}
-			return $http({
-				method: "GET",
-				data: "",
-				url: route
-			});
+			return $http.get(route);
 		};
 
 		this.post = function(route, data) {
