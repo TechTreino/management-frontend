@@ -16,6 +16,7 @@ console.log('  Moving files to build folder')
 mkdirp('./build')
 ncp('./dist', './build/dist/', exitOnError)
 ncp('./index.html', './build/index.html', exitOnError)
+ncp('./_redirects', './build/_redirects', exitOnError)
 
 function exitOnError(err) {
   if (err) {

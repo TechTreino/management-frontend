@@ -1,0 +1,35 @@
+<section ng-controller="LoginController" class="login-wrapper">
+
+	<form
+		title="'Login'"
+		ng-submit="authenticate()"
+		class="form-box"
+	>
+
+		<div class="title">
+			Login
+		</div>
+
+		<div class="content">
+			<acad-input-text 
+				model="this.userData.email" 
+				label="'Email'"
+				validator="this.validateEmail(this.userData.email)"
+				error-text="'Email obrigatório'"
+			>
+			</acad-input-text>
+
+			<acad-input-password 
+				model="this.userData.password" 
+				label="'Senha'"
+				validator="this.validatePassword(this.userData.password)"
+				error-text="'Senha obrigatória'"
+			>
+			</acad-input-password>
+
+			<button type="submit" class="submit">Entrar</button>
+		</div>
+
+	</form>
+
+</section>

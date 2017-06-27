@@ -26,7 +26,7 @@ function Controller($scope, $location, CustomersService, AcadModalService) {
 		CustomersService.all().then(onSuccess, angular.noop);
 
 		function onSuccess(response) {
-			$scope.customers = response.data;
+			$scope.customers = response.data.customers;
 		}
 	}
 

@@ -10,7 +10,7 @@ angular
 
 function Service(AcadHttp) {
 	this.all = function() {
-		return AcadHttp.get("/customers");
+		return AcadHttp.get("/users/customers");
 	};
 
 	this.create = function(customer) {

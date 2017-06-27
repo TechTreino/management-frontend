@@ -8,7 +8,15 @@
 	function Service($http) {
 		this.get = function(route, query) {
 			route = buildRoute(route);
-			return $http.get(route);
+
+			if (route.indexOf('customers')){
+				debugger
+			}
+			return $http({
+				method: "GET",
+				data: "",
+				url: route
+			});
 		};
 
 		this.post = function(route, data) {
