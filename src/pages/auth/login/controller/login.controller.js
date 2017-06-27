@@ -15,7 +15,7 @@
       LoginService.authenticate($scope.userData)
         .then(function(response) {
           AcadAuth.setUser(response.data.data);
-          $location.path("/customers");
+          $location.path("/");
         })
         .catch(function(response) {
           if (response.status === 401 || response.status === 403) {

@@ -7,6 +7,16 @@
 
   function factory(AcadAuth) {
     const authInfoKeys = ["access-token", "client", "expiry", "token-type", "uid"];
+    const authInfoPascalCaseMapping = {
+      "access-token": "Access-Token",
+      "client": "Client",
+      "expiry": "Expiry",
+      "token-type": "Token-Type",
+      "uid": "Uid",
+    };
+    const getHeader = function(headers, headerName) {
+      return headers[headerName] || headers[authInfoPascalCaseMapping[headerName]];
+    };
 
     return {
       request: function(config) {
@@ -36,7 +46,7 @@
           const newAuthInfo = {};
 
           authInfoKeys.forEach(function(key) {
-            newAuthInfo[key] = headers[key];
+            newAuthInfo[key] = getHeader(headers, key);
           });
           AcadAuth.setAuthInfo(newAuthInfo);
         }
