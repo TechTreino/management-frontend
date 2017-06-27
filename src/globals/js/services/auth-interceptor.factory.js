@@ -39,7 +39,7 @@
       response: function(response) {
         const headers = response.headers();
         const hasAuthInfo = authInfoKeys.every(function(key) {
-          return Boolean(headers[key]);
+          return Boolean(getHeader(headers, key));
         });
 
         if (hasAuthInfo) {
