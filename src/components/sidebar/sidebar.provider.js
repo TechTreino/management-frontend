@@ -29,11 +29,9 @@
 
 			return {
 				__menu: configuration.menu,
-				__visibility: configuration.visibility,
 				getMenu: getMenu,
 				addMenuItem: addMenuItem,
-				setActiveItem: setActiveItem,
-				setVisibility: setVisibility
+				setActiveItem: setActiveItem
 			};
 		}
 

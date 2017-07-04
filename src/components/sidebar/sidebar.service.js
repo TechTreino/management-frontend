@@ -10,8 +10,6 @@
 
 	function Service($rootScope) {
 		this.setIsVisible = function(isVisible) {
-			isVisible = isVisible || true;
-
 			let args = { isVisible: isVisible };
 			$rootScope.$broadcast("AcadSidebarService.onVisibilityChange", args);
 

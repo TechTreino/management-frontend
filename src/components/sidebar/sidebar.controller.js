@@ -3,11 +3,11 @@
 (function() {
 	angular
 		.module("AcadSidebar")
-		.controller("AcadSidebarController", ["$scope", "$location", Controller]);
+		.controller("AcadSidebarController", ["$scope", "$location", "AcadSidebar", Controller]);
 
-	function Controller($scope, $location) {
+	function Controller($scope, $location, AcadSidebar) {
 		$scope.menu = [];
-		$scope.isVisible = true;
+		$scope.isVisible = false;
 
 		(function initialize() {
 			$scope.menu = AcadSidebar.getMenu();

@@ -79,14 +79,14 @@ angular
 		AcadAuth.initializeUserDataFromLocalstorage();
 
 		$rootScope.$on("$routeChangeStart", function(event) {
+			const isLoggedIn = AcadAuth.isLoggedIn();
 			const isWhitelisted = $location.path() === "/login" || $location.path() === "/forgot";
 
-			if (!AcadAuth.isLoggedIn() && !isWhitelisted) {
+			AcadSidebarService.setIsVisible(isLoggedIn);
+
+			if (!isLoggedIn && !isWhitelisted) {
 				event.preventDefault();
-				AcadSidebarService.setIsVisible(false);
 				$location.path("/login");
-			} else {
-				AcadSidebarService.setIsVisible(true);
 			}
 		});
 	}]);
