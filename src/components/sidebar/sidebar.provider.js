@@ -3,9 +3,9 @@
 (function() {
 	angular
 		.module("AcadSidebar")
-		.provider("AcadSidebar", Provider);
+		.provider("AcadSidebar", [Provider]);
 
-	function Provider() {
+	function Provider(AcadSidebarService) {
 		// Values acessed by config phase
 		let configuration = {
 			menu: []
@@ -29,9 +29,11 @@
 
 			return {
 				__menu: configuration.menu,
+				__visibility: configuration.visibility,
 				getMenu: getMenu,
 				addMenuItem: addMenuItem,
-				setActiveItem: setActiveItem
+				setActiveItem: setActiveItem,
+				setVisibility: setVisibility
 			};
 		}
 

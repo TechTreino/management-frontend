@@ -22,20 +22,46 @@ angular
 	])
 	.config(function($routeProvider, $locationProvider, $httpProvider, AcadSidebarProvider) {
 		$locationProvider.html5Mode(true);
-		const pagesPath = "./dist/templates/pages";
+
 		// Routes configuration
+		const pagesPath = "./dist/templates/pages";
 		$routeProvider
-			.when("/", { redirectTo: "/customers" })
-			.when("/login", { templateUrl: `${pagesPath}/auth/login/template/login.template.html` })
-			.when("/customers", { templateUrl: `${pagesPath}/customers/template/customers.template.html` })
-			.when("/customers/create", { templateUrl: `${pagesPath}/customers/template/create-customer.template.html` })
-			.when("/customers/:id", { templateUrl: `${pagesPath}/customers/template/edit-customer.template.html` })
-			.when("/exercises", { templateUrl: `${pagesPath}/exercises/template/exercises.template.html` })
-			.when("/exercises/create", { templateUrl: `${pagesPath}/exercises/template/create-exercise.template.html` })
-			.when("/exercises/:id", { templateUrl: `${pagesPath}/exercises/template/edit-exercise.template.html` })
+			.when("/", {
+				redirectTo: "/customers"
+			})
+
+			.when("/login", {
+				templateUrl: `${pagesPath}/auth/login/template/login.template.html`
+			})
+
+			.when("/customers", {
+				templateUrl: `${pagesPath}/customers/template/customers.template.html`
+			})
+
+			.when("/customers/create", {
+				templateUrl: `${pagesPath}/customers/template/create-customer.template.html`
+			})
+
+			.when("/customers/:id", {
+				templateUrl: `${pagesPath}/customers/template/edit-customer.template.html`
+			})
+
+			.when("/exercises", {
+				templateUrl: `${pagesPath}/exercises/template/exercises.template.html`
+			})
+
+			.when("/exercises/create", {
+				templateUrl: `${pagesPath}/exercises/template/create-exercise.template.html`
+			})
+
+			.when("/exercises/:id", {
+				templateUrl: `${pagesPath}/exercises/template/edit-exercise.template.html`
+			})
+
 			.when("/trainings", {
 				templateUrl: `${pagesPath}/trainings/template/trainings-customers-list.template.html`
 			})
+
 			.when("/trainings/:id", {
 				templateUrl: `${pagesPath}/trainings/template/trainings-customer.template.html`
 			});
@@ -49,7 +75,7 @@ angular
 
 		$httpProvider.interceptors.push("AcadAuthInterceptor");
 	})
-	.run(["$rootScope", "$location", "AcadAuth", function($rootScope, $location, AcadAuth) {
+	.run(["$rootScope", "$location", "AcadAuth", "AcadSidebarService", function($rootScope, $location, AcadAuth, AcadSidebarService) {
 		AcadAuth.initializeUserDataFromLocalstorage();
 
 		$rootScope.$on("$routeChangeStart", function(event) {
@@ -57,7 +83,10 @@ angular
 
 			if (!AcadAuth.isLoggedIn() && !isWhitelisted) {
 				event.preventDefault();
+				AcadSidebarService.setIsVisible(false);
 				$location.path("/login");
+			} else {
+				AcadSidebarService.setIsVisible(true);
 			}
 		});
 	}]);

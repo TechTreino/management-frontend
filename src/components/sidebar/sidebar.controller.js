@@ -3,10 +3,11 @@
 (function() {
 	angular
 		.module("AcadSidebar")
-		.controller("AcadSidebarController", ["$scope", "$location", "AcadSidebar", Controller]);
+		.controller("AcadSidebarController", ["$scope", "$location", Controller]);
 
-	function Controller($scope, $location, AcadSidebar) {
+	function Controller($scope, $location) {
 		$scope.menu = [];
+		$scope.isVisible = true;
 
 		(function initialize() {
 			$scope.menu = AcadSidebar.getMenu();
@@ -16,10 +17,14 @@
 			return !!(item.__isActive);
 		};
 
+		$scope.$on("AcadSidebarService.onVisibilityChange", function(event, data) {
+			$scope.isVisible = data.visibility;
+		});
+
 		$scope.$watch(
 			function() {
- return $location.$$path;
-},
+				return $location.$$path;
+			},
 			setActiveMenuItem
 		);
 
