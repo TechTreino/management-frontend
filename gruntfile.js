@@ -1,12 +1,11 @@
 "use strict";
 
-module.exports = function(Grunt)
-{
-	var bowerPath = "./bower_components";
-	var sourcePath = "./src";
-	var distPath = "./dist";
-	var distCssPath = (distPath + "/css");
-	var distJsPath = (distPath + "/js");
+module.exports = function(Grunt) {
+	const bowerPath = "./bower_components";
+	const sourcePath = "./src";
+	const distPath = "./dist";
+	const distCssPath = (distPath + "/css");
+	const distJsPath = (distPath + "/js");
 
 	Grunt.initConfig({
 
@@ -14,15 +13,16 @@ module.exports = function(Grunt)
 		concat: {
 			options: { separator: "; \n" },
 			vendor: {
-				src: [ 
+				src: [
 					(bowerPath + "/jquery/dist/jquery.min.js"),
 					(bowerPath + "/angular/angular.min.js"),
-					(bowerPath + "/angular-route/angular-route.min.js")
+					(bowerPath + "/angular-route/angular-route.min.js"),
+					(bowerPath + "/humps/humps.js")
 				],
 				dest: (distJsPath + "/vendor.js")
 			},
 			app: {
-				src: [ 
+				src: [
 					(sourcePath + "/app.module.js"),
 					(sourcePath + "/components/**/*.module.js"),
 					(sourcePath + "/components/**/*.directive.js"),
@@ -51,7 +51,7 @@ module.exports = function(Grunt)
 		// Concat CSS
 		concat_css: {
 			vendor: {
-				src: [ 
+				src: [
 					(bowerPath + "/reset-css/reset.css"),
 					(bowerPath + "/components-font-awesome/css/font-awesome.min.css")
 				],
@@ -61,7 +61,7 @@ module.exports = function(Grunt)
 
 		// Copy
 		copy: {
-			components_templates: { 
+			components_templates: {
 				expand: true,
 				cwd: (sourcePath + "/components"),
 				src: "**/*.html",
@@ -100,4 +100,4 @@ module.exports = function(Grunt)
 	Grunt.registerTask("default", ["concat:app", "sass:app", "copy:components_templates", "copy:pages_templates"]);
 	Grunt.registerTask("vendor", ["concat:vendor", "concat_css:vendor", "copy:vendor"]);
 	Grunt.registerTask("build", ["vendor", "default"]);
-}
+};

@@ -64,6 +64,7 @@ angular
 
 			.when("/trainings/:id", {
 				templateUrl: `${pagesPath}/trainings/template/trainings-customer.template.html`
+
 			});
 
 		// Menu configuration
@@ -74,6 +75,8 @@ angular
 		];
 
 		$httpProvider.interceptors.push("AcadAuthInterceptor");
+		$httpProvider.defaults.transformRequest.unshift(transformRequest);
+		$httpProvider.defaults.transformResponse.push(transformResponse);
 	})
 	.run(["$rootScope", "$location", "AcadAuth", "AcadSidebarService", function($rootScope, $location, AcadAuth, AcadSidebarService) {
 		AcadAuth.initializeUserDataFromLocalstorage();
@@ -90,3 +93,11 @@ angular
 			}
 		});
 	}]);
+
+	function transformRequest(data) {
+		return angular.isObject(data) ? humps.decamelizeKeys(data) : data;
+	}
+
+	function transformResponse(data) {
+		return angular.isObject(data) ? humps.camelizeKeys(data) : data;
+	}
