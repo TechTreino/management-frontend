@@ -3,8 +3,7 @@
 	<form
 		title="'Login'"
 		ng-submit="authenticate()"
-		class="form-box"
-	>
+		class="form-box">
 
 		<div class="title">
 			Login
@@ -15,16 +14,14 @@
 				model="this.userData.email" 
 				label="'Email'"
 				validator="this.validateEmail(this.userData.email)"
-				error-text="'Email obrigatório'"
-			>
+				error-text="'Email obrigatório'">
 			</acad-input-text>
 
 			<acad-input-password 
 				model="this.userData.password" 
 				label="'Senha'"
 				validator="this.validatePassword(this.userData.password)"
-				error-text="'Senha obrigatória'"
-			>
+				error-text="'Senha obrigatória'">
 			</acad-input-password>
 
 			<button type="submit" class="submit">Entrar</button>

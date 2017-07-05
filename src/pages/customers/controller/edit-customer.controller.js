@@ -66,7 +66,6 @@ function Controller($scope, $location, $routeParams, CustomersService) {
 		let customerId = $routeParams.id;
 		let customer = angular.copy($scope.customer);
 		CustomersService.update(customerId, customer).then(function(response) {
-			console.log("Customer updated");
 			$location.path("/customers");
 		});
 	};

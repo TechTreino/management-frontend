@@ -3,23 +3,29 @@
 (function() {
 	angular
 		.module("AcadSidebar")
-		.controller("AcadSidebarController", ["$scope", "$location", "AcadSidebar", Controller]);
+		.controller("AcadSidebarController", ["$scope", "$location", "AcadSidebar", "AcadAuth", Controller]);
 
-	function Controller($scope, $location, AcadSidebar) {
+	function Controller($scope, $location, AcadSidebar, AcadAuth) {
 		$scope.menu = [];
+		$scope.isVisible = false;
 
 		(function initialize() {
 			$scope.menu = AcadSidebar.getMenu();
+			$scope.isVisible = AcadAuth.isLoggedIn();
 		})();
 
 		$scope.isActive = function(item) {
 			return !!(item.__isActive);
 		};
 
+		$scope.$on("AcadSidebarService.onVisibilityChange", function(event, data) {
+			$scope.isVisible = data.isVisible;
+		});
+
 		$scope.$watch(
 			function() {
- return $location.$$path;
-},
+				return $location.$$path;
+			},
 			setActiveMenuItem
 		);
 

@@ -53,7 +53,6 @@ function Controller($scope, $location, CustomersService) {
 
 		let customer = angular.copy($scope.customer);
 		CustomersService.create(customer).then(function(response) {
-			console.log("Customer created");
 			$location.path("/customers");
 		});
 	};
