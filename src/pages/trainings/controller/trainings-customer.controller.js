@@ -22,7 +22,6 @@
 
 			function onSuccess(res) {
 				$scope.customer = res.data;
-				console.log("Customer loaded", res.data);
 			}
 		}
 	}

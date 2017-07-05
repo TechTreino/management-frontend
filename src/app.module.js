@@ -78,7 +78,9 @@ angular
 		$httpProvider.defaults.transformRequest.unshift(transformRequest);
 		$httpProvider.defaults.transformResponse.push(transformResponse);
 	})
-	.run(["$rootScope", "$location", "AcadAuth", "AcadSidebarService", function($rootScope, $location, AcadAuth, AcadSidebarService) {
+	.run([
+		"$rootScope", "$location", "AcadAuth", "AcadSidebarService",
+		function($rootScope, $location, AcadAuth, AcadSidebarService) {
 		AcadAuth.initializeUserDataFromLocalstorage();
 
 		$rootScope.$on("$routeChangeStart", function(event) {
